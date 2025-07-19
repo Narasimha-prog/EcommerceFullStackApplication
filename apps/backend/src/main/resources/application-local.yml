@@ -1,0 +1,32 @@
+logging:
+  level:
+    ROOT: INFO
+    org.hibernate.SQL: DEBUG
+    org.springframework.security: INFO
+    com.lnr.ecom: DEBUG
+    org.apache.hc.client5.http: INFO
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+  docker:
+    compose:
+      enabled: false
+
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/ecommerce
+#    username: postgres
+#    password: admin
+#
+#  liquibase:
+#    default-schema: ecommerce
+#  jpa:
+#    properties:
+#      hibernate:
+#        default_schema: ecommerce
+server:
+  port: 7878

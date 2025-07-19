@@ -2,15 +2,23 @@ logging:
   level:
     ROOT: INFO
     org.hibernate.SQL: INFO
-    fr.codecake.ecom: INFO
+    com.lnr.ecom: INFO
 
 spring:
   application:
     name: Ecommerce Backend
+  docker:
+      compose:
+        enabled: false
+
+
   threads:
     virtual:
       enabled: true
   datasource:
+    url: jdbc:postgresql://localhost:5432/ecommerce
+    username: postgres
+    password: admin
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -34,7 +42,7 @@ spring:
         connection:
           provider_disables_autocommit: true
         order_inserts: true
-        default_schema: ecommerce_yt
+        default_schema: ecommerce
     hibernate:
       ddl-auto: validate
       naming:
@@ -43,7 +51,7 @@ spring:
     open-in-view: false
   liquibase:
     change-log: classpath:db/changelog/master.xml
-    default-schema: ecommerce_yt
+    default-schema: ecommerce
     contexts: dev
   #    drop-first: true
   security:
@@ -65,7 +73,7 @@ spring:
       max-request-size: 100MB
 
 server:
-  port: 8080
+  port: 7878
 
 application:
   client-base-url: http://localhost:4200

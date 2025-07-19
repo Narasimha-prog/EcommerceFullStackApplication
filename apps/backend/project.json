@@ -1,6 +1,17 @@
 {
-  "name": "demo",
+  "name": "backend",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "backend/src",
-  "tags": []
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nxrocks/nx-spring-boot:run",
+      "options": {
+        "root": "apps/backend",
+        "args": [
+//          "-Dspring-boot.run.profiles=local"
+        ]
+      }
+    }
+  }
 }
