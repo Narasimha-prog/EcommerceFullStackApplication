@@ -7,17 +7,17 @@ logging:
 spring:
   application:
     name: Ecommerce Backend
-  docker:
-      compose:
-        enabled: false
+#  docker:
+#      compose:
+#        enabled: false
 
 
   threads:
     virtual:
       enabled: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/ecommerce
-    username: postgres
+    url: jdbc:postgresql://postgres_db:5432/ecommerce
+    username: admin
     password: admin
     hikari:
       poolName: Hikari
