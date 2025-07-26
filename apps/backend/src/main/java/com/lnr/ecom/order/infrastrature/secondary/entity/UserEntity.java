@@ -1,15 +1,18 @@
 package com.lnr.ecom.order.infrastrature.secondary.entity;
 
+import com.lnr.ecom.order.domian.user.aggrigate.User;
+import com.lnr.ecom.order.domian.user.aggrigate.UserBuilder;
+import com.lnr.ecom.order.domian.user.vo.*;
+import com.lnr.ecom.shared.jpa.AbstractAuditingEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.jilt.Builder;
 
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "ecommerce_user")
@@ -17,11 +20,11 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserEntity {
+public class UserEntity extends AbstractAuditingEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "userSequenceGenerator")
-  @SequenceGenerator(name = "userSequenceGenerator",sequenceName = "user_sequence")
+  @SequenceGenerator(name = "userSequenceGenerator",sequenceName = "user_sequence",allocationSize = 1)
   @Column(name = "id")
   private Long id;
 
@@ -64,5 +67,23 @@ public class UserEntity {
     inverseJoinColumns = {@JoinColumn(name = "authority_name",referencedColumnName = "name")}
   )
   private Set<AuthorityEntity> authorities=new HashSet<>();
+
+
+  public void updateFromUser(User user){
+
+    this.firstName=user.getFirstName().userFirstName();
+    this.lastName=user.getLastName().userLastName();
+    this.email=user.getEmail().email();
+    this.imageUrl=user.getImageUrl().imageUrl();
+    this.lastSeen=user.getLastSeenDate();
+
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (!(o instanceof UserEntity that)) return false;
+    return Objects.equals(publicId, that.publicId);
+  }
+
 
 }
