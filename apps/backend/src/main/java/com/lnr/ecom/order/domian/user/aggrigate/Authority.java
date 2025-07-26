@@ -9,10 +9,10 @@ import org.jilt.Builder;
 @Getter
 public class Authority {
 
-private AuthorityName authorityName;
+private AuthorityName name;
 
   public Authority(AuthorityName authorityName) {
     Assert.notNull("AuthorityNotNull",authorityName);
-    this.authorityName = authorityName;
+    this.name = authorityName;
   }
 }

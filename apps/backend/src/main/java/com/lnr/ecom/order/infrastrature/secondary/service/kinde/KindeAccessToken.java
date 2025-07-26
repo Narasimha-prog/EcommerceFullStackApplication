@@ -1,4 +1,4 @@
-package com.lnr.ecom.order.infrastrature.secondaryservice.kinde;
+package com.lnr.ecom.order.infrastrature.secondary.service.kinde;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
