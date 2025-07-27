@@ -57,7 +57,7 @@ public class UserSynchronizer {
   }
 
   public void updateAddress(UserAddressToUpdate userAddressToUpdate){
-    userRepostory.updateAddress(userAddressToUpdate.userPublicId(),userAddressToUpdate.userAddress());
+    userRepostory.updateAddress(userAddressToUpdate.userPublicId(),userAddressToUpdate);
 
   }
 }

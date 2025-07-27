@@ -2,6 +2,7 @@ package com.lnr.ecom.order.domian.user.repository;
 
 import com.lnr.ecom.order.domian.user.aggrigate.User;
 import com.lnr.ecom.order.domian.user.vo.UserAddress;
+import com.lnr.ecom.order.domian.user.vo.UserAddressToUpdate;
 import com.lnr.ecom.order.domian.user.vo.UserEmail;
 import com.lnr.ecom.order.domian.user.vo.UserPublicId;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,7 +17,7 @@ public interface UserRepostory {
 
   Optional<User> getOneByEmail(UserEmail email);
 
-  void updateAddress(UserPublicId publicId, UserAddress address);
+  void updateAddress(UserPublicId publicId, UserAddressToUpdate address);
 
 
 }
