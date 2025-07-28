@@ -23,7 +23,7 @@ public class AuthorityMapper {
   public static Set<Authority> toDomain(Set<AuthorityEntity> authorityEntities){
     return authorityEntities
       .stream()
-      .map(authorityEntity -> AuthorityBuilder.authority().name(new AuthorityName(authorityEntity.name)).build())
+      .map(authorityEntity -> AuthorityBuilder.authority().name(new AuthorityName(authorityEntity.getName())).build())
       .collect(Collectors.toSet());
   }
 }

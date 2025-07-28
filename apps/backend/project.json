@@ -9,7 +9,7 @@
       "options": {
         "root": "apps/backend",
         "args": [
-//          "-Dspring-boot.run.profiles=local"
+          "-Dspring-boot.run.profiles=local"
         ]
       }
     }

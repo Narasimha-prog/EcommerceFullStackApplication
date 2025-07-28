@@ -17,8 +17,14 @@ public interface JpaUserRepository extends JpaRepository<UserEntity,Long> {
   List<UserEntity> findByPublicIdIn(List<UUID> publicIds);
 
   Optional<UserEntity> findOneByPublicId(UUID publicId);
-@Modifying
-@Query("UPDATE UserEntity user SET user.addressStreet= :street,user.addressCity= :city,user.addressZipCode= :zipCode,user.addressCountry=:country" +
-  "WHERE user.publicId= :userPublicId" )
-  void updateAddress(UUID userPublicId,String street,String city,String country,String zipCode);
+
+  @Modifying
+  @Query("UPDATE UserEntity u " +
+    "SET u.addressStreet = :street, " +
+    "u.addressCity = :city, " +
+    "u.addressZipCode = :zipCode, " +
+    "u.addressCountry = :country " +
+    "WHERE u.publicId = :userPublicId")
+  void updateAddress(UUID userPublicId, String street, String city, String zipCode, String country);
+
 }
