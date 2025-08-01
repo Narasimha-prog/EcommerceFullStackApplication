@@ -3,8 +3,8 @@ export const environment={
         authority: "https://lnreddy.kinde.com",
         redirectUrl: "http://localhost:4200",
         postLogoutRedirectUri: "http://localhost:4200",
-        clientId: "ac4bc7947eda4300b526beb23c52fcca",
-          audience: "https://lnreddy.kinde.com/api"
+        clientId: "dcbd946d3ecf439c9030ea77a7b99caa",
+          audience: "http://localhost:7878/api"
     },
     apiUrl: "http://localhost:7878/api"
 };

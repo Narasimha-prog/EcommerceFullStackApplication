@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { CreateQueryResult } from '@tanstack/angular-query-experimental';
+import { CreateQueryResult, injectQuery } from '@tanstack/angular-query-experimental';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { ConnectedUser } from '../shared/model/user.model';
+import { firstValueFrom, Observable } from 'rxjs';
+import { environment } from '../../environment/environment.devlopment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +18,20 @@ oidcSecurityService=inject(OidcSecurityService);
 connectedUserQuery: CreateQueryResult<ConnectedUser> | undefined;
 
 notConnected ="NOT_CONNECTED";
+
+
+fetch(): CreateQueryResult<ConnectedUser> {
+  return injectQuery(() => ({
+    queryKey: ['connectedUser'],
+    queryFn: () => firstValueFrom(this.fetchUserHttp(false)),
+  }));
+ 
+}
+
+fetchUserHttp(forceReSync: boolean): Observable<ConnectedUser> {
+  const param=new HttpParams().set('forceResync',forceReSync)
+  return this.http.get<ConnectedUser>(`${environment.apiUrl}/users/authenticated`, {params:param});
+}
 
 logIn():void {
 this.oidcSecurityService.authorize();
@@ -34,5 +50,16 @@ initAuthentication(): void {
     }
   });
 
+}
+
+hasAnyAuthorities(connectedUser: ConnectedUser, authorities: string[] | string): boolean {
+ if(!Array.isArray(authorities)) {
+    authorities = [authorities];
+ }
+ if(connectedUser.authorities){
+    return connectedUser.authorities.some((authority:string)=> authorities.includes(authority));
+ }else{
+  return false;
+ }
 }
 }
