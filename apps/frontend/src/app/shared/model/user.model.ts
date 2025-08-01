@@ -6,3 +6,8 @@ export interface BaseUser{
     publicId?:string;
     
 }
+
+export interface ConnectedUser extends BaseUser {
+
+    authorities?: string[];
+}
