@@ -6,15 +6,17 @@ import com.lnr.ecom.order.domian.user.service.UserReader;
 import com.lnr.ecom.order.domian.user.service.UserSynchronizer;
 import com.lnr.ecom.order.domian.user.vo.UserAddressToUpdate;
 import com.lnr.ecom.order.domian.user.vo.UserEmail;
+
 import com.lnr.ecom.order.infrastrature.secondary.service.kinde.KindeService;
 import com.lnr.ecom.shared.authentication.application.AuthenticatedUser;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @Service
-
 public class UserApplicationService {
 
   private final UserSynchronizer userSynchronizer;
@@ -29,7 +31,11 @@ public class UserApplicationService {
   public User getAuthenticatedUserWithSync(Jwt token, boolean forceResync) {
     userSynchronizer.syncWithId(token, forceResync);
 
-    return userReader.getByEmail(new UserEmail(AuthenticatedUser.username().get())).orElseThrow();
+      log.error("Authenticated User Mail is Getting.. to Serch User..{}",AuthenticatedUser.username().get());
+
+    User user =userReader.getByEmail(new UserEmail(AuthenticatedUser.username().get())).orElseThrow();
+
+    return user;
   }
 
   @Transactional(readOnly = true)

@@ -60,9 +60,9 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://codecake.kinde.com
-          jwk-set-uri: https://codecake.kinde.com/.well-known/jwks
-          audiences: http://localhost:8080/api
+          issuer-uri: https://lnreddy.kinde.com
+          jwk-set-uri: https://lnreddy.kinde.com/.well-known/jwks
+          audiences: http://localhost:7878/api
   devtools:
     restart:
       enabled: false
@@ -90,10 +90,7 @@ application:
     api: https://lnreddy.kinde.com
     client-id: ${KINDE_CLIENT_ID}
     client-secret: ${KINDE_CLIENT_SECRET}
-    audience: http://localhost:7878/api
-#  stripe:
-#    api-key: ${STRIPE_API_KEY}
-#    webhook-secret: ${STRIPE_WEBHOOK_SECRET}
+    audience: https://lnreddy.kinde.com/api
 
 
 

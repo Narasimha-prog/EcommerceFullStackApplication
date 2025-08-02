@@ -14,6 +14,7 @@ public class UserReader {
   private final UserRepostory  repostory;
 
   public Optional<User> getByEmail(UserEmail email){
+
   return repostory.getOneByEmail(email);
   }
 

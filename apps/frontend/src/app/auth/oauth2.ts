@@ -29,7 +29,7 @@ fetch(): CreateQueryResult<ConnectedUser> {
 }
 
 fetchUserHttp(forceReSync: boolean): Observable<ConnectedUser> {
-  const param=new HttpParams().set('forceResync',forceReSync)
+  const param=new HttpParams().set('forceReSyn',forceReSync)
   return this.http.get<ConnectedUser>(`${environment.apiUrl}/users/authenticated`, {params:param});
 }
 

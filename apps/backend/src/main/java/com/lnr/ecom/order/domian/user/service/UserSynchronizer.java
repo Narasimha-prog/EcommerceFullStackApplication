@@ -3,9 +3,10 @@ package com.lnr.ecom.order.domian.user.service;
 import com.lnr.ecom.order.domian.user.aggrigate.User;
 import com.lnr.ecom.order.domian.user.repository.UserRepostory;
 import com.lnr.ecom.order.domian.user.vo.UserAddressToUpdate;
-import com.lnr.ecom.order.infrastrature.secondary.service.kinde.KindeService;
 
+import com.lnr.ecom.order.infrastrature.secondary.service.kinde.KindeService;
 import com.lnr.ecom.shared.authentication.application.AuthenticatedUser;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.jwt.Jwt;
 
 import java.time.Instant;
@@ -14,11 +15,12 @@ import java.util.Map;
 import java.util.Optional;
 
 
+
 public class UserSynchronizer {
 
   private final UserRepostory userRepostory;
 
-  private final KindeService  kindeService;
+  private final KindeService kindeService;
 
   private static final String UPDATE_AT_KEY="last_signed_in";
 
@@ -26,6 +28,7 @@ public class UserSynchronizer {
     this.userRepostory = userRepostory;
     this.kindeService = kindeService;
   }
+
 
   public  void syncWithId(Jwt jwtToken, boolean forceResyn){
    Map<String,Object> claims=jwtToken.getClaims();
@@ -38,11 +41,13 @@ public class UserSynchronizer {
     Optional<User> existingUer= userRepostory.getOneByEmail(user.getEmail());
     if(existingUer.isPresent()){
      Instant lastModifiedDate= existingUer.orElseThrow().getLastModifInstant();
-     Instant idpModifiedDate=Instant.ofEpochSecond((Long)claims.get(UPDATE_AT_KEY));
+
+      Instant idpModifiedDate=Instant.ofEpochSecond((Integer)claims.get(UPDATE_AT_KEY));
 
      if(idpModifiedDate.isAfter(lastModifiedDate) || forceResyn){
            updateUser(user,existingUer.get());
      }
+
     }else{
       user.intiFieldsForSignUp();
       userRepostory.save(user);

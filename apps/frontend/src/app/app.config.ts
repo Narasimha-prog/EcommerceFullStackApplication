@@ -27,7 +27,7 @@ export const appConfig: ApplicationConfig = {
         redirectUrl: environment.kinde.redirectUrl,
         postLogoutRedirectUri: environment.kinde.postLogoutRedirectUri,
         clientId: environment.kinde.clientId,
-        scope: 'openid profile email offline',
+        scope: 'openid profile email offline ',
         responseType: 'code',
         silentRenew: true,
         useRefreshToken: true,

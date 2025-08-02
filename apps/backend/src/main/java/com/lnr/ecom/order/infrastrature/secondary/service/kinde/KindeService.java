@@ -1,80 +1,100 @@
 package com.lnr.ecom.order.infrastrature.secondary.service.kinde;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.hc.core5.http.ContentType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient;
 
-import java.net.URI;
-import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Map;
 import java.util.Optional;
+
 @Slf4j
 @Service
 public class KindeService {
 
-  @Value("${application.kinde.api}")
-  private String apiUrl;
+  private final String apiUrl;
+  private final String clientId;
+  private final String clientSecret;
+  private final String audience;
+  private final RestClient restClient;
 
-  @Value("${application.kinde.client-id}")
-  private String clientId;
+  public KindeService(
+    @Value("${application.kinde.api}") String apiUrl,
+    @Value("${application.kinde.client-id}") String clientId,
+    @Value("${application.kinde.client-secret}") String clientSecret,
+    @Value("${application.kinde.audience}") String audience) {
 
-  @Value("${application.kinde.client-secret}")
-  private String clientSecret;
+    this.apiUrl = apiUrl;
+    this.clientId = clientId;
+    this.clientSecret = clientSecret;
+    this.audience = audience;
+    this.restClient = RestClient.builder()
+      .requestFactory(new HttpComponentsClientHttpRequestFactory())
+      .baseUrl(apiUrl)
+      .build();
+  }
 
-  @Value("${application.kinde.audience}")
-  private String audience;
+  private Optional<String> getToken() {
+    try {
+      MultiValueMap<String, String> form = new LinkedMultiValueMap<>();
+      form.add("grant_type", "client_credentials");
+      form.add("client_id", clientId);
+      form.add("client_secret", clientSecret);
+      form.add("audience", audience);
 
+      ResponseEntity<KindeAccessToken> accessTokenResponse = restClient.post()
+        .uri("/oauth/token")
+        .body(form)
+        .accept(MediaType.APPLICATION_JSON)
+        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+        .retrieve()
+        .toEntity(KindeAccessToken.class);
 
+      if (accessTokenResponse.getBody() == null || accessTokenResponse.getBody().accessToken() == null) {
+        log.error("No access token returned from Kinde");
+        return Optional.empty();
+      }
 
-  private final RestClient restClient=RestClient.builder()
-    .requestFactory(new HttpComponentsClientHttpRequestFactory())
-    .baseUrl(apiUrl)
-    .build();
+      String token = accessTokenResponse.getBody().accessToken();
 
-  private Optional<String> getToken(){
-    try{
-       ResponseEntity<KindeAccessToken> accessToken= restClient.post()
-         .uri(URI.create("/oauth/token"))
-         .body("grant_type=client_credentials&audience=" + URLEncoder.encode(audience, StandardCharsets.UTF_8))
-         .accept(MediaType.APPLICATION_JSON)
-         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-         .header("Authorization",
-           "Basic " + Base64.getEncoder().encodeToString((clientId + ":" + clientSecret).getBytes(StandardCharsets.UTF_8)))
-         .header("Content-Type", ContentType.APPLICATION_FORM_URLENCODED.getMimeType())
-         .retrieve()
-         .toEntity(KindeAccessToken.class);
+      // --- Decode JWT Header for debugging ---
+      try {
+        String header = token.split("\\.")[0];
+        String decodedHeader = new String(Base64.getUrlDecoder().decode(header), StandardCharsets.UTF_8);
+        log.info("JWT Header: {}", decodedHeader);
+      } catch (Exception e) {
+        log.warn("Failed to decode JWT header", e);
+      }
 
-
-      return Optional.of(accessToken.getBody().accessToken());
-
+      return Optional.of(token);
     } catch (Exception e) {
-     log.error("While Getting Token From Kinde :",e);
-     return Optional.empty();
+      log.error("Error while getting token from Kinde:", e);
+      return Optional.empty();
     }
   }
 
-  public Map<String,Object> getUserInfo(String userId){
-   String token= getToken().orElseThrow(()->new IllegalStateException("Token Not Found"));
+  public Map<String, Object> getUserInfo(String userId) {
+    String token = getToken().orElseThrow(() -> new IllegalStateException("Token not found"));
 
+    var typeRef = new ParameterizedTypeReference<Map<String, Object>>() {
+    };
 
-   var typeRef= new ParameterizedTypeReference<Map<String,Object>>(){};
+    ResponseEntity<Map<String, Object>> response = restClient.get()
+      // Adjust URL based on Kinde documentation. Some APIs use /users/{id} instead.
+      .uri("/api/v1/user?id={id}", userId)
+      .header("Authorization", "Bearer " + token)
+      .accept(MediaType.APPLICATION_JSON)
+      .retrieve()
+      .toEntity(typeRef);
 
- ResponseEntity<Map<String,Object>> authorization =  restClient.get()
-     .uri(apiUrl+"/api/v1/user?id={id}",userId)
-     .header("Authorization","Bearer "+token)
-     .accept(MediaType.APPLICATION_JSON)
-     .retrieve()
-     .toEntity(typeRef);
-
-
-   return authorization.getBody();
+    return response.getBody();
   }
 }
