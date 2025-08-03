@@ -41,10 +41,20 @@ public class UserSynchronizer {
     Optional<User> existingUer= userRepostory.getOneByEmail(user.getEmail());
     if(existingUer.isPresent()){
      Instant lastModifiedDate= existingUer.orElseThrow().getLastModifInstant();
+      Object lastSignedInValue=null;
+      Instant idModifiedDate=null;
 
-      Instant idpModifiedDate=Instant.ofEpochSecond((Integer)claims.get(UPDATE_AT_KEY));
+     if(userInfo.get(UPDATE_AT_KEY)!=null){
+        lastSignedInValue = userInfo.get(UPDATE_AT_KEY);
+       idModifiedDate=Instant.parse((String)lastSignedInValue);
+     }
+     else {
+       idModifiedDate=Instant.now();
+     }
 
-     if(idpModifiedDate.isAfter(lastModifiedDate) || forceResyn){
+
+
+      if(idModifiedDate.isAfter(lastModifiedDate) || forceResyn){
            updateUser(user,existingUer.get());
      }
 

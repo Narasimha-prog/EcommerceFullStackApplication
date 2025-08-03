@@ -65,14 +65,6 @@ public class KindeService {
 
       String token = accessTokenResponse.getBody().accessToken();
 
-      // --- Decode JWT Header for debugging ---
-      try {
-        String header = token.split("\\.")[0];
-        String decodedHeader = new String(Base64.getUrlDecoder().decode(header), StandardCharsets.UTF_8);
-        log.info("JWT Header: {}", decodedHeader);
-      } catch (Exception e) {
-        log.warn("Failed to decode JWT header", e);
-      }
 
       return Optional.of(token);
     } catch (Exception e) {

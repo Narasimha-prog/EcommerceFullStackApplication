@@ -30,12 +30,8 @@ public class UserApplicationService {
   @Transactional
   public User getAuthenticatedUserWithSync(Jwt token, boolean forceResync) {
     userSynchronizer.syncWithId(token, forceResync);
-
       log.error("Authenticated User Mail is Getting.. to Serch User..{}",AuthenticatedUser.username().get());
-
-    User user =userReader.getByEmail(new UserEmail(AuthenticatedUser.username().get())).orElseThrow();
-
-    return user;
+    return  userReader.getByEmail(new UserEmail(AuthenticatedUser.username().get())).orElseThrow();
   }
 
   @Transactional(readOnly = true)

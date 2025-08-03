@@ -55,10 +55,10 @@
       <!-- Dropdown menu changes based on connection -->
       <ul *ngIf="isConnected(); else loggedOutMenu"
           class="dropdown-content menu menu-lg bg-base-100 rounded-box z-10 w-52 p-2 shadow">
-        <li> <button class="link" (click)="logIn()">Login</button></li>
+          <li><button  class="link" (click)="closeDropDownMenu()" [routerLink]="['/users/orders']">My Orders</button></li>
+        <li> <button class="link" (click)="logOut()">logOut</button></li>
       </ul>
-      <button (click)="logIn()">Test</button>
-
+  
 
       <ng-template #loggedOutMenu>
         <ul class="dropdown-content menu menu-lg bg-base-100 rounded-box z-10 w-52 p-2 shadow">

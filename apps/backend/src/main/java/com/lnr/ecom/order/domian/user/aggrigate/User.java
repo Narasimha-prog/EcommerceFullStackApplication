@@ -52,6 +52,7 @@ public class User {
     this.firstName=user.firstName;
     this.lastName=user.lastName;
     this.imageUrl=user.imageUrl;
+    this.lastSeenDate = user.lastSeenDate;
   }
 
   public void intiFieldsForSignUp(){
@@ -74,7 +75,13 @@ public class User {
     }
 
     if (attributes.containsKey("last_signed_in")) {
-      userBuilder.lastSeenDate(Instant.parse(attributes.get("last_signed_in").toString()));
+      try {
+        userBuilder.lastSeenDate(Instant.parse(attributes.get("last_signed_in").toString()));
+      } catch (Exception e) {
+        userBuilder.lastSeenDate(Instant.now());
+      }
+    } else {
+      userBuilder.lastSeenDate(Instant.now());
     }
 
   Set<Authority> authorities=  rolesFromAuthorities
