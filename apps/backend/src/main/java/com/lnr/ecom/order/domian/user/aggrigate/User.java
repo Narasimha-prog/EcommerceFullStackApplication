@@ -2,7 +2,6 @@ package com.lnr.ecom.order.domian.user.aggrigate;
 
 import com.lnr.ecom.order.domian.user.vo.*;
 import com.lnr.ecom.shared.error.domain.Assert;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.jilt.Builder;
 
@@ -14,7 +13,6 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Builder
-@AllArgsConstructor
 @Getter
 public class User {
 
@@ -40,7 +38,22 @@ public class User {
 
   private Instant lastSeenDate;
 
-  private void assertMandatoryField(){
+  public User(UserFirstName firstName, UserLastName lastName, UserEmail email, UserPublicId publicId, UserImageUrl imageUrl, Instant lastModifInstant, Instant createdInstant, Set<Authority> authorities, Long dbId, UserAddress address, Instant lastSeenDate) {
+    assertMandatoryField(firstName,lastName,email,authorities);
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.publicId = publicId;
+    this.imageUrl = imageUrl;
+    this.lastModifInstant = lastModifInstant;
+    this.createdInstant = createdInstant;
+    this.authorities = authorities;
+    this.dbId = dbId;
+    this.address = address;
+    this.lastSeenDate = lastSeenDate;
+  }
+
+  private void assertMandatoryField(UserFirstName firstName,UserLastName lastName,UserEmail email,Set<Authority> authorities){
     Assert.notNull("FirstName",firstName);
     Assert.notNull("LastName",lastName);
     Assert.notNull("Email",email);

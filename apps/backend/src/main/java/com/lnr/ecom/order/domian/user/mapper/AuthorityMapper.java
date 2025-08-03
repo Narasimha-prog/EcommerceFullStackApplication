@@ -1,4 +1,4 @@
-package com.lnr.ecom.order.infrastrature.secondary.mapper;
+package com.lnr.ecom.order.domian.user.mapper;
 
 import com.lnr.ecom.order.domian.user.aggrigate.Authority;
 import com.lnr.ecom.order.domian.user.aggrigate.AuthorityBuilder;

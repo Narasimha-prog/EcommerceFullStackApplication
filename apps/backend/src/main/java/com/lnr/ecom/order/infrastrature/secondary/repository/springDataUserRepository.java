@@ -6,7 +6,7 @@ import com.lnr.ecom.order.domian.user.vo.UserAddressToUpdate;
 import com.lnr.ecom.order.domian.user.vo.UserEmail;
 import com.lnr.ecom.order.domian.user.vo.UserPublicId;
 import com.lnr.ecom.order.infrastrature.secondary.entity.UserEntity;
-import com.lnr.ecom.order.infrastrature.secondary.mapper.UserMapper;
+import com.lnr.ecom.order.domian.user.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

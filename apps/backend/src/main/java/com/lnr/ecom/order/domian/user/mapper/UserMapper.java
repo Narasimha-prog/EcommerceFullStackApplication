@@ -1,9 +1,8 @@
-package com.lnr.ecom.order.infrastrature.secondary.mapper;
+package com.lnr.ecom.order.domian.user.mapper;
 
 import com.lnr.ecom.order.domian.user.aggrigate.User;
 import com.lnr.ecom.order.domian.user.aggrigate.UserBuilder;
 import com.lnr.ecom.order.domian.user.vo.*;
-import com.lnr.ecom.order.infrastrature.secondary.entity.AuthorityEntity;
 import com.lnr.ecom.order.infrastrature.secondary.entity.UserEntity;
 import com.lnr.ecom.order.infrastrature.secondary.entity.UserEntityBuilder;
 
