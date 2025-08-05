@@ -1,5 +1,7 @@
 import { createGlobPatternsForDependencies } from '@nx/angular/tailwind';
 import { join } from 'path';
+import daisyui from 'daisyui';
+
 
 /** @type {import('tailwindcss').Config} */
 export const content = [
@@ -24,8 +26,9 @@ export const theme = {
 };
 export const plugins = [
   require('@tailwindcss/typography'),
-  require('daisyui'), // ✅ This is the right place
+  daisyui, // ✅ This is the right place
 ];
+
 export const daisyui = {
   themes: [
     {

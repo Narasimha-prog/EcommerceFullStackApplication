@@ -5,6 +5,9 @@ logging:
     com.lnr.ecom: INFO
 
 spring:
+  docker:
+    compose:
+      enabled: false
   config:
     import: optional:file:.env[.properties]
   application:
@@ -18,7 +21,7 @@ spring:
     virtual:
       enabled: true
   datasource:
-    url: jdbc:postgresql://postgres_db:5432/ecommerce
+    url: jdbc:postgresql://localhost:5400/ecommerce
     username: admin
     password: admin
     hikari:

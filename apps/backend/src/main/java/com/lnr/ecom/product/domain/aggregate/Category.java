@@ -1,10 +1,9 @@
-package com.lnr.ecom.product.aggregate;
+package com.lnr.ecom.product.domain.aggregate;
 
-import com.lnr.ecom.product.vo.CategoryName;
-import com.lnr.ecom.product.vo.PublicId;
+import com.lnr.ecom.product.domain.vo.CategoryName;
+import com.lnr.ecom.product.domain.vo.PublicId;
 import com.lnr.ecom.shared.error.domain.Assert;
 import lombok.Getter;
-import lombok.Setter;
 import org.jilt.Builder;
 
 import java.util.UUID;
@@ -31,7 +30,7 @@ public class Category {
 
   }
 
-  private void initDefaultFields(){
+  public void initDefaultFields(){
     this.publicId= new PublicId(UUID.randomUUID());
   }
 }

@@ -1,16 +1,14 @@
-package com.lnr.ecom.product.aggregate;
+package com.lnr.ecom.product.domain.aggregate;
 
-import com.lnr.ecom.product.vo.*;
+import com.lnr.ecom.product.domain.vo.*;
 import com.lnr.ecom.shared.error.domain.Assert;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 import org.jilt.Builder;
 
 import java.util.List;
+import java.util.UUID;
 
 @Builder
-@Setter
 @Getter
 public class Product {
   private final ProductBrand productBrand;
@@ -78,5 +76,8 @@ public class Product {
     Assert.notNull("pictures",pictures);
     Assert.notNull("featured",featured);
     Assert.notNull("nbInStack",nbInStack);
+  }
+  public void initDefaultFields(){
+    this.publicId=new PublicId(UUID.randomUUID());
   }
 }

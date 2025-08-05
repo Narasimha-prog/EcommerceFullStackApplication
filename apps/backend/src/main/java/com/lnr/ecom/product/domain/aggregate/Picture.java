@@ -1,4 +1,4 @@
-package com.lnr.ecom.product.aggregate;
+package com.lnr.ecom.product.domain.aggregate;
 
 import com.lnr.ecom.shared.error.domain.Assert;
 import org.jilt.Builder;

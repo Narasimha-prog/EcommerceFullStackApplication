@@ -30,7 +30,7 @@ public class springDataUserRepository implements UserRepostory {
 
             }
         }else{
-            repository.save(UserMapper.from(user));
+            repository.save(UserMapper.toEntity(user));
         }
     }
 

@@ -1,3 +1,30 @@
 {
-    "nxConsole.generateAiAgentRules": true
+    "nxConsole.generateAiAgentRules": true,
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5400,
+            "driver": "PostgreSQL",
+            "password": "admin",
+            "username": "admin",
+            "database": "ecommerce",
+            "name": "ecommerce_db"
+        },
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "server": "dpg-d290i6k9c44c73d069ug-a.oregon-postgres.render.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "database": "postgres_db_taos",
+            "username": "postgres_db_taos_user",
+            "password": "GBFlfMqHAVzBkdaBqxRGHDRL7vXTjRm4",
+            "name": "render"
+        }
+    ]
 }

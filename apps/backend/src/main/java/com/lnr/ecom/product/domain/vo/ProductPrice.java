@@ -1,4 +1,4 @@
-package com.lnr.ecom.product.vo;
+package com.lnr.ecom.product.domain.vo;
 
 import com.lnr.ecom.shared.error.domain.Assert;
 

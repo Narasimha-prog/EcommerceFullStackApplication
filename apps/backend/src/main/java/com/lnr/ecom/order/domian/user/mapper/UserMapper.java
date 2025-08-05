@@ -10,9 +10,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class UserMapper {
+public final class UserMapper {
 
-  public static UserEntity from(User user){
+  private UserMapper(){
+
+  }
+  public static UserEntity toEntity(User user){
     UserEntityBuilder entityBuilder=new UserEntityBuilder();
 
 
@@ -39,7 +42,7 @@ public class UserMapper {
       entityBuilder.addressZipCode(user.getAddress().zipCode());
     }
     return entityBuilder
-      .authorities(AuthorityMapper.from(user.getAuthorities()))
+      .authorities(AuthorityMapper. toEntities(user.getAuthorities()))
       .email(user.getEmail().email())
       .lastSeen(user.getLastSeenDate())
       .id(user.getDbId())
@@ -77,10 +80,10 @@ public class UserMapper {
 
 
   }
-  public static Set<UserEntity> from(List<User> userList){
+  public static Set<UserEntity> toEntityList(List<User> userList){
     return userList.stream().map(UserMapper::from).collect(Collectors.toSet());
   }
-  public static Set<User> toDomain(List<UserEntity> userList){
+  public static Set<User> toDomainList(List<UserEntity> userList){
     return userList.stream().map(UserMapper::toDomain).collect(Collectors.toSet());
   }
 }

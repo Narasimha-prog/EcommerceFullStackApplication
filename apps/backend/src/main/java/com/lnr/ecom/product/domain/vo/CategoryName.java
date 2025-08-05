@@ -1,10 +1,10 @@
-package com.lnr.ecom.product.vo;
+package com.lnr.ecom.product.domain.vo;
 
 import com.lnr.ecom.shared.error.domain.Assert;
 
-public record ProductBrand(String value) {
+public record CategoryName(String value) {
 
-  public ProductBrand {
+  public CategoryName {
     Assert.field("value",value).notNull().minLength(3);
   }
 }

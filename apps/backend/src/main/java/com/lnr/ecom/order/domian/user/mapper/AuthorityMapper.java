@@ -8,9 +8,12 @@ import com.lnr.ecom.order.infrastrature.secondary.entity.AuthorityEntity;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class AuthorityMapper {
+public final class AuthorityMapper {
 
-  public static Set<AuthorityEntity> from(Set<Authority> authorities){
+  private AuthorityMapper(){
+
+  }
+  public static Set<AuthorityEntity> toEntities(Set<Authority> authorities){
     return authorities
       .stream()
       .map(authority -> AuthorityEntity
