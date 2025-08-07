@@ -1,4 +1,4 @@
-package com.lnr.ecom.product.domain.infrastrature.seconadary.entity;
+package com.lnr.ecom.product.infrastrature.seconadary.entity;
 
 import com.lnr.ecom.product.domain.vo.ProductSize;
 import com.lnr.ecom.shared.jpa.AbstractAuditingEntity;
@@ -18,7 +18,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @Table(name = "product")
-public class ProductEnity extends AbstractAuditingEntity<Long> {
+public class ProductEntity extends AbstractAuditingEntity<Long> {
 
 @Id
 @SequenceGenerator(name = "product_seq",sequenceName = "product_sequence",allocationSize = 1)

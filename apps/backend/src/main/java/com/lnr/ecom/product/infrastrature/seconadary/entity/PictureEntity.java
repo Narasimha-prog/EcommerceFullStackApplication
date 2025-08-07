@@ -1,4 +1,4 @@
-package com.lnr.ecom.product.domain.infrastrature.seconadary.entity;
+package com.lnr.ecom.product.infrastrature.seconadary.entity;
 
 import com.lnr.ecom.shared.jpa.AbstractAuditingEntity;
 import jakarta.persistence.*;
@@ -6,8 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.jilt.Builder;
-
-import java.util.Objects;
 
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true,callSuper = false)
@@ -32,7 +30,7 @@ public class PictureEntity  extends AbstractAuditingEntity<Long> {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "product_fk", nullable = false)
-  private ProductEnity product;
+  private ProductEntity product;
 
 
 }

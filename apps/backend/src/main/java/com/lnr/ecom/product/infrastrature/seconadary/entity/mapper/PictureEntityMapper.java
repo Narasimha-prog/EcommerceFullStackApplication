@@ -1,9 +1,9 @@
-package com.lnr.ecom.product.domain.infrastrature.seconadary.entity.mapper;
+package com.lnr.ecom.product.infrastrature.seconadary.entity.mapper;
 
 import com.lnr.ecom.product.domain.aggregate.Picture;
 import com.lnr.ecom.product.domain.aggregate.PictureBuilder;
-import com.lnr.ecom.product.domain.infrastrature.seconadary.entity.PictureEntity;
-import com.lnr.ecom.product.domain.infrastrature.seconadary.entity.PictureEntityBuilder;
+import com.lnr.ecom.product.infrastrature.seconadary.entity.PictureEntity;
+import com.lnr.ecom.product.infrastrature.seconadary.entity.PictureEntityBuilder;
 
 import java.util.List;
 import java.util.Set;

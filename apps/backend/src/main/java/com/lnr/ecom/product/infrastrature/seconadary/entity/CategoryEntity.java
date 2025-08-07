@@ -1,4 +1,4 @@
-package com.lnr.ecom.product.domain.infrastrature.seconadary.entity;
+package com.lnr.ecom.product.infrastrature.seconadary.entity;
 
 import com.lnr.ecom.shared.jpa.AbstractAuditingEntity;
 import jakarta.persistence.*;
@@ -31,6 +31,6 @@ private String name;
 
 
 @OneToMany(mappedBy = "category")
-private Set<ProductEnity> products;
+private Set<ProductEntity> products;
 
 }

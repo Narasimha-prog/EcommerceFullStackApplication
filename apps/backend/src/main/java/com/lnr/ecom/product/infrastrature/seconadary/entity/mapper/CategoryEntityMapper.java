@@ -1,9 +1,9 @@
-package com.lnr.ecom.product.domain.infrastrature.seconadary.entity.mapper;
+package com.lnr.ecom.product.infrastrature.seconadary.entity.mapper;
 
 import com.lnr.ecom.product.domain.aggregate.Category;
 import com.lnr.ecom.product.domain.aggregate.CategoryBuilder;
-import com.lnr.ecom.product.domain.infrastrature.seconadary.entity.CategoryEntity;
-import com.lnr.ecom.product.domain.infrastrature.seconadary.entity.CategoryEntityBuilder;
+import com.lnr.ecom.product.infrastrature.seconadary.entity.CategoryEntity;
+import com.lnr.ecom.product.infrastrature.seconadary.entity.CategoryEntityBuilder;
 import com.lnr.ecom.product.domain.vo.CategoryName;
 import com.lnr.ecom.product.domain.vo.PublicId;
 

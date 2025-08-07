@@ -1,13 +1,12 @@
-package com.lnr.ecom.product.domain.infrastrature.seconadary.entity.mapper;
+package com.lnr.ecom.product.infrastrature.seconadary.entity.mapper;
 
 
 import com.lnr.ecom.product.domain.aggregate.Product;
 import com.lnr.ecom.product.domain.aggregate.ProductBuilder;
-import com.lnr.ecom.product.domain.infrastrature.seconadary.entity.CategoryEntity;
-import com.lnr.ecom.product.domain.infrastrature.seconadary.entity.PictureEntity;
-import com.lnr.ecom.product.domain.infrastrature.seconadary.entity.ProductEnity;
-import com.lnr.ecom.product.domain.infrastrature.seconadary.entity.ProductEnityBuilder;
+import com.lnr.ecom.product.infrastrature.seconadary.entity.ProductEnity;
+import com.lnr.ecom.product.infrastrature.seconadary.entity.ProductEnityBuilder;
 import com.lnr.ecom.product.domain.vo.*;
+import com.lnr.ecom.product.infrastrature.seconadary.entity.ProductEntity;
 
 public final class  ProductEntityMapper {
 
@@ -16,7 +15,7 @@ public final class  ProductEntityMapper {
   }
 
 
-  public static ProductEnity toEntity(Product product) {
+  public static ProductEntity toEntity(Product product) {
     ProductEnityBuilder productEntityBuilder = ProductEnityBuilder.productEnity();
 
     if(product.getDbId() != null) {
@@ -38,7 +37,7 @@ public final class  ProductEntityMapper {
       .build();
   }
 
-  public static Product to(ProductEnity productEntity) {
+  public static Product toDomin(ProductEntity productEntity) {
     return ProductBuilder.product()
       .productBrand(new ProductBrand(productEntity.getBrand()))
       .productColor(new ProductColor(productEntity.getColor()))
