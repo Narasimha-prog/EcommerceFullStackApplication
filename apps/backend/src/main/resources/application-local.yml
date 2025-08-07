@@ -7,7 +7,7 @@ logging:
 spring:
   docker:
     compose:
-      enabled: false
+      enabled: true
   config:
     import: optional:file:.env[.properties]
   application:

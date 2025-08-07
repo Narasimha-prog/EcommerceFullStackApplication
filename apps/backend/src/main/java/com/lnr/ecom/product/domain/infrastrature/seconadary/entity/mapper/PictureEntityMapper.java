@@ -6,6 +6,8 @@ import com.lnr.ecom.product.domain.infrastrature.seconadary.entity.PictureEntity
 import com.lnr.ecom.product.domain.infrastrature.seconadary.entity.PictureEntityBuilder;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 
 public final class PictureEntityMapper {
@@ -28,12 +30,12 @@ public final class PictureEntityMapper {
       .build();
   }
 
-  public static  List<Picture> toDomainList(List<PictureEntity> pictureEntities){
+  public static  List<Picture> toDomainList(Set<PictureEntity> pictureEntities){
     return pictureEntities.stream().map(PictureEntityMapper::toDomain).toList();
   }
 
-  public static  List<PictureEntity> toEntityList(List<Picture> picture){
-    return picture.stream().map(PictureEntityMapper::toEntity).toList();
+  public static  Set<PictureEntity> toEntityList(List<Picture> picture){
+    return picture.stream().map(PictureEntityMapper::toEntity).collect(Collectors.toSet());
   }
 
 

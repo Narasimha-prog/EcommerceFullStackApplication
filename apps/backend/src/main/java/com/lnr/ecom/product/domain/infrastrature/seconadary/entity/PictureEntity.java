@@ -30,14 +30,10 @@ public class PictureEntity  extends AbstractAuditingEntity<Long> {
   @Column(name = "file_content_type",nullable = false)
   private String mineType;
 
-
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "product_fk", nullable = false)
   private ProductEnity product;
 
-  @ManyToOne
-  @JoinColumn(name = "category_fk", referencedColumnName = "id")
-  private CategoryEntity category;
 
 }
 

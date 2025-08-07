@@ -21,7 +21,7 @@ import java.util.UUID;
 public class ProductEnity extends AbstractAuditingEntity<Long> {
 
 @Id
-@SequenceGenerator(name = "product_seq",sequenceName = "product_sequence")
+@SequenceGenerator(name = "product_seq",sequenceName = "product_sequence",allocationSize = 1)
 @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "product_seq")
 @Column(nullable = false)
 @EqualsAndHashCode.Include
@@ -30,6 +30,12 @@ public class ProductEnity extends AbstractAuditingEntity<Long> {
 
 @Column(name = "brand")
 private String brand;
+
+  @Column(name = "color")
+  private String color;
+
+  @Column(name = "name")
+  private String name;
 
 
   @Column(name = "price")
@@ -55,7 +61,16 @@ private String brand;
   @Column(name = "public_id",unique = true)
   private UUID publicId;
 
+
+
+
   @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
   private Set<PictureEntity> pictureEntities=new HashSet<>();
+
+
+
+  @ManyToOne
+  @JoinColumn(name = "category_fk", referencedColumnName = "id")
+  private CategoryEntity category;
 
 }

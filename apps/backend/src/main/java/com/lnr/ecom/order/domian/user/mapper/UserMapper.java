@@ -81,7 +81,7 @@ public final class UserMapper {
 
   }
   public static Set<UserEntity> toEntityList(List<User> userList){
-    return userList.stream().map(UserMapper::from).collect(Collectors.toSet());
+    return userList.stream().map(UserMapper::toEntity).collect(Collectors.toSet());
   }
   public static Set<User> toDomainList(List<UserEntity> userList){
     return userList.stream().map(UserMapper::toDomain).collect(Collectors.toSet());
