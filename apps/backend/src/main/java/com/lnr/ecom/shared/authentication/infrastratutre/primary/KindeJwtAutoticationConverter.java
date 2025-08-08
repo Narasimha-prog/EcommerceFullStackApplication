@@ -19,8 +19,7 @@ public class KindeJwtAutoticationConverter  implements Converter<Jwt, AbstractAu
 
   @Override
   public AbstractAuthenticationToken convert(@NonNull Jwt source) {
-    return new JwtAuthenticationToken(source,
-      Stream.concat(new JwtGrantedAuthoritiesConverter().convert(source).stream(),extractRolesFromToken(source).stream()).collect(Collectors.toSet()));
+    return new JwtAuthenticationToken(source, Stream.concat(new JwtGrantedAuthoritiesConverter().convert(source).stream(),extractRolesFromToken(source).stream()).collect(Collectors.toSet()));
   }
 
   private Collection<? extends GrantedAuthority> extractRolesFromToken(Jwt source) {

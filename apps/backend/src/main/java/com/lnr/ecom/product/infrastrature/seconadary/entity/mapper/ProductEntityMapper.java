@@ -3,10 +3,10 @@ package com.lnr.ecom.product.infrastrature.seconadary.entity.mapper;
 
 import com.lnr.ecom.product.domain.aggregate.Product;
 import com.lnr.ecom.product.domain.aggregate.ProductBuilder;
-import com.lnr.ecom.product.infrastrature.seconadary.entity.ProductEnity;
-import com.lnr.ecom.product.infrastrature.seconadary.entity.ProductEnityBuilder;
+
 import com.lnr.ecom.product.domain.vo.*;
 import com.lnr.ecom.product.infrastrature.seconadary.entity.ProductEntity;
+import com.lnr.ecom.product.infrastrature.seconadary.entity.ProductEntityBuilder;
 
 public final class  ProductEntityMapper {
 
@@ -16,7 +16,7 @@ public final class  ProductEntityMapper {
 
 
   public static ProductEntity toEntity(Product product) {
-    ProductEnityBuilder productEntityBuilder = ProductEnityBuilder.productEnity();
+     ProductEntityBuilder productEntityBuilder = ProductEntityBuilder.productEntity();
 
     if(product.getDbId() != null) {
       productEntityBuilder.id(product.getDbId());

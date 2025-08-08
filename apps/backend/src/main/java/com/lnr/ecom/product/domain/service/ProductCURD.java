@@ -22,7 +22,7 @@ public class ProductCURD {
     return productRepository.findAll(pageable);
   }
 
-  public PublicId remove(PublicId productId){
+  public PublicId delete(PublicId productId){
     int noOfRowsDeleted=productRepository.delete(productId);
     if(noOfRowsDeleted!=1){
       throw  new EntityNotFoundException(String.format("Product Not Found with Id %s",productId));

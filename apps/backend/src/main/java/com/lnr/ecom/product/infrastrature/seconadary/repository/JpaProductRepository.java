@@ -1,7 +1,6 @@
-package com.lnr.ecom.product.infrastrature.seconadary.entity.repository;
+package com.lnr.ecom.product.infrastrature.seconadary.repository;
 
 import com.lnr.ecom.product.domain.vo.ProductSize;
-import com.lnr.ecom.product.infrastrature.seconadary.entity.ProductEnity;
 import com.lnr.ecom.product.infrastrature.seconadary.entity.ProductEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
