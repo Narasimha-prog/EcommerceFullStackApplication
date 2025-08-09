@@ -57,4 +57,10 @@ public class ProductsApplicationService {
   public Page<Category> findAll(Pageable pageable){
     return categoryCURD.findAll(pageable);
   }
+
+  @Transactional(readOnly = true)
+  public Page<Category> findAllCategory(Pageable pageable){
+    return  categoryCURD.findAll(pageable);
+
+  }
 }

@@ -3,14 +3,19 @@ package com.lnr.ecom.product.infrastrature.primary;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lnr.ecom.product.application.ProductsApplicationService;
+import com.lnr.ecom.product.domain.aggregate.Category;
 import com.lnr.ecom.product.domain.aggregate.Product;
 import com.lnr.ecom.product.domain.vo.PublicId;
 import com.lnr.ecom.product.infrastrature.primary.exception.MultipartPictureException;
+import com.lnr.ecom.product.infrastrature.primary.mapper.RestCategoryMapper;
 import com.lnr.ecom.product.infrastrature.primary.mapper.RestProductMapper;
 import com.lnr.ecom.product.infrastrature.seconadary.entity.mapper.ProductEntityMapper;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -65,6 +70,36 @@ public class ProductAdminResource {
     ProblemDetail problemDetail=ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST,e.getMessage());
     return ResponseEntity.of(problemDetail).build();
   }
+
+  }
+
+  @GetMapping
+  @PreAuthorize("hasAnyRole('"+ROLE_ADMIN+"')")
+  public ResponseEntity<Page<RestProduct>> getAll(Pageable pageable){
+
+    Page<Product> productPage= productApplicationService.findAllProducts(pageable);
+    Page<RestProduct> restCategoryPage=    new PageImpl<>(
+      productPage.getContent().stream().map(RestProductMapper::toRestDomain).toList(),
+      pageable
+      ,productPage.getTotalElements()
+
+    );
+
+    return ResponseEntity.ok(restCategoryPage);
+
+  }
+
+  public ResponseEntity<Page<RestCategory>> findAll(Pageable pageable){
+  Page<Category> categories=productApplicationService.findAllCategory(pageable);
+
+ Page<RestCategory> restCategoryPage=    new PageImpl<>(
+    categories.getContent().stream().map(RestCategoryMapper::toRestDomain).toList(),
+    pageable
+    ,categories.getTotalElements()
+
+  );
+
+return ResponseEntity.ok(restCategoryPage);
 
   }
 
