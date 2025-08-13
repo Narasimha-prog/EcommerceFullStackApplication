@@ -25,6 +25,16 @@
             "username": "postgres_db_taos_user",
             "password": "GBFlfMqHAVzBkdaBqxRGHDRL7vXTjRm4",
             "name": "render"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5400,
+            "driver": "PostgreSQL",
+            "name": "fitness_ai",
+            "username": "admin",
+            "password": "admin",
+            "database": "user_db"
         }
     ]
 }
