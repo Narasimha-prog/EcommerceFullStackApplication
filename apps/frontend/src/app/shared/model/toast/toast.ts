@@ -20,7 +20,7 @@ export class Toast {
     });
   }
   remove(toastInfo: ToastInfo) {
-    throw new Error('Method not implemented.');
+    this.toasts = this.toasts.filter(t => t !== toastInfo);
   }
   
 }
