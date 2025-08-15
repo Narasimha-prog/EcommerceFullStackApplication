@@ -11,6 +11,11 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navbar.scss',
 })
 export class Navbar {
+  
+
+closeMenu(menu: HTMLDetailsElement) {
+menu.removeAttribute('open');
+}
   oauth2Service = inject(Oauth2Service);
 
   connectedUserQuery = this.oauth2Service.connectedUserQuery;
