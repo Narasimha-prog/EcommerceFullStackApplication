@@ -1,1 +1,23 @@
-<p>create-category works!</p>
+<div class="grid grid-cols-3">
+<div></div>
+    <form id="createForm" (ngSubmit)="create()" [formGroup]="createCategoryForm" class="">
+        <h1>Create New Category</h1>
+        <label class="form-control w-full">
+            <div class="label">
+                <span class="label-text">Name</span>
+            </div>
+            <input 
+            type="text" 
+            formControlName="name" 
+            class="input input-bordered w-full"
+             placeholder="Type Name Here..." 
+             [class.input-error]="name.invalid && !name.untouched"    />
+
+            <div class="label">
+                <span class="label-text-alt text-red-600" *ngxControlError="name; track:'required'">Name is Required</span>
+            </div>
+        </label>
+        <button type="submit" class="btn btn-primary w-full mt-4 btn-wide" [disabled]="createCategoryForm.invalid">Create</button>
+    </form>
+    <div></div>
+</div>

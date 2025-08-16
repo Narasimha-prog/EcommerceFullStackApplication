@@ -8,7 +8,7 @@ import { createPaginationOption, Page, Pagination } from '../shared/model/reques
 @Injectable({
   providedIn: 'root'
 })
-export class AdminProduct {
+export class AdminProductService {
 
   http = inject(HttpClient);
 
