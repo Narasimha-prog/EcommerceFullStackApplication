@@ -12,7 +12,7 @@ public record RestCategory(UUID publicId,String name) {
 
   public RestCategory {
     Assert.notNull("name",name);
-    Assert.notNull("publicId",publicId);
+
   }
 
 

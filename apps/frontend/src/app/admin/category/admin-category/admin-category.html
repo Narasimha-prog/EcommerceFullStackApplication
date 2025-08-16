@@ -7,3 +7,29 @@
     create Category
 </button>
 </div>
+<div class="border-t w-full border-solid border-gray-300 mt-3 mb-5">
+    @if(categoryQuery.isSuccess() && categoryQuery.data()!.content.length!==0){
+        <div class="overflow-x-auto border border-gray-300  rounded-md">
+           <table class="table table-lg table-zebra">
+              <thead class="border-gray-300">
+                    <tr class="border-gray-300">
+                        <th class="">#</th>
+                        <th class="">Public Id</th>
+                        <th class="">Name</th>
+                        <th class="">Actions</th>
+                    </tr>
+              </thead>
+              <tbody>
+                @for (category of categoryQuery.data()!.content; track category.publicId; let i = $index) {
+                    <tr>
+                        <td >{{i}}</td>
+                        <td class="text-sm">{{category.publicId}}</td>
+                        <td class="text-sm">{{category.name}}</td>
+                        <td class="text-sm" *ngIf="category.publicId" (click)="deleteCategory(category.publicId)"></td>
+                    </tr>
+                }
+              </tbody>
+           </table>
+        </div>
+    }
+</div>

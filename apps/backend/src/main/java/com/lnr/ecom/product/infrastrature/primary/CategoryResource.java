@@ -7,6 +7,9 @@ import com.lnr.ecom.product.infrastrature.primary.mapper.RestCategoryMapper;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
@@ -51,4 +54,22 @@ public class CategoryResource {
     }
 
   }
-}
+  @GetMapping
+  public ResponseEntity<org.springframework.data.domain.Page<RestCategory>> findAll(Pageable pageable){
+    org.springframework.data.domain.Page<Category> categories=applicationService.findAllCategory(pageable);
+
+    Page<RestCategory> restCategoryPage=    new PageImpl<>(
+      categories.getContent().stream().map(RestCategoryMapper::toRestDomain).toList(),
+      pageable
+      ,categories.getTotalElements()
+
+    );
+
+    return ResponseEntity.ok(restCategoryPage);
+
+  }
+
+
+
+  }
+

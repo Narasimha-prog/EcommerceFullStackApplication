@@ -89,19 +89,7 @@ public class ProductAdminResource {
 
   }
 
-  public ResponseEntity<Page<RestCategory>> findAll(Pageable pageable){
-  Page<Category> categories=productApplicationService.findAllCategory(pageable);
 
- Page<RestCategory> restCategoryPage=    new PageImpl<>(
-    categories.getContent().stream().map(RestCategoryMapper::toRestDomain).toList(),
-    pageable
-    ,categories.getTotalElements()
-
-  );
-
-return ResponseEntity.ok(restCategoryPage);
-
-  }
 
   private Function<MultipartFile,RestPitchure> mapMultiPartFiletoRestPitcures() {
 

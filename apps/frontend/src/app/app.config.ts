@@ -33,7 +33,7 @@ export const appConfig: ApplicationConfig = {
         useRefreshToken: true,
         logLevel: LogLevel.Warn,
         secureRoutes:[environment.apiUrl],
-       customParamsAuthRequest: {
+        customParamsAuthRequest: {
         audience: environment.kinde.audience,
        },
 

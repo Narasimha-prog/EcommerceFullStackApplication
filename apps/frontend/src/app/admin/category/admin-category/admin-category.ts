@@ -1,6 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { AdminProductService } from '../../admin-product';
+import { Toast } from '../../../shared/model/toast/toast';
+import { injectMutation, injectQuery, injectQueryClient } from '@tanstack/angular-query-experimental';
+import { lastValueFrom } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-category',
@@ -8,4 +13,56 @@ import { RouterLink } from '@angular/router';
   templateUrl: './admin-category.html',
   styleUrl: './admin-category.scss',
 })
-export class AdminCategory {}
+export class AdminCategory {
+
+  productAdminService=inject(AdminProductService);
+
+  toastService = inject(Toast);
+
+  queryClient=injectQueryClient();
+
+
+
+categoryQuery=injectQuery(()=>({
+  queryKey: ['categories'],
+  queryFn: () => lastValueFrom(this.productAdminService.findAllCategories()),
+  
+}));
+
+  
+deleteMutaion=injectMutation(() => ({
+  mutationFn: (categoryPublicId: string) => lastValueFrom(this.productAdminService.deleteCategory(categoryPublicId)),
+  onSuccess: () => this.onDeleteSuccess(),
+  onError: (error:HttpErrorResponse) => this.onDeleteError(error),
+
+}));
+
+
+constructor(){
+  effect(()=>{
+    this.handleCategoryQueryError();
+  })
+}
+  private onDeleteSuccess(): void {
+    this.queryClient.invalidateQueries({
+      queryKey: ['categories'],})
+    this.toastService.show('Category deleted ', 'SUCCESS');
+  }
+
+
+  private onDeleteError(error: HttpErrorResponse): void {
+    console.error('Error deleting category:', error);
+    this.toastService.show('Error deleting category', 'ERROR');
+  
+  }
+
+  private handleCategoryQueryError(): void {
+        if(this.categoryQuery.isError()){
+          this.toastService.show('Error!  Failed to Load categories Please Try again', 'ERROR');
+        }
+  }
+ deleteCategory(publicId: string) {
+    this.deleteMutaion.mutate(publicId);
+  }
+
+}
