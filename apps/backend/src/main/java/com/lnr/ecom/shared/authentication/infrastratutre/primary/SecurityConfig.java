@@ -17,12 +17,12 @@ public class SecurityConfig {
   @Bean
   public SecurityFilterChain configure(HttpSecurity  http) throws Exception{
 
-  return  http.authorizeHttpRequests(authroze-> authroze
-      .requestMatchers(HttpMethod.GET,"api/categories").permitAll()
+  return  http.authorizeHttpRequests(authroze-> authroze.requestMatchers(HttpMethod.GET,"api/categories").permitAll()
       .requestMatchers("/api/**").authenticated()
       .anyRequest().permitAll())
       .csrf(AbstractHttpConfigurer::disable)
-      .oauth2ResourceServer(oath2->oath2.jwt(jwt->jwt.jwtAuthenticationConverter(new KindeJwtAutoticationConverter()))).build();
+      .oauth2ResourceServer(oath2->oath2.jwt(jwt->jwt.jwtAuthenticationConverter(new KindeJwtAutoticationConverter())))
+      .build();
 
   }
 }

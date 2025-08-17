@@ -6,10 +6,11 @@ import { Toast } from '../../../shared/model/toast/toast';
 import { injectMutation, injectQuery, injectQueryClient } from '@tanstack/angular-query-experimental';
 import { lastValueFrom } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-admin-category',
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink,FontAwesomeModule],
   templateUrl: './admin-category.html',
   styleUrl: './admin-category.scss',
 })
