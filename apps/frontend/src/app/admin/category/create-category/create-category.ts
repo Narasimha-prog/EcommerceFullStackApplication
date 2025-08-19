@@ -57,7 +57,7 @@ export class CreateCategory {
     this.toastService.show('Category created ', 'SUCCESS');
     this.router.navigate(['/admin/categories/list']);
   }
-  private onCreationError(error: any): void {
+  private onCreationError(error: unknown): void {
     console.error('Error creating category:', error);
     this.toastService.show('Issue when creating category: ' , 'ERROR');
   }

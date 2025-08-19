@@ -1,4 +1,4 @@
-import {  FormControl } from "@angular/forms";
+import {  Form, FormControl } from "@angular/forms";
 
 export type ProductSizes = 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
 export const sizes: ProductSizes[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
@@ -23,7 +23,7 @@ export interface BaseProduct {
     name: string;
     description: string;
     price: number;
-    size: ProductSizes[];
+    size: ProductSizes;
     featured: boolean;
     nbInStock: number;
     category: ProductCategory;
@@ -36,4 +36,17 @@ export interface Product extends BaseProduct {
 
 export type CreateCategoryFormContent={
     name:FormControl<string>;
+}
+
+export type CreateProductFormContent = {
+     brand: FormControl<string>;
+    color: FormControl<string>;
+    name: FormControl<string>;
+    description: FormControl<string>;
+    price: FormControl<number>;
+    size: FormControl<ProductSizes>;
+    featured: FormControl<boolean>;
+    stock: FormControl<number>;
+    category: FormControl<string>;
+    pictures: FormControl<Array<ProductPicture[]>>;
 }
