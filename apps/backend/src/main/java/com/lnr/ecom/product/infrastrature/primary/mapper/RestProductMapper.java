@@ -27,8 +27,8 @@ public final class RestProductMapper {
        productBuilder.publicId(new PublicId(restProduct.getPublicId()));
     }
 
-    if(restProduct.getPitchureList()!= null){
-     productBuilder.pictures(RestPictureMapper.toDomianList(restProduct.getPitchureList()));
+    if(restProduct.getPictures()!= null){
+     productBuilder.pictures(RestPictureMapper.toDomianList(restProduct.getPictures()));
     }
     return productBuilder.build();
   }
@@ -44,7 +44,7 @@ return  RestProductBuilder.restProduct()
       .featured(product.isFeatured())
       .category(RestCategoryMapper.toRestDomain(product.getCategory()))
       .size(product.getProductSize())
-      .pitchureList(RestPictureMapper.toRestDomainList(product.getPictures()))
+      .pictures(RestPictureMapper.toRestDomainList(product.getPictures()))
       .publicId(product.getPublicId().value())
       .nbInStock(product.getNbInStack())
       .build();

@@ -16,6 +16,10 @@
         <span class="label-text-alt text-red-600" *ngxControlError="name; track: 'required'">
           Name is required
         </span>
+         <!-- Min length error -->
+  <span class="label-text-alt text-red-600" *ngxControlError="name; track: 'minlength'">
+    Name must be at least 3 characters long
+  </span>
       </div>
     </label>
 

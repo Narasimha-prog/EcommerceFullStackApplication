@@ -21,7 +21,7 @@ export class CreateCategory {
   productService = inject(AdminProductService);
   toastService = inject(Toast);
   router = inject(Router)
-  name=new FormControl<string>('',{nonNullable: true,validators:[Validators.required]});
+  name=new FormControl<string>('',{nonNullable: true,validators:[Validators.required,Validators.minLength(3)]});
 
   public createCategoryForm = this.formBuilder.nonNullable.group<CreateCategoryFormContent>({
     name:this.name,

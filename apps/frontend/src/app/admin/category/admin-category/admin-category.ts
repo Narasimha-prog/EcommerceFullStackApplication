@@ -34,7 +34,7 @@ categoryQuery=injectQuery(()=>({
 deleteMutaion=injectMutation(() => ({
   mutationFn: (categoryPublicId: string) => lastValueFrom(this.productAdminService.deleteCategory(categoryPublicId)),
   onSuccess: () => this.onDeleteSuccess(),
-  onError: (error:HttpErrorResponse) => this.onDeleteError(error),
+  onError: (error:unknown) => this.onDeleteError(error),
 
 }));
 
@@ -51,7 +51,7 @@ constructor(){
   }
 
 
-  private onDeleteError(error: HttpErrorResponse): void {
+  private onDeleteError(error: unknown): void {
     console.error('Error deleting category:', error);
     this.toastService.show('Error deleting category', 'ERROR');
   

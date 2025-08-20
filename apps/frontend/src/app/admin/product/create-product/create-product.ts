@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angu
 import { AdminProductService } from '../../admin-product';
 import { Toast } from '../../../shared/model/toast/toast';
 import { Router } from '@angular/router';
-import { BaseProduct, CreateProductFormContent, ProductCategory, ProductPicture, ProductSizes } from '../../model/product.model';
+import { BaseProduct, CreateProductFormContent, ProductCategory, ProductPicture, ProductSizes ,sizes} from '../../model/product.model';
 import { injectMutation, injectQuery } from '@tanstack/angular-query-experimental';
 import { lastValueFrom } from 'rxjs';
 import { NgxControlError } from 'ngxtension/control-error';
@@ -45,6 +45,7 @@ price=new FormControl<number>(0,{nonNullable: true,validators:[Validators.requir
 
 size=new FormControl<ProductSizes>('XS',{nonNullable: true,validators:[Validators.required]});
 
+
 color=new FormControl<string>('',{nonNullable: true,validators:[Validators.required]});
 
 
@@ -52,7 +53,7 @@ featured=new FormControl<boolean>(false,{nonNullable: true,validators:[Validator
 
 pictures=new FormControl<Array<ProductPicture[]>>([],{nonNullable: true,validators:[Validators.required]});
 
-stack=new FormControl<number>(0,{nonNullable: true,validators:[Validators.required]});
+stock=new FormControl<number>(0,{nonNullable: true,validators:[Validators.required]});
 
 category=new FormControl<string>('',{nonNullable: true,validators:[Validators.required]});
 brand=new FormControl<string>('',{nonNullable: true,validators:[Validators.required]});
@@ -65,7 +66,7 @@ brand=new FormControl<string>('',{nonNullable: true,validators:[Validators.requi
     price: this.price,
     size: this.size,
     featured: this.featured,
-    stock: this.stack,
+    stock: this.stock,
     category: this.category,
     pictures: this.pictures
   });
@@ -142,4 +143,5 @@ onUploadNewPicture(target: EventTarget | null){
   }
 
 }
+protected readonly sizes = sizes;
 }

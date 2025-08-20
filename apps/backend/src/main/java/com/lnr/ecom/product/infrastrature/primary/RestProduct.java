@@ -1,8 +1,10 @@
 package com.lnr.ecom.product.infrastrature.primary;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.lnr.ecom.product.domain.vo.ProductSize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.jilt.Builder;
 
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.UUID;
 
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class RestProduct {
 
@@ -30,8 +33,8 @@ public class RestProduct {
   private RestCategory category;
 
   private boolean featured;
-
-  private List<RestPitchure> pitchureList;
+  @JsonProperty("pictures")
+  private List<RestPitchure> pictures;
 
   private UUID publicId;
 
@@ -39,7 +42,7 @@ public class RestProduct {
 
 
 public void addPictureAttachment(List<RestPitchure> restPitchures){
-  this.pitchureList.addAll(restPitchures);
+  this.pictures.addAll(restPitchures);
 }
 
 
