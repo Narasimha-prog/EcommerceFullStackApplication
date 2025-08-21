@@ -37,11 +37,11 @@ export class CreateProductComponent {
 
   public productPictures=new Array<ProductPicture>();
 
-name=new FormControl<string>('',{nonNullable: true,validators:[Validators.required]});
+name=new FormControl<string>('',{nonNullable: true,validators:[Validators.required,Validators.minLength(3)]});
 
-description=new FormControl<string>('',{nonNullable: true,validators:[Validators.required]});
+description=new FormControl<string>('',{nonNullable: true,validators:[Validators.required, Validators.minLength(10)]});
 
-price=new FormControl<number>(0,{nonNullable: true,validators:[Validators.required]});
+price=new FormControl<number>(0,{nonNullable: true,validators:[Validators.required, Validators.min(0.1)]});
 
 size=new FormControl<ProductSizes>('XS',{nonNullable: true,validators:[Validators.required]});
 
@@ -56,7 +56,7 @@ pictures=new FormControl<Array<ProductPicture[]>>([],{nonNullable: true,validato
 stock=new FormControl<number>(0,{nonNullable: true,validators:[Validators.required]});
 
 category=new FormControl<string>('',{nonNullable: true,validators:[Validators.required]});
-brand=new FormControl<string>('',{nonNullable: true,validators:[Validators.required]});
+brand=new FormControl<string>('',{nonNullable: true,validators:[Validators.required, Validators.minLength(3)]});
 
   public createForm=this.formBuilder.nonNullable.group<CreateProductFormContent>({
      brand: this.brand,

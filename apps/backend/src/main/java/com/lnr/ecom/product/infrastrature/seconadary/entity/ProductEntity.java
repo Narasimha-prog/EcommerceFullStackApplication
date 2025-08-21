@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.jilt.Builder;
 
 import java.util.HashSet;
@@ -18,6 +19,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @Table(name = "product")
+@NoArgsConstructor
 public class ProductEntity extends AbstractAuditingEntity<Long> {
 
 @Id

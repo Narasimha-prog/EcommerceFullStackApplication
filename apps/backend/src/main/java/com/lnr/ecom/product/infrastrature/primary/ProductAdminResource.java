@@ -84,7 +84,6 @@ public class ProductAdminResource {
       ,productPage.getTotalElements()
 
     );
-
     return ResponseEntity.ok(restCategoryPage);
 
   }

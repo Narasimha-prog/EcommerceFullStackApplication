@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.jilt.Builder;
 
 
@@ -14,11 +15,14 @@ import org.jilt.Builder;
 @Builder
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class PictureEntity  extends AbstractAuditingEntity<Long> {
   @Id
   @SequenceGenerator(name = "picture_seq",sequenceName = "product_picture_sequence",allocationSize = 1)
   @Column(name = "id",nullable = false)
   @EqualsAndHashCode.Include
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "picture_seq")
+
   private Long id;
 
   @Lob
