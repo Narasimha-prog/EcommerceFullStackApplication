@@ -6,10 +6,11 @@ import { injectMutation, injectQuery, injectQueryClient } from '@tanstack/angula
 import { Pagination } from '../../../shared/model/request.model';
 import { lastValueFrom } from 'rxjs';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
   selector: 'app-admin-product',
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule,RouterModule,FontAwesomeModule],
   templateUrl: './admin-product.html',
   styleUrl: './admin-product.scss',
 })

@@ -6,6 +6,7 @@ import com.lnr.ecom.product.domain.repository.CategoryRepository;
 import com.lnr.ecom.product.domain.repository.ProductRepository;
 import com.lnr.ecom.product.domain.service.CategoryCURD;
 import com.lnr.ecom.product.domain.service.ProductCURD;
+import com.lnr.ecom.product.domain.service.ProductShop;
 import com.lnr.ecom.product.domain.vo.PublicId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -20,11 +21,13 @@ public class ProductsApplicationService {
 
   private final CategoryCURD categoryCURD;
 
+  private final ProductShop productShop;
 
-  public ProductsApplicationService(ProductRepository productRepository, CategoryRepository categoryRepository) {
+
+  public ProductsApplicationService(ProductRepository productRepository, CategoryRepository categoryRepository ) {
     this.productCURD=new ProductCURD(productRepository);
     this.categoryCURD=new CategoryCURD(categoryRepository);
-
+    this.productShop = new ProductShop(productRepository);
   }
 @Transactional
   public Product createProduct(Product newProduct){
@@ -62,5 +65,11 @@ public class ProductsApplicationService {
   public Page<Category> findAllCategory(Pageable pageable){
     return  categoryCURD.findAll(pageable);
 
+  }
+
+@Transactional(readOnly = true)
+  public Page<Product> findFeatuedProducts(Pageable pageable){
+
+   return productShop.getFeaturedProducts(pageable);
   }
 }
