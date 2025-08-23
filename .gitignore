@@ -47,3 +47,11 @@ Thumbs.db
 
 # Ignore local PostgreSQL data
 /data/postgres/
+
+# Environment files
+.env
+*.env
+*.encv
+
+apps/frontend/src/environment/
+
