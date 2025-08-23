@@ -2,6 +2,7 @@ package com.lnr.ecom.product.infrastrature.primary;
 
 import com.lnr.ecom.product.application.ProductsApplicationService;
 import com.lnr.ecom.product.domain.aggregate.Product;
+import com.lnr.ecom.product.domain.vo.PublicId;
 import com.lnr.ecom.product.infrastrature.primary.mapper.RestProductMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -10,7 +11,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/products-shop")
@@ -33,5 +37,13 @@ public ResponseEntity<Page<RestProduct>> getFeatuedProducts(Pageable pageable){
    ){};
 
  return ResponseEntity.ok(productPage);
+}
+
+@GetMapping("/find-one")
+public ResponseEntity<RestProduct> findOne(@RequestParam("publicId")UUID id){
+
+
+  Product product = applicationService.findOne(new PublicId(id));
+  return ResponseEntity.ok(RestProductMapper.toRestDomain(product));
 }
 }

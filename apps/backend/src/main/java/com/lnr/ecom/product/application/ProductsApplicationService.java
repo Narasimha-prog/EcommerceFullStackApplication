@@ -8,9 +8,11 @@ import com.lnr.ecom.product.domain.service.CategoryCURD;
 import com.lnr.ecom.product.domain.service.ProductCURD;
 import com.lnr.ecom.product.domain.service.ProductShop;
 import com.lnr.ecom.product.domain.vo.PublicId;
+import com.lnr.ecom.product.infrastrature.primary.RestProduct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -72,4 +74,14 @@ public class ProductsApplicationService {
 
    return productShop.getFeaturedProducts(pageable);
   }
+
+  @Transactional(readOnly = true)
+  public Product findOne(PublicId publicId){
+     return productCURD.findOne(publicId);
+  }
+
+  @Transactional(readOnly = true)
+public Page<Product> findRelated(Pageable pageable,PublicId poductPublicId){
+    return productShop.findRelated(pageable,poductPublicId);
+}
 }

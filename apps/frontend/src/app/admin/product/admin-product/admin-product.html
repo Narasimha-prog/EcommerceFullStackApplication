@@ -46,7 +46,7 @@
                     <td class="text-sm">{{product.price}}</td>
                     <td class="text-sm">{{product.nbInStock}}</td>
                     <td class="text-sm">{{product.featured ? 'Yes' : 'No'}}</td>
-                    <td class="text-sm">{{product.category?.name || 'No Category'}}</td>
+                    <td class="text-sm">{{product.category.name || 'No Category'}}</td>
                     <td class="btn btn-secondary btn-sm mt-3" *ngIf="product.publicId"
                         (click)="deleteProduct(product.publicId)">Delete</td>
                 </tr>

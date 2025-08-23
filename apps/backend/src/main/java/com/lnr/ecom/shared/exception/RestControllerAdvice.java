@@ -1,5 +1,6 @@
 package com.lnr.ecom.shared.exception;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,4 +15,10 @@ public class RestControllerAdvice {
     log.error("Something went wrong ",ex);
     return new ResponseEntity<>("Something went wrong!", HttpStatus.INTERNAL_SERVER_ERROR);
   }
+
+  @ExceptionHandler(EntityNotFoundException.class)
+  public ResponseEntity<String> handleEntityNotFound(EntityNotFoundException ex) {
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+  }
+
 }

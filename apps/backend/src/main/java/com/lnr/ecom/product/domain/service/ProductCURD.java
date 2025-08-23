@@ -8,6 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @RequiredArgsConstructor
 public class ProductCURD {
 
@@ -31,6 +34,10 @@ public class ProductCURD {
     return productId;
   }
 
+
+  public Product findOne(PublicId publicId){
+    return  productRepository.findOne(publicId).orElseThrow(()->new EntityNotFoundException(String.format("Product not found with this ID %s",publicId)));
+  }
 
 
 }

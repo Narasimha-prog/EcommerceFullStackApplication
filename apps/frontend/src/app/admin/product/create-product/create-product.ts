@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { AdminProductService } from '../../admin-product';
 import { Toast } from '../../../shared/model/toast/toast';
 import { Router } from '@angular/router';
@@ -9,6 +9,16 @@ import { injectMutation, injectQuery } from '@tanstack/angular-query-experimenta
 import { lastValueFrom } from 'rxjs';
 import { NgxControlError } from 'ngxtension/control-error';
 
+// --- Custom Validator for minimum array length ---
+function minArrayLength(min: number) {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const value = control.value as any[];
+    if (!value || value.length < min) {
+      return { minArrayLength: { requiredLength: min, actualLength: value?.length || 0 } };
+    }
+    return null;
+  };
+}
 @Component({
   selector: 'app-create-product',
   imports: [CommonModule,ReactiveFormsModule,NgxControlError],
@@ -16,6 +26,7 @@ import { NgxControlError } from 'ngxtension/control-error';
   styleUrl: './create-product.scss',
 })
 export class CreateProductComponent {
+  
   formBuilder=inject(FormBuilder);
   productService=inject(AdminProductService);
   toastService=inject(Toast);
@@ -51,7 +62,7 @@ color=new FormControl<string>('',{nonNullable: true,validators:[Validators.requi
 
 featured=new FormControl<boolean>(false,{nonNullable: true,validators:[Validators.required]});
 
-pictures=new FormControl<Array<ProductPicture[]>>([],{nonNullable: true,validators:[Validators.required]});
+pictures=new FormControl<ProductPicture[]>([],{nonNullable: true,validators:[Validators.required, minArrayLength(1)]});
 
 stock=new FormControl<number>(0,{nonNullable: true,validators:[Validators.required]});
 
@@ -124,24 +135,34 @@ private extractFileFromTarget(target: EventTarget | null): FileList | null {
   return htmlInputElement.files;
 }
 
-onUploadNewPicture(target: EventTarget | null){
-  this.productPictures=[];
-  const pictureFiles= this.extractFileFromTarget(target);
+  onUploadNewPicture(target: EventTarget | null) {
+    const pictureFiles = this.extractFileFromTarget(target);
+    const MAX_SIZE_MB = 2;
 
-  if(pictureFiles!==null){
-    for(let i=0;i<pictureFiles.length;i++){
-      const picture= pictureFiles.item(i);
-      if(picture!==null){
-        const productPicture: ProductPicture = {
-          file: picture,
-          mineType: picture.type
-        };
-        this.productPictures.push(productPicture);
+    if (!pictureFiles) return;
+
+    const validPictures: ProductPicture[] = [];
+
+    for (let i = 0; i < pictureFiles.length; i++) {
+      const picture = pictureFiles.item(i);
+      if (!picture) continue;
+
+      const sizeMB = picture.size / (1024 * 1024);
+      if (sizeMB > MAX_SIZE_MB) {
+        this.toastService.show(`"${picture.name}" is too large. Max ${MAX_SIZE_MB}MB allowed.`, 'ERROR');
+        continue;
       }
 
+      validPictures.push({
+        file: picture,
+        mineType: picture.type || 'application/octet-stream'
+      });
     }
-  }
 
-}
+    // Update component and FormControl
+    this.productPictures = validPictures;
+    this.pictures.setValue(this.productPictures);
+    this.pictures.updateValueAndValidity();
+  }
 protected readonly sizes = sizes;
 }
