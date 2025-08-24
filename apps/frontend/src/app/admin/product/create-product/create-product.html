@@ -50,7 +50,7 @@
         placeholder="Type Color here" 
         class="input input-bordered w-full"
         formControlName="color"
-        [class.input-error]="color.invalid && color.untouched"/>
+        [class.input-error]="color.invalid && !color.untouched"/>
         
         <div class="label">
             <span class="label-text-alt text-red-600" *ngxControlError="color; track: 'required'">

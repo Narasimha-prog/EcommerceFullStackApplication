@@ -17,10 +17,10 @@ import { Toast} from './shared/model/toast/toast';
   styleUrl: './app.scss',
 })
 export class App implements OnInit {
-   private faIconLibrary = inject(FaIconLibrary);
-  private faConfig = inject(FaConfig);
 
-private oauth2Service = inject(Oauth2Service);
+  private faIconLibrary = inject(FaIconLibrary);
+  private faConfig = inject(FaConfig);
+  private oauth2Service = inject(Oauth2Service);
 
 toastService = inject(Toast);
 platformId = inject(PLATFORM_ID);
@@ -37,6 +37,7 @@ this.oauth2Service.connectedUserQuery= this.oauth2Service.fetch();
     this.initFontAwesome();
     this.toastService.show('Welcome to the E-commerce Application!', 'SUCCESS');
   }
+  
    private initFontAwesome() {
     this.faConfig.defaultPrefix = 'far';
     this.faIconLibrary.addIcons(...fontAwesomeIcons);

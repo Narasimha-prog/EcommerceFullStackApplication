@@ -137,7 +137,7 @@ private extractFileFromTarget(target: EventTarget | null): FileList | null {
 
   onUploadNewPicture(target: EventTarget | null) {
     const pictureFiles = this.extractFileFromTarget(target);
-    const MAX_SIZE_MB = 2;
+    const MAX_SIZE_MB = 1;
 
     if (!pictureFiles) return;
 

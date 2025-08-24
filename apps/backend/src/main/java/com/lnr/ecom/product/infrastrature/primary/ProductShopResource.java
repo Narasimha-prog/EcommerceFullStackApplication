@@ -46,4 +46,19 @@ public ResponseEntity<RestProduct> findOne(@RequestParam("publicId")UUID id){
   Product product = applicationService.findOne(new PublicId(id));
   return ResponseEntity.ok(RestProductMapper.toRestDomain(product));
 }
+
+  @GetMapping("/related")
+  public ResponseEntity<Page<RestProduct>> relatedProducts(Pageable pageable,@RequestParam("publicId")UUID id){
+
+    Page<Product> productPage = applicationService.findRelated(pageable,new PublicId(id));
+
+    PageImpl<RestProduct> restProducts = new PageImpl<>(
+      productPage.getContent().stream().map(RestProductMapper::toRestDomain).toList(),
+      pageable,
+      productPage.getNumberOfElements()
+    );
+
+    return ResponseEntity.ok(restProducts);
+  }
+
 }

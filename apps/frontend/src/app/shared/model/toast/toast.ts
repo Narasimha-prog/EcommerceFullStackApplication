@@ -19,6 +19,8 @@ export class Toast {
       this.remove(toastInfo);
     });
   }
+
+  
   remove(toastInfo: ToastInfo) {
     this.toasts = this.toasts.filter(t => t !== toastInfo);
   }

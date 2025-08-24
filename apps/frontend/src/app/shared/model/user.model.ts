@@ -8,6 +8,5 @@ export interface BaseUser{
 }
 
 export interface ConnectedUser extends BaseUser {
-
     authorities?: string[];
 }

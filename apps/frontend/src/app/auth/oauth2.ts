@@ -12,7 +12,8 @@ import { environment } from '../../environment/environment.devlopment';
 export class Oauth2Service {
   
 
-  http=inject(HttpClient);
+http=inject(HttpClient);
+
 oidcSecurityService=inject(OidcSecurityService);
 
 connectedUserQuery: CreateQueryResult<ConnectedUser> | undefined;

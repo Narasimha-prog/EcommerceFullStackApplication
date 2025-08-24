@@ -1,0 +1,8 @@
+@if(productQuery.isSuccess()){
+    <div class="flex flex-col lg:flex-row justify-center items-center w-full">
+     <div class="lg:me-5">
+        <img [src]="'data:'+productQuery.data().pictures[0].mineType+';base64,'+productQuery.data().pictures[0].file"
+           alt="{{productQuery.data().name}}" width="500px" class="max-w-full w-full lg:max-w-none"/>
+     </div>
+    </div>
+}
