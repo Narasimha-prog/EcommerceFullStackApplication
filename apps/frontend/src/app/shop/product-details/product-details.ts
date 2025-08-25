@@ -6,11 +6,13 @@ import { Router } from '@angular/router';
 import { Toast } from '../../shared/model/toast/toast';
 import { Pagination } from '../../shared/model/request.model';
 import { injectQuery } from '@tanstack/angular-query-experimental';
-import { lastValueFrom } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
+import { FaIconComponent, FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+
 
 @Component({
   selector: 'app-product-details',
-  imports: [CommonModule],
+  imports: [CommonModule, FaIconComponent,FontAwesomeModule],
   templateUrl: './product-details.html',
   styleUrl: './product-details.scss',
 })
@@ -35,14 +37,14 @@ export class ProductDetails {
    productQuery=injectQuery(()=>(
     {
       queryKey:['product',this.publicId],
-      queryFn:()=> lastValueFrom( this.productService.findOneProduct(this.publicId()!))
+      queryFn:()=> firstValueFrom( this.productService.findOneProduct(this.publicId()!))
     }
    ));
 
    relatedProductsQuery=injectQuery(()=>(
     {
       queryKey:['product',this.publicId,this.pageRequest],
-      queryFn:()=> lastValueFrom( this.productService.findProductsRelatedToCategory(this.pageRequest,this.publicId()!))
+      queryFn:()=> firstValueFrom( this.productService.findProductsRelatedToCategory(this.pageRequest,this.publicId()!))
     }
    ));
 constructor(){

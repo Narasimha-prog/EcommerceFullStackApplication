@@ -1,8 +1,53 @@
 @if(productQuery.isSuccess()){
-    <div class="flex flex-col lg:flex-row justify-center items-center w-full">
-     <div class="lg:me-5">
+<div class="flex flex-col lg:flex-row justify-center items-center w-full">
+    <div class="lg:me-5">
         <img [src]="'data:'+productQuery.data().pictures[0].mineType+';base64,'+productQuery.data().pictures[0].file"
-           alt="{{productQuery.data().name}}" width="500px" class="max-w-full w-full lg:max-w-none"/>
-     </div>
+            alt="{{productQuery.data().name}}" width="500px"
+            class="h-60 sm:h-72 md:h-80 lg:h-96 w-auto object-contain mx-auto" />
+    </div>
+
+
+    <div class="w-full lg:w-auto">
+        <h1 class="text-3xl font-bold "> {{productQuery.data().name}} - {{productQuery.data().size}}</h1>
+        @if(productQuery.data().nbInStock!>0){
+        <span class="text-green-500 text-lg">In Stock</span>
+        }
+        @else {
+        <span class="text-red-500 text-lg">Out of Stock</span>
+        }
+
+        @if(productQuery.data().featured){
+        <div class="rounded-md border w-32 p-2 text-center border-black my-5">
+            Best Seller
+        </div>
+        }
+        <div class="text-2xl my-5">
+            <span class="line-through me-2">{{productQuery.data().price! + 200|currency}}</span>
+            <span class=" me-2">{{productQuery.data().price!|currency}}</span>
+        </div>
+
+        <div class="">Brand: <span class="font-bold">{{productQuery.data().brand}}</span></div>
+
+        <div class="flex items-center mt-1">
+            <div class="me-1 ">Color:</div>
+            <div class="h-5 w-5 rounded-full" [ngStyle]="{'background-color':productQuery.data().color}"></div>
+        </div>
+        <div class="">Size: <span class="font-bold">{{productQuery.data().size}}</span></div>
+        <div class="my-5 w-96">
+            <h2 class="text-xl font-bold">Description:</h2>
+            <p class="text-justify">{{productQuery.data().description}}</p>
+
+        </div>
+
+        <button class="btn btn-primary mt-5 w-full lg:w-64" [disabled]="productQuery.data().nbInStock !<= 0">
+
+            <fa-icon [icon]="['fas','shopping-cart']" class="me-2"></fa-icon>
+            Add to Cart
+        </button>
+    </div>
+</div>
+}@else if (productQuery.isPending()) {
+    <div class="w-full justify-center flex">
+        <span class="loading loading-spinner loading-lg"></span>
     </div>
 }
