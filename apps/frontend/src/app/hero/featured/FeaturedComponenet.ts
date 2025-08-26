@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UserProductService } from '../../shared/service/user-product';
 import { Pagination } from '../../shared/model/request.model';
 import { injectQuery } from '@tanstack/angular-query-experimental';
-import { lastValueFrom } from 'rxjs';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 import { ProductCard } from '../product-card';
 
 @Component({
@@ -26,7 +26,7 @@ export class FeaturedComponent {
   featuredProductQuery=injectQuery(()=>(
     {
       queryKey:['featured-products',this.pageRequest],
-      queryFn:()=> lastValueFrom(this.userProductService.findAllFeaturedProducts(this.pageRequest))
+      queryFn:()=> firstValueFrom(this.userProductService.findAllFeaturedProducts(this.pageRequest))
     }
   ));
 

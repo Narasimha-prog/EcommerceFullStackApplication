@@ -8,11 +8,13 @@ import { Pagination } from '../../shared/model/request.model';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import { firstValueFrom } from 'rxjs';
 import { FaIconComponent, FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { ProductCard } from "../../hero/product-card";
+import { App } from '../../app';
 
 
 @Component({
   selector: 'app-product-details',
-  imports: [CommonModule, FaIconComponent,FontAwesomeModule],
+  imports: [CommonModule, FaIconComponent, FontAwesomeModule, ProductCard],
   templateUrl: './product-details.html',
   styleUrl: './product-details.scss',
 })
