@@ -1,5 +1,6 @@
 package com.lnr.ecom.product.domain.service;
 
+import com.lnr.ecom.product.domain.aggregate.FilterQuery;
 import com.lnr.ecom.product.domain.aggregate.Product;
 import com.lnr.ecom.product.domain.repository.ProductRepository;
 import com.lnr.ecom.product.domain.vo.PublicId;
@@ -28,6 +29,10 @@ public Page<Product> findRelated(Pageable pageable, PublicId publicId){
   }else {
     throw new EntityNotFoundException(String.format("Product not found with this ID %s",publicId));
   }
+}
+
+public Page<Product> filter(Pageable pageable, FilterQuery query){
+    return productRepository.findByCategoryAndSize(pageable,query);
 }
 
 }

@@ -1,7 +1,10 @@
 package com.lnr.ecom.product.infrastrature.primary;
 
 import com.lnr.ecom.product.application.ProductsApplicationService;
+import com.lnr.ecom.product.domain.aggregate.FilterQuery;
+import com.lnr.ecom.product.domain.aggregate.FilterQueryBuilder;
 import com.lnr.ecom.product.domain.aggregate.Product;
+import com.lnr.ecom.product.domain.vo.ProductSize;
 import com.lnr.ecom.product.domain.vo.PublicId;
 import com.lnr.ecom.product.infrastrature.primary.mapper.RestProductMapper;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -60,5 +64,21 @@ public ResponseEntity<RestProduct> findOne(@RequestParam("publicId")UUID id){
 
     return ResponseEntity.ok(restProducts);
   }
+  @GetMapping("/filter")
+ public ResponseEntity<Page<RestProduct>> filter(Pageable pageable, @RequestParam("categoryId") UUID categoryId, @RequestParam(value = "productSizes",required = false)List<ProductSize> productSizes){
+   FilterQueryBuilder queryBuilder=  FilterQueryBuilder.filterQuery().categoryId(new PublicId(categoryId));
 
+    if(productSizes != null){
+    queryBuilder.sizes(productSizes);
+    }
+
+  Page<Product> productPage=  applicationService.filter(pageable,queryBuilder.build());
+    Page<RestProduct> restProducts=new PageImpl<>(
+     productPage.getContent().stream().map(RestProductMapper::toRestDomain).toList(),
+      pageable,
+      productPage.getTotalElements()
+    );
+
+  return ResponseEntity.ok(restProducts);
+ }
 }
