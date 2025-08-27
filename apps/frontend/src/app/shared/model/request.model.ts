@@ -55,3 +55,9 @@ export const createPaginationOption = (req: Pagination): HttpParams => {
 
   return params;
 };
+
+export interface ProductFilter{
+  size?:string;
+  category?:string;
+  sort:RequestSort[];
+}

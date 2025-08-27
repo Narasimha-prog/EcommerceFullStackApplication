@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { Oauth2Service } from '../../auth/oauth2';
 import { RouterLink } from '@angular/router';
+import { UserProductService } from '../../shared/service/user-product';
+import { injectQuery } from '@tanstack/angular-query-experimental';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +20,15 @@ closeMenu(menu: HTMLDetailsElement) {
 menu.removeAttribute('open');
 }
   oauth2Service = inject(Oauth2Service);
+  
+  productService=inject(UserProductService);
+
+
+  categoryQuery=injectQuery(()=>({
+    queryKey:['categories'],
+    queryFn:()=> firstValueFrom(this.productService.findAllCategories())
+  }))
+
 
   connectedUserQuery = this.oauth2Service.connectedUserQuery;
 
