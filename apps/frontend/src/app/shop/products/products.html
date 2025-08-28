@@ -1,1 +1,5 @@
-<p>products works!</p>
+<div class="grid grid-cols-[1fr_6fr] gap-5">
+    <div class="ms-5 sm:ms-0">
+        <app-filter-product [sort]="parseSort(sort())" [size]="size()!" (productFilter)="onFilterChange($event)"></app-filter-product>
+    </div>
+</div>
