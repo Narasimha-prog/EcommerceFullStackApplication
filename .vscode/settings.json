@@ -36,5 +36,8 @@
             "password": "admin",
             "database": "user_db"
         }
+    ],
+    "cSpell.words": [
+        "Productsquery"
     ]
 }

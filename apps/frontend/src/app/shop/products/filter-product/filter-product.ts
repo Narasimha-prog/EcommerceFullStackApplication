@@ -1,17 +1,20 @@
 import { Component, effect, inject, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductFilter, RequestSort, SortableField, SortOrder } from '../../shared/model/request.model';
-import { Form, FormBuilder, FormControl, FormRecord, Validators } from '@angular/forms';
-import { FilterProductFormContent, ProductFilterForm, sizes } from '../../admin/model/product.model';
+import { ProductFilter, RequestSort, SortableField, SortOrder } from '../../../shared/model/request.model';
+import { Form, FormBuilder, FormControl, FormRecord, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FilterProductFormContent, ProductFilterForm, sizes } from '../../../admin/model/product.model';
+
 
 @Component({
   selector: 'app-filter-product',
-  imports: [CommonModule],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './filter-product.html',
   styleUrl: './filter-product.scss',
 })
 export class FilterProduct {
 
+
+  
 private  buildSizeFormController(): FormRecord<FormControl<boolean>> {
    const sizeFormControl = this.formBuilder.nonNullable.record<FormControl<boolean>>({});
 
@@ -105,6 +108,8 @@ formFilterProducts = this.formBuilder.nonNullable.group<FilterProductFormContent
       sortFormGroup?.get('direction')?.setValue(this.sort().direction,{emitEvent:false});
     }
   }
+  protected readonly sizes = sizes;
+
 }
 
 
