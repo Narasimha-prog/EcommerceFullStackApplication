@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FormGroup, FormBuilder, FormControl, FormRecord, ReactiveFormsModule, Validators } from '@angular/forms';
 import {  FilterProductsFormContent, ProductFilter, ProductFilterForm, sizes } from '../../../admin/model/product.model';
+import { ProductDetails } from '../../product-details/product-details';
 
 
 @Component({

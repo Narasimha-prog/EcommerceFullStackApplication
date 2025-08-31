@@ -10,10 +10,12 @@ import { injectQuery } from '@tanstack/angular-query-experimental';
 import { ProductsFilterComponent } from './filter-product/filter-product';
 import { Pagination } from '../../shared/model/request.model';
 import { ProductFilter } from '../../admin/model/product.model';
+import { ProductDetails } from "../product-details/product-details";
+import { ProductCard } from '../../hero/product-card';
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule, ProductsFilterComponent],
+  imports: [CommonModule, ProductsFilterComponent,ProductCard],
   templateUrl: './products.html',
   styleUrl: './products.scss',
 })
