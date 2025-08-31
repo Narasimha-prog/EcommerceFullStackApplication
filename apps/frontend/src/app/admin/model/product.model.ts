@@ -7,7 +7,6 @@ export const sizes: ProductSizes[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 
 
 export interface ProductCategory {
-
     publicId?: string;
     name?: string;
 }
@@ -39,32 +38,34 @@ export type CreateCategoryFormContent={
     name:FormControl<string>;
 }
 
-export type CreateProductFormContent = {
-     brand: FormControl<string>;
-    color: FormControl<string>;
-    name: FormControl<string>;
-    description: FormControl<string>;
-    price: FormControl<number>;
-    size: FormControl<ProductSizes>;
-    featured: FormControl<boolean>;
-    stock: FormControl<number>;
-    category: FormControl<string>;
-    pictures: FormControl<ProductPicture[]>;
-}
 
-export type FilterProductFormContent = {
-  sort: FormGroup<{
-    property: FormControl<SortableField>;
-    direction: FormControl<SortOrder>;
-  }>;
-  size: FormRecord<FormControl<boolean>>;
+export type CreateProductFormContent = {
+  brand: FormControl<string>;
+  color: FormControl<string>;
+  description: FormControl<string>;
+  name: FormControl<string>;
+  price: FormControl<number>;
+  size: FormControl<ProductSizes>;
+  category: FormControl<string>;
+  featured: FormControl<boolean>;
+  pictures: FormControl<ProductPicture[]>;
+  stock: FormControl<number>;
 };
 
+export interface ProductFilter {
+  size?: string;
+  category?: string | null;
+  sort: string[];
+}
 
-export interface ProductFilterForm{
-    size?:{
-        [size:string]:boolean;
+export type FilterProductsFormContent = {
+  sort: FormControl<string>;
+  size: FormRecord<FormControl<boolean>>
+}
 
-    }|undefined;
-    sort:{property:SortableField;direction:SortOrder}
+export interface ProductFilterForm {
+  size?: {
+    [size: string]: boolean;
+  } | undefined;
+  sort: string
 }

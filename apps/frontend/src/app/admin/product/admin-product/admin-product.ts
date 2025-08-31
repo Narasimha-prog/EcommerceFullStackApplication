@@ -23,7 +23,7 @@ export class AdminProductComponent {
  pageRequest:Pagination={
   page: 0,
   size: 10,
-  sort: [{property:'createdDate', direction:'DESC'}],
+  sort: [],
  }
 
  productQuery=injectQuery(() => ({

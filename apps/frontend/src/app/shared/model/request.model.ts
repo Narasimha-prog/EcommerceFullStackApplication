@@ -4,15 +4,12 @@ export type SortableField = 'createdDate' | 'lastModifiedDate';
 
 export type SortOrder = 'ASC' | 'DESC';
 
-export interface RequestSort {
-  property: SortableField;
-  direction: SortOrder;
-}
+
 
 export interface Pagination {
   page: number;
   size: number;
-  sort: RequestSort[];
+  sort: string[];
 }
 
 export interface Pageable {
@@ -50,14 +47,9 @@ export const createPaginationOption = (req: Pagination): HttpParams => {
   params = params.append("page", req.page).append("size", req.size);
 
   req.sort.forEach(value => {
-    params = params.append("sort", `${value.property},${value.direction}`);
+    params = params.append("sort", value);
   });
 
   return params;
 };
 
-export interface ProductFilter{
-  size?:string|string[];
-  category?:string;
-  sort:RequestSort[];
-}

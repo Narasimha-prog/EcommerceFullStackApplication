@@ -33,7 +33,7 @@ export class ProductDetails {
   pageRequest:Pagination={
     page:0,
     size:20,
-    sort:[{property:'createdDate', direction:'DESC'}]
+    sort:[]
    }
 
    productQuery=injectQuery(()=>(

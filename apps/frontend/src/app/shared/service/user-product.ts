@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { createPaginationOption, Page, Pagination, ProductFilter } from '../model/request.model';
+import { createPaginationOption, Page, Pagination } from '../model/request.model';
+import { ProductFilter } from '../../admin/model/product.model';
 import { Product, ProductCategory } from '../../admin/model/product.model';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environment/environment.devlopment';
@@ -36,15 +37,16 @@ export class UserProductService {
 
   }
 
-  public filter(pageRequest:Pagination,productFilter:ProductFilter):Observable<Page<Product>>{
-    const params=createPaginationOption(pageRequest)
-   if(productFilter.category){
-    params.append('categoryId',productFilter.category);
-   }
-   if(productFilter.size){
-    params.append('productSizes',productFilter.size);
-   }
-    return this.http.get<Page<Product>>(`${environment.apiUrl}/products-shop/filter`,{params});
-
+public filter(pageRequest:Pagination,productFilter:ProductFilter):Observable<Page<Product>>{
+  let params = createPaginationOption(pageRequest);
+  if (productFilter.category) {
+    params = params.append('categoryId', productFilter.category); // re-assigned
   }
+  if (productFilter.size) {
+    params = params.append('productSizes', productFilter.size);   // re-assigned
+  }
+
+  return this.http.get<Page<Product>>(`${environment.apiUrl}/products-shop/filter`,{params});
+
+}
 }

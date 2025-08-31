@@ -20,7 +20,7 @@ export class FeaturedComponent {
   pageRequest:Pagination={
     page:0,
     size:4,
-   sort:[{property:'createdDate', direction:'DESC'}]
+   sort:[]
   }
 
   featuredProductQuery=injectQuery(()=>(
