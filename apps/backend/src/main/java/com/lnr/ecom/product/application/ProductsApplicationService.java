@@ -17,6 +17,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class ProductsApplicationService {
 
@@ -88,5 +90,14 @@ public Page<Product> findRelated(Pageable pageable,PublicId poductPublicId){
 @Transactional(readOnly = true)
 public Page<Product> filter(Pageable pageable, FilterQuery query){
     return  productShop.filter(pageable,query);
+
 }
+
+
+@Transactional(readOnly = true)
+public List<Product> getAllProductsByIds(List<PublicId> publicIds){
+return productCURD.findAllProductsByIds(publicIds);
+   }
+
+
 }

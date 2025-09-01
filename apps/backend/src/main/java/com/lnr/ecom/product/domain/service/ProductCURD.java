@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -40,4 +41,7 @@ public class ProductCURD {
   }
 
 
+  public List<Product> findAllProductsByIds(List<PublicId> publicIds){
+    return findAllProductsByIds(publicIds);
+  }
 }
