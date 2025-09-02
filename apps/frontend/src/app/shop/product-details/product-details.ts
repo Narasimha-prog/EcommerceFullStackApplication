@@ -6,10 +6,12 @@ import { Router } from '@angular/router';
 import { Toast } from '../../shared/model/toast/toast';
 import { Pagination } from '../../shared/model/request.model';
 import { injectQuery } from '@tanstack/angular-query-experimental';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, interval, take } from 'rxjs';
 import { FaIconComponent, FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { ProductCard } from "../../hero/product-card";
 import { App } from '../../app';
+import { CartService } from '../cart/cart-service';
+import { Product } from '../../admin/model/product.model';
 
 
 @Component({
@@ -30,11 +32,16 @@ export class ProductDetails {
 
   lastPublicId='';
 
+  cartService=inject(CartService);
+
   pageRequest:Pagination={
     page:0,
     size:20,
     sort:[]
    }
+
+labelAddToCart='Add to Cart'
+iconAddToCart='shopping-cart'
 
    productQuery=injectQuery(()=>(
     {
@@ -85,6 +92,20 @@ constructor(){
     }
    }
 
+
+   addToCart(productToAdd:Product){
+
+    this.cartService.addTocart(productToAdd.publicId,'add');
+    this.labelAddToCart='Added to cart';
+    this.iconAddToCart='check';
+
+    interval(3000).pipe(take(1)).subscribe(
+      ()=>{
+             this.labelAddToCart='Add to Cart'
+             this.iconAddToCart='shopping-cart'
+      }
+    );
+   }
   }
   
 

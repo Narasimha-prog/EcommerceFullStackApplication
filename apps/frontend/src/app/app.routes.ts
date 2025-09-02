@@ -9,6 +9,7 @@ import { ProductDetails } from './shop/product-details/product-details';
 import { roleCheckGuard } from './auth/role-check-guard';
 import { ProductCard } from './hero/product-card';
 import { ProductsComponent } from './shop/products/products';
+import { CartComponent } from './shop/cart/cartComponent';
 
 
 export const appRoutes: Route[] = [
@@ -61,5 +62,9 @@ export const appRoutes: Route[] = [
          path:'products',
           component:ProductsComponent
     }
-   
+   ,
+   {
+     path:'cart',
+     component:CartComponent
+   }
 ];
