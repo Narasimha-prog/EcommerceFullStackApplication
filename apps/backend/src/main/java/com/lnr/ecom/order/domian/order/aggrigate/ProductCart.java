@@ -28,7 +28,11 @@ public class ProductCart {
   public ProductCart(ProductName name, ProductBrand brand, Picture picture,ProductPrice price, PublicId publicId) {
 
     assertFields(name,brand,picture,publicId,price);
-
+    this.name = name;
+    this.brand = brand;
+    this.picture = picture;
+    this.price = price;
+    this.publicId = publicId;
   }
 
 

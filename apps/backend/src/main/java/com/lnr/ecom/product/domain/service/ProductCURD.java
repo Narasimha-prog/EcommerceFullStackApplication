@@ -42,6 +42,6 @@ public class ProductCURD {
 
 
   public List<Product> findAllProductsByIds(List<PublicId> publicIds){
-    return findAllProductsByIds(publicIds);
+    return productRepository.findByPublicIds(publicIds);
   }
 }

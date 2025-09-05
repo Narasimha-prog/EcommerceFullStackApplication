@@ -47,7 +47,7 @@ private getCartFromLocalStorage(): Array<CartItemAdd> {
   }
 }
 
-addTocart(publicId:string,command:'add'|'remove'):void{
+addToCart(publicId:string,command:'add'|'remove'):void{
       if(isPlatformBrowser(this.platformId)){
         const itemTocart:CartItemAdd={publicId,quantity:1};
          

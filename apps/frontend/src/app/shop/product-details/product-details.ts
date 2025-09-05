@@ -95,7 +95,7 @@ constructor(){
 
    addToCart(productToAdd:Product){
 
-    this.cartService.addTocart(productToAdd.publicId,'add');
+    this.cartService.addToCart(productToAdd.publicId,'add');
     this.labelAddToCart='Added to cart';
     this.iconAddToCart='check';
 

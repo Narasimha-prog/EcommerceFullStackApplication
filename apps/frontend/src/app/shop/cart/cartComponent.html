@@ -1,1 +1,17 @@
-<p>cartComponent works!</p>
+<div class="text-2xl mb-2">Shopping cart</div>
+<div class="flex flex-col lg:flex-row">
+    <div class="flex-grow me-5 w-full">
+      @if(cartQuery.isSuccess() && this.cart.length!==0){
+          @for(item of cart;track item.publicId)  {
+            <div class="border-t border-gray-200 "></div>
+            <div class="flex items-center justify-between">
+                 <div class="p-4 flex">
+                  <img [src]="'data:'+item.picture.mineType+';base64,'+item.picture.file"
+            alt="{{item.name}}" width="110px"
+            class="h-60 sm:h-72 md:h-80 lg:h-96 w-auto object-contain mx-auto" />
+                 </div>
+            </div>
+          }
+      }
+    </div>
+</div>

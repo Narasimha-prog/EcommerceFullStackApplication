@@ -6,7 +6,7 @@ export interface CartItemAdd{
 }
 
 export interface Cart{
-    products: CartItemAdd[]
+    products: CartItem[]
 }
 
 

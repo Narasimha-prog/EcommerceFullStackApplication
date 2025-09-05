@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -26,7 +27,7 @@ public class OrderResource {
   private final OrderApplicationService applicationService;
 
 @GetMapping("/get-cart-details")
-public ResponseEntity<RestDetailCartResponse> getDetails(List<UUID> productIds){
+public ResponseEntity<RestDetailCartResponse> getDetails(@RequestParam List<UUID> productIds){
 
   List<DetailCartItemRequest> cartItemRequestList = productIds.stream().map(u -> new DetailCartItemRequest(new PublicId(u), 1)).toList();
 
