@@ -15,7 +15,7 @@ public class ProductCartMapper {
       .name(productCart.getName().value())
       .brand(productCart.getBrand().value())
       .price(productCart.getPrice().value())
-      .pitchure(RestPictureMapper.toRestDomain(productCart.getPicture()))
+      .picture(RestPictureMapper.toRestDomain(productCart.getPicture()))
       .publicId(productCart.getPublicId().value())
       .build();
   }

@@ -11,7 +11,7 @@ public class DetailCartResponseMapper {
   public static RestDetailCartResponse toDomain(DetailCartResponse cartResponse){
 
     return RestDetailCartResponseBuilder.restDetailCartResponse()
-      .productCarts(cartResponse.getProducts().stream().map(ProductCartMapper::toDomain).toList())
+      .products(cartResponse.getProducts().stream().map(ProductCartMapper::toDomain).toList())
       .build();
   }
 }

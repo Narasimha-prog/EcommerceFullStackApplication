@@ -4,5 +4,5 @@ import org.jilt.Builder;
 
 import java.util.List;
 @Builder
-public record RestDetailCartResponse(List<RestProductCart> productCarts) {
+public record RestDetailCartResponse(List<RestProductCart> products) {
 }

@@ -11,7 +11,7 @@ public record RestProductCart(
   String brand,
   double price,
   int quantity,
-  RestPitchure pitchure,
+  RestPitchure picture,
   UUID publicId
 
 ) {
