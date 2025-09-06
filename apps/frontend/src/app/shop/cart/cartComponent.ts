@@ -1,5 +1,5 @@
-import { Component, effect, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, effect, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { CartService } from './cart-service';
 import { Oauth2Service } from '../../auth/oauth2';
 import { Toast } from '../../shared/model/toast/toast';
@@ -16,6 +16,8 @@ import { RouterLink } from '@angular/router';
 })
 export class CartComponent implements OnInit{
 
+
+  platformId=inject(PLATFORM_ID);
 
 checkout() {
 throw new Error('Method not implemented.');
@@ -118,6 +120,10 @@ if(connectedUserQuery?.isError){
   }
 
   checkIfEmpty():boolean{
-    
+    if(isPlatformBrowser(this.platformId)){
+      return this.cartQuery.isSuccess()&& this.cart.length===0;
+    }else{
+      return false;
+    }
   }
 }

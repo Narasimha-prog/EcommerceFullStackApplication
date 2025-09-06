@@ -5,6 +5,9 @@ import com.lnr.ecom.order.domian.order.vo.StripeSessionId;
 import com.lnr.ecom.order.domian.user.aggrigate.User;
 import com.lnr.ecom.product.domain.vo.PublicId;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.jilt.Builder;
 
 import java.util.List;
@@ -12,6 +15,9 @@ import java.util.UUID;
 
 @Builder
 @AllArgsConstructor
+@Setter
+@Getter
+@NoArgsConstructor
 public class Order {
   private OrderStatus orderStatus;
 

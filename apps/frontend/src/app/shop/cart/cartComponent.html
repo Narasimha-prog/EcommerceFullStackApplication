@@ -37,7 +37,7 @@
     <div class="w-full justify-center flex">
         <span class="loading loading-spinner loading-lg"></span>
     </div>
-}@else if(cartQuery.isSuccess()&& this.cart.length===0){
+}@else if(checkIfEmpty()){
        <div class="flex flex-col items-center justify-center h-60">
         <div class="font-bold text-2xl ">No Items In cart</div>
         <div>Add some items to your cart</div>
