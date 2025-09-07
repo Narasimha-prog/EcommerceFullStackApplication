@@ -30,7 +30,7 @@ public class Order {
   private List<OrderedProduct> orderedProductList;
 
 
-  public Order create(User connectedUser, List<OrderedProduct> orderedProductList, StripeSessionId stripeSessionId){
+  public static Order create(User connectedUser, List<OrderedProduct> orderedProductList, StripeSessionId stripeSessionId){
     return OrderBuilder.order()
       .publicId(new PublicId(UUID.randomUUID()))
       .orderedProductList(orderedProductList)

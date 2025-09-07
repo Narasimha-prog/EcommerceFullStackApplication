@@ -53,5 +53,7 @@ Thumbs.db
 *.env
 *.encv
 
-apps/frontend/src/environment/
+apps/frontend/src/environment/*
+!apps/frontend/src/environment/environment.production.ts
+
 
