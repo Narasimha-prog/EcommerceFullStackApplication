@@ -7,7 +7,9 @@ import com.lnr.ecom.order.domian.order.aggrigate.OrderedProduct;
 import com.lnr.ecom.order.domian.order.repository.OrderRepository;
 import com.lnr.ecom.order.domian.order.vo.StripeSessionId;
 import com.lnr.ecom.order.domian.user.aggrigate.User;
+import com.lnr.ecom.order.infrastrature.secondary.service.razorpay.RazorPayService;
 import com.lnr.ecom.product.domain.aggregate.Product;
+import com.razorpay.RazorpayException;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -19,15 +21,17 @@ public class OrderCreator {
 
   private final OrderRepository orderRepository;
 
+  private final RazorPayService razorPayService;
+
 
 
   public StripeSessionId create(List<Product> productsInformation,
                                 List<DetailCartItemRequest> items,
                                 User connectedUser
-                                ){
+                                ) throws RazorpayException {
     List<OrderedProduct> orderedProductList=new ArrayList<>();
 
-    StripeSessionId stripeSessionId=null;
+    StripeSessionId stripeSessionId=this.razorPayService.createPayment(connectedUser,productsInformation,items);
 
     for(DetailCartItemRequest cartItemRequest:items) {
 
@@ -39,7 +43,7 @@ public class OrderCreator {
     }
 
 
-    Order order = Order.create(connectedUser, orderedProductList, null);
+    Order order = Order.create(connectedUser, orderedProductList, stripeSessionId);
     orderRepository.save(order);
 return stripeSessionId;
   }

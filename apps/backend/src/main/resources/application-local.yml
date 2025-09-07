@@ -96,5 +96,8 @@ application:
     audience: https://lnreddy.kinde.com/api
 
 
+Razorpay-Key: ${RAZORPAY_KEY}
 
+Razorpay-Value: ${RAZORPAY_VALUE}
 
+client-base-url: http//localhost:4200
