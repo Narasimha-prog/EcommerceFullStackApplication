@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { BaseProduct, Product, ProductCategory } from './model/product.model';
 import { Observable } from 'rxjs';
-import { environment } from '../../environment/environment.devlopment';
+import { environment } from '../../environment/environment';
 import { createPaginationOption, Page, Pagination } from '../shared/model/request.model';
 
 @Injectable({
