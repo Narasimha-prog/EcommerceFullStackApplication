@@ -45,8 +45,8 @@
           ],
           "outputHashing": "all",
           "fileReplacements": [{
-            "replace": "apps/frontend/src/environment/environment.ts",
-            "with": "apps/frontend/src/environment/environment.production.ts"
+            "replace": "apps/frontend/src/environments/environment.ts",
+            "with": "apps/frontend/src/environments/environment.production.ts"
           }]
         },
         "development": {
@@ -54,8 +54,8 @@
           "extractLicenses": false,
           "sourceMap": true,
           "fileReplacements": [{
-            "replace": "apps/frontend/src/environment/environment.ts",
-            "with": "apps/frontend/src/environment/environment.devlopment.ts"
+            "replace": "apps/frontend/src/environments/environment.ts",
+            "with": "apps/frontend/src/environments/environment.devlopment.ts"
           }]
         }
       },

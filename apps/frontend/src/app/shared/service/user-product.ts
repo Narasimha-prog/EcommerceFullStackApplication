@@ -4,7 +4,7 @@ import { createPaginationOption, Page, Pagination } from '../model/request.model
 import { ProductFilter } from '../../admin/model/product.model';
 import { Product, ProductCategory } from '../../admin/model/product.model';
 import { Observable } from 'rxjs';
-import { environment } from '../../../environment/environment';
+import { environment } from '../../../environments/environment';
 
 
 @Injectable({

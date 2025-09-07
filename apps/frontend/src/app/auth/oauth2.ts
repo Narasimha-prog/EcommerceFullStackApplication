@@ -4,7 +4,7 @@ import { CreateQueryResult, injectQuery } from '@tanstack/angular-query-experime
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { ConnectedUser } from '../shared/model/user.model';
 import { firstValueFrom, Observable } from 'rxjs';
-import { environment } from '../../environment/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'

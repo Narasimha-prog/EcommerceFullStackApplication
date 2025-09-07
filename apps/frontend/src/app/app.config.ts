@@ -11,7 +11,7 @@ import {
 } from '@angular/platform-browser';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import {AbstractSecurityStorage, authInterceptor, LogLevel, provideAuth} from 'angular-auth-oidc-client'
-import { environment } from '../environment/environment';
+import { environment } from '../environments/environment';
 import { SsrStorage } from './auth/ssr-storage';
 import { provideQueryClient, QueryClient } from '@tanstack/angular-query-experimental';
 export const appConfig: ApplicationConfig = {

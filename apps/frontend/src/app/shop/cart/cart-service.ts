@@ -3,7 +3,7 @@ import { inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Cart, CartItemAdd } from '../../shared/model/cart.model';
 import { isPlatformBrowser } from '@angular/common';
-import { environment } from '../../../environment/environment';
+import { environment } from '../../../environments/environment';
 
 
 
