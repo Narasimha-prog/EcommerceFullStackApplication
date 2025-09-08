@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { Cart, CartItemAdd } from '../../shared/model/cart.model';
+import { Cart, CartItemAdd, StripeSession } from '../../shared/model/cart.model';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../environments/environment';
 
@@ -17,8 +17,9 @@ export class CartService {
 
   http=inject(HttpClient);
 
-  private keyStorage="cart";
 
+  private keyStorage="cart";
+  private keySessionId="stripeSessionId"
 
   private addedToCart$=new BehaviorSubject<Array<CartItemAdd>>([]);
 
@@ -110,6 +111,36 @@ getCartDetails():Observable<Cart>{
       }
      }
      return cart;
+  }
+
+
+  initPaymentSession(cart:Array<CartItemAdd>): Observable<StripeSession>{
+
+    return this.http.post<StripeSession>(`${environment.apiUrl}/orders/init-payment`,cart);
+  }
+
+  storeSessionId(sessionId:string){
+
+    if(isPlatformBrowser(this.platformId)){
+        localStorage.setItem(this.keySessionId,sessionId);
+    }
+  }
+  getSessionId():string{
+
+    if(isPlatformBrowser(this.platformId)){
+       const sessionId= localStorage.getItem(this.keySessionId);
+       if(sessionId){
+              return sessionId;
+       }
+      
+    }
+     return '';
+  }
+ 
+  deleteSessionId():void{
+     if(isPlatformBrowser(this.platformId)){
+      localStorage.removeItem(this.keySessionId);
+     }
   }
 
 }

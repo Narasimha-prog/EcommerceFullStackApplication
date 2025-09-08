@@ -9,6 +9,7 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
+import { RazorpayService } from '@eduvidu/angular-razorpay';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import {AbstractSecurityStorage, authInterceptor, LogLevel, provideAuth} from 'angular-auth-oidc-client'
 import { environment } from '../environments/environment';
@@ -43,6 +44,7 @@ export const appConfig: ApplicationConfig = {
       provide: AbstractSecurityStorage, useClass: SsrStorage
     },
 
-    provideQueryClient(new QueryClient())
+    provideQueryClient(new QueryClient()),
+     RazorpayService,
   ],
 };

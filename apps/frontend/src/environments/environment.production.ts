@@ -7,5 +7,6 @@ export const environment = {
     clientId: process.env['NEXT_PUBLIC_KINDE_CLIENT_ID'] || '',
     audience: process.env['NEXT_PUBLIC_KINDE_AUDIENCE'] || ''
   },
-  apiUrl: process.env['NEXT_PUBLIC_API_URL'] || ''
+  apiUrl: process.env['NEXT_PUBLIC_API_URL'] || '',
+   razorpayKeyId: 'rzp_test_REfbtgbXooJSTS', // ✅ public key only
 };
