@@ -13,6 +13,7 @@ import org.jilt.Builder;
 @RequiredArgsConstructor
 @Data
 public class OrderedProduct {
+
   private final ProductPublicId productPublicId;
   private final OrderPrice productPrice;
   private final OrderQuentity orderQuentity;

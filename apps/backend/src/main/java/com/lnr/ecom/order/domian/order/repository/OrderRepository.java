@@ -12,7 +12,7 @@ public interface OrderRepository {
   void save(Order order);
 
 
-  void updateStatus(OrderStatus orderStatus, PublicId OrderPublicId);
+  void updateStatus(OrderStatus orderStatus, PublicId orderPublicId);
 
   Optional<Order> findByStripeSessionId(StripeSessionInformation stripeSessionInformation);
 }
