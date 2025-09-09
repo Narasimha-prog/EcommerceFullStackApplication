@@ -21,7 +21,8 @@ public interface JpaOrderRepository extends JpaRepository<OrderEntity,Long> {
 
 
 
-Optional<OrderEntity> findByStripeSessionId(String stripeSessionId);
+  Optional<OrderEntity> findByRazorpayId(String razorpayId);
+
 
 
   Page<OrderEntity> findAllByUserPublicId(UUID userPublicId, Pageable pageable);

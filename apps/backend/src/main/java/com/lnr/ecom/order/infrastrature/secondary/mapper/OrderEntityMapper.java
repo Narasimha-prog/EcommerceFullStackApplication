@@ -24,7 +24,7 @@ public class OrderEntityMapper {
     return OrderEntityBuilder.orderEntity()
       .publicId(order.getPublicId().value())
       .status(order.getOrderStatus())
-      .stripeSessionId(order.getStripeId())
+      .razorpayId(order.getRazorpayId())
       .orderedProducts(orderedProductEntity)
       .user(UserMapper.toEntity(order.getUser()))
      .build();
@@ -37,7 +37,7 @@ public static  Order toDomain(OrderEntity orderEntity){
     .user(UserMapper.toDomain(orderEntity.getUser()))
     .publicId(new PublicId(orderEntity.getPublicId()))
     .orderStatus(orderEntity.getStatus())
-    .stripeId(orderEntity.getStripeSessionId())
+    .razorpayId(orderEntity.getRazorpayId())
     .orderedProductList(orderedProducts.stream().toList())
     .build();
 }

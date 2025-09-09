@@ -29,7 +29,9 @@ public class OrderCreator {
                                   List<DetailCartItemRequest> items,
                                   User connectedUser
                                 ) throws RazorpayException {
+    //take empty OrderedProduct list
     List<OrderedProduct> orderedProductList=new ArrayList<>();
+
 
     RazorpayPaymentId razorSessionId=this.razorPayService.createPayment(connectedUser,productsInformation,items);
 

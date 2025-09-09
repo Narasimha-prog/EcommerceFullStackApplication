@@ -29,16 +29,12 @@ export interface Sort {
 
 export interface Page<T> {
   content: T[];
-  pageable: Pageable;
-  last: boolean;
-  totalElements: number;
-  totalPages: number;
-  sort: Sort;
-  number: number;
-  size: number;
-  first: boolean;
-  numberOfElements: number;
-  empty: boolean;
+  page: {
+    size: number;
+    number: number;
+    totalElements: number;
+    totalPages: number;
+  };
 }
 
 

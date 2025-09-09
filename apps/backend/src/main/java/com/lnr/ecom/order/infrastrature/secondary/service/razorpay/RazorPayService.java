@@ -46,14 +46,17 @@ public class RazorPayService {
       .mapToDouble(item -> (item.quentity() * getProductPrice(products, item)))
       .sum() * 100;
 
+
+
     JSONObject orderRequest = new JSONObject();
     orderRequest.put("amount", totalAmount); // amount in paise
     orderRequest.put("currency", "INR");
-    orderRequest.put("receipt", connectedUser.getPublicId().userPublicId().toString());
+    orderRequest.put("receipt", connectedUser.getPublicId().value().toString());
     orderRequest.put("payment_capture", 1);
 
     // Create Razorpay Order
     com.razorpay.Order razorpayOrder = razorpayClient.orders.create(orderRequest);
+
     razorPayStatus = razorpayOrder.get("status");
 
     return new RazorpayPaymentId(razorpayOrder.get("id"));
@@ -65,6 +68,8 @@ public class RazorPayService {
       .filter(p -> p.getPublicId().value().equals(item.publicId().value()))
       .findFirst()
       .orElseThrow(() -> new IllegalArgumentException("Product not found: " + item.publicId().value()))
-      .getProductPrice().value(); // Assuming ProductPrice has a value() method returning int
+      .getProductPrice().value();
+
+    // getting product price while compare with cartItem (product id+quantity)
   }
 }

@@ -56,26 +56,32 @@ public class OrderApplicationService {
 
   @Transactional
   public RazorpayPaymentId createOrder(List<DetailCartItemRequest> detailCartItemRequests) throws RazorpayException {
-
+    //get authenticated user
     User authenticatedUser=userApplicationService.getAuthenticatedUser();
 
+    //get products public id
     List<PublicId> publicIds=detailCartItemRequests.stream().map(DetailCartItemRequest::publicId).toList();
-
+    //get products using their ids
     List<Product> products=applicationService.getAllProductsByIds(publicIds);
-
+      //products+quantities+user
 return  orderCreator.create(products,detailCartItemRequests,authenticatedUser);
   }
 @Transactional
-public void updateOrder(RazorpayPaymentInformation stripeSessionInformation) {
-  List<OrderedProduct> orderedProductList = orderUpdater.orderUpdateFromStripe(stripeSessionInformation);
+public void updateOrder(RazorpayPaymentInformation razorpayPaymentInformation) {
 
+    //update only status(Paid) -domain
+  List<OrderedProduct> orderedProductList = orderUpdater.orderUpdateFromRazorPay(razorpayPaymentInformation);
+
+    //update products quantity -domain
   List<OrderProductQuantity> orderProductQuantities = this.orderUpdater.computeQuantity(orderedProductList);
+
   this.applicationService.updateProductQuantity(orderProductQuantities);
-  this.userApplicationService.updateUserAddress(stripeSessionInformation.userAddressToUpdate());
+
 }
 
 @Transactional(readOnly = true)
 public Page<Order> findOrdersForConnectedUser(Pageable pageable){
+//find order for authenticated user
     User authenticatedUser=userApplicationService.getAuthenticatedUser();
   return orderReader.findAllByPublicId(authenticatedUser.getPublicId(), pageable);
 
@@ -83,7 +89,7 @@ public Page<Order> findOrdersForConnectedUser(Pageable pageable){
 
   @Transactional(readOnly = true)
   public Page<Order> findOrdersForAdmin(Pageable pageable){
-
+    //find order for admin
     return orderReader.findAll(pageable);
 
   }

@@ -20,29 +20,26 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor
 public class Order {
+
   private OrderStatus orderStatus;
-
   private User user;
-
-  private String stripeId;
-
+  private String razorpayId;
   private PublicId publicId;
-
   private List<OrderedProduct> orderedProductList;
 
 
-  public static Order create(User connectedUser, List<OrderedProduct> orderedProductList, RazorpayPaymentId razorSessionId){
+  public static Order create(User connectedUser, List<OrderedProduct> orderedProductList, RazorpayPaymentId razorpayId){
     return OrderBuilder.order()
       .publicId(new PublicId(UUID.randomUUID()))
       .orderedProductList(orderedProductList)
       .user(connectedUser)
       .orderStatus(OrderStatus.PENDING)
-      .stripeId(razorSessionId.value())
+      .razorpayId(razorpayId.value())
       .build();
   }
 
-  public void validatePayment(){
-    this.orderStatus=OrderStatus.PAID;
+  public void validatePayment(OrderStatus status){
+    this.orderStatus=status;
   }
 
 }

@@ -103,6 +103,7 @@ return productCURD.findAllProductsByIds(publicIds);
 
 @Transactional
    public void updateProductQuantity(List<OrderProductQuantity> orderProductQuantities){
+     //update (quantity + product publicId)
     productUpdater.updateProductQuantity(orderProductQuantities);
 
    }

@@ -19,9 +19,9 @@ public class OrderedProduct {
   private final OrderQuentity orderQuentity;
   private final ProductName productName;
 
-public static OrderedProduct create(long quentity, Product product){
+public static OrderedProduct create(long quantity, Product product){
   return OrderedProductBuilder.orderedProduct()
-    .orderQuentity(new OrderQuentity(quentity))
+    .orderQuentity(new OrderQuentity(quantity))
     .productPrice(new OrderPrice(product.getProductPrice().value()))
     .productPublicId(new ProductPublicId(product.getPublicId().value()))
     .productName(product.getProductName())

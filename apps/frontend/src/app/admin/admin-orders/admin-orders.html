@@ -7,7 +7,7 @@
 <div class="border-t w-full border-solid border-gray-300 mt-2 mb-5 ">
 
 </div>
-@if (orderQuery.isSuccess() && orderQuery.data().numberOfElements!==0) {
+@if (orderQuery.isSuccess() && orderQuery.data().page.totalElements!==0) {
 <div class="overflow-x-auto border border-gray-300 rounded-md">
     <table class="table table-lg table-zebra">
       <thead class="border-gray-300">
@@ -37,12 +37,35 @@
       </tbody>
     </table>
 </div>
+<div class="flex justify-between items-center mt-4">
+  <button class="btn btn-outline" 
+          [disabled]="pageRequest.page === 0"
+          (click)="prevPage()">
+    Previous
+  </button>
+
+  @for(page of totalPagesArray(); track $index; let idx = $index) {
+  <button class="join-item btn"
+          [class.btn-active]="idx === pageRequest.page"
+          (click)="setPage(idx)">
+    {{ idx + 1 }}
+  </button>
+}
+
+  <button class="btn btn-outline"
+          [disabled]="pageRequest.page === (orderQuery.data().page.totalPages) - 1"
+          (click)="nextPage()">
+    Next
+  </button>
+
+
+</div>
 
 }@else if (orderQuery.isPending()) {
     <div class="w-full justify-center flex">
         <span class="loading loading-spinner loading-lg"></span>
     </div>
-}@else if (orderQuery.data()?.numberOfElements===0) {
+}@else if (orderQuery.data()?.page?.totalElements===0) {
     <div class="alert alert-info">
      <fa-icon [icon]="['fas','circle-exclamation']"  size="2x" ></fa-icon>
      <span>No Orders created yet.</span>

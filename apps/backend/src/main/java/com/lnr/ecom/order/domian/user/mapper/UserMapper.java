@@ -28,7 +28,7 @@ public final class UserMapper {
     }
 
     if(user.getPublicId()!= null){
-      entityBuilder.publicId(user.getPublicId().userPublicId());
+      entityBuilder.publicId(user.getPublicId().value());
     }
 
     if(user.getImageUrl()!= null){

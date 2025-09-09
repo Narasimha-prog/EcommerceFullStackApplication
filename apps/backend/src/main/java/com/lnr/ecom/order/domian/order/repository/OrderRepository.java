@@ -19,7 +19,7 @@ public interface OrderRepository {
 
   void updateStatus(OrderStatus orderStatus, PublicId orderPublicId);
 
-  Optional<Order> findByStripeSessionId(RazorpayPaymentInformation razorSessionInformation);
+  Optional<Order> findByRazorPayId(RazorpayPaymentInformation razorSessionInformation);
 
 
   Page<Order> findAllByPublicId(UserPublicId userPublicId, Pageable pageable);

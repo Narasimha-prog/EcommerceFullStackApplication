@@ -27,7 +27,7 @@ public record RestUser(
  return   restUserBuilder.firstName(user.getFirstName().userFirstName())
    .lastName(user.getLastName().userLastName())
    .email(user.getEmail().email())
-   .publicId(user.getPublicId().userPublicId())
+   .publicId(user.getPublicId().value())
    .authorities(RestAuthority.fromSet(user.getAuthorities()))
    .build();
   }

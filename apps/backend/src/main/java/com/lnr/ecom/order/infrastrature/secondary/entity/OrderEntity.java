@@ -36,7 +36,7 @@ private UUID publicId;
 private OrderStatus status;
 
 @Column(name = "stripe_session_id",nullable = false)
-private String stripeSessionId;
+private String razorpayId;
 
 @OneToMany(mappedBy = "id.order",cascade = CascadeType.REMOVE)
 private Set<OrderedProductEntity>  orderedProducts=new HashSet<>();
@@ -49,11 +49,11 @@ private UserEntity user;
   @Override
   public boolean equals(Object o) {
     if (!(o instanceof OrderEntity that)) return false;
-    return Objects.equals(publicId, that.publicId) && status == that.status && Objects.equals(stripeSessionId, that.stripeSessionId);
+    return Objects.equals(publicId, that.publicId) && status == that.status && Objects.equals(razorpayId, that.razorpayId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(publicId, status, stripeSessionId);
+    return Objects.hash(publicId, status, razorpayId);
   }
 }

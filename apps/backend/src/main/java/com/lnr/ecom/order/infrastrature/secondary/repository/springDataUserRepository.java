@@ -36,7 +36,7 @@ public class springDataUserRepository implements UserRepostory {
 
     @Override
     public Optional<User> get(UserPublicId publicId) {
-        return repository.findOneByPublicId(publicId.userPublicId())
+        return repository.findOneByPublicId(publicId.value())
                 .map(UserMapper::toDomain);
     }
 
@@ -48,7 +48,7 @@ public class springDataUserRepository implements UserRepostory {
     @Override
     public void updateAddress(UserPublicId publicId, UserAddressToUpdate address) {
         repository.updateAddress(
-                publicId.userPublicId()
+                publicId.value()
                 ,address.userAddress().street()
                 ,address.userAddress().city()
                 ,address.userAddress().cuntry()

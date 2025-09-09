@@ -6,12 +6,13 @@ import com.lnr.ecom.order.application.OrderApplicationService;
 import com.lnr.ecom.order.domian.order.aggrigate.*;
 import com.lnr.ecom.order.domian.order.mapper.DetailCartResponseMapper;
 
+import com.lnr.ecom.order.domian.order.vo.OrderStatus;
 import com.lnr.ecom.order.domian.order.vo.RazorpayPaymentId;
 import com.lnr.ecom.order.domian.user.vo.*;
 import com.lnr.ecom.order.infrastrature.primary.mapper.DetailCartItemRequestMapper;
 import com.lnr.ecom.order.infrastrature.primary.mapper.RestOrderReadAdminMapper;
 import com.lnr.ecom.order.infrastrature.primary.mapper.RestOrderReadMapper;
-import com.lnr.ecom.order.infrastrature.primary.mapper.RestStripeSessionMapper;
+import com.lnr.ecom.order.infrastrature.primary.mapper.RestRazorPayMapper;
 import com.lnr.ecom.order.infrastrature.primary.order.*;
 import com.lnr.ecom.product.domain.vo.PublicId;
 import com.razorpay.RazorpayException;
@@ -56,26 +57,12 @@ public class OrderResource {
     return ResponseEntity.ok(DetailCartResponseMapper.toDomain(cartDetails));
   }
 
-  @PostMapping("/init-payment")
-  public ResponseEntity<RestRazorPaySession> initPayment(@RequestBody List<RestCartItemRequest> items) {
 
-    List<DetailCartItemRequest> domainList = DetailCartItemRequestMapper.toDomainList(items);
-
-    try {
-      RazorpayPaymentId order = applicationService.createOrder(domainList);
-      RestRazorPaySession restStripeSession = RestStripeSessionMapper.toDomain(order);
-      return ResponseEntity.ok(restStripeSession);
-    } catch (RazorpayException e) {
-      return ResponseEntity.badRequest().build();
-    }
-  }
 
   @PostMapping("/webhook")
   public ResponseEntity<Void> webhookRazorpay(@RequestBody String payload,
                                               @RequestHeader("X-Razorpay-Signature") String razorpaySignature) {
     try {
-
-
       boolean isValidSignature = Utils.verifyWebhookSignature(payload, razorpaySignature, secretKey);
       if (!isValidSignature) {
         return ResponseEntity.badRequest().build();
@@ -85,8 +72,7 @@ public class OrderResource {
       JsonNode root = mapper.readTree(payload);
 
       String eventType = root.get("event").asText();
-
-log.info("Payment status..{}", eventType);
+      log.info("Payment status..{}", eventType);
 
       switch (eventType) {
         case "order.paid":
@@ -95,49 +81,62 @@ log.info("Payment status..{}", eventType);
           log.info("💳 Payment entity: {}", paymentEntity.toPrettyString());
           handleOrderPaid(paymentEntity);
           break;
+        default:
+          log.warn("Unhandled event type: {}", eventType);
       }
 
       return ResponseEntity.ok().build();
+
     } catch (Exception e) {
-      e.printStackTrace();
+      log.error("Error while processing Razorpay webhook: ", e);
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
   }
 
   private void handleOrderPaid(JsonNode paymentEntity) {
-    // Extract fields like you did from Stripe Session
-    String razorpayPaymentId = paymentEntity.get("id").asText();
-    String orderId = paymentEntity.get("order_id").asText();
+    String razorpayPaymentId = paymentEntity.get("order_id").asText();
+    String razorpayStatus = paymentEntity.get("status").asText();
 
-    // Equivalent to Stripe metadata → Razorpay notes
-    String userPublicId = paymentEntity.path("notes").path("user_public_id").asText();
+    OrderStatus orderStatus = mapRazorpayStatus(razorpayStatus);
 
-    // You usually capture address in notes OR in your DB
-    String city = paymentEntity.path("notes").path("city").asText(null);
-    String country = paymentEntity.path("notes").path("country").asText(null);
-    String zip = paymentEntity.path("notes").path("zip").asText(null);
-    String street = paymentEntity.path("notes").path("street").asText(null);
-
-    UserAddress userAddress = UserAddressBuilder.userAddress()
-      .city(city)
-      .cuntry(country)
-      .zipCode(zip)
-      .street(street)
-      .build();
-
-    UserAddressToUpdate userAddressToUpdate = UserAddressToUpdateBuilder.userAddressToUpdate()
-      .userAddress(userAddress)
-      .userPublicId(new UserPublicId(UUID.fromString(userPublicId)))
-      .build();
-
+    // Build payment information safely
     RazorpayPaymentInformation paymentInformation = RazorpayPaymentInformationBuilder
       .razorpayPaymentInformation()
-      .userAddressToUpdate(userAddressToUpdate)
-      .razorSessionId(new RazorpayPaymentId(razorpayPaymentId))
+      .razorpayId(new RazorpayPaymentId(razorpayPaymentId))
+      .status(orderStatus) // <-- map status here
       .build();
 
     this.applicationService.updateOrder(paymentInformation);
   }
+
+  /** Map Razorpay status to internal OrderStatus */
+  private OrderStatus mapRazorpayStatus(String razorpayStatus) {
+    if ("captured".equalsIgnoreCase(razorpayStatus)) {
+      return OrderStatus.PAID;
+    } else {
+      return OrderStatus.PENDING;
+    }
+  }
+
+
+
+  @PostMapping("/init-payment")
+  public ResponseEntity<RestRazorPayId> initPayment(@RequestBody List<RestCartItemRequest> items) {
+
+    //product item + quantity
+    List<DetailCartItemRequest> domainList = DetailCartItemRequestMapper.toDomainList(items);
+
+    try {
+      RazorpayPaymentId order = applicationService.createOrder(domainList);
+
+      RestRazorPayId restRazorPayId = RestRazorPayMapper.toDomain(order);
+log.info("intialize payment razorPyaid: {}",restRazorPayId);
+      return ResponseEntity.ok(restRazorPayId);
+    } catch (RazorpayException e) {
+      return ResponseEntity.badRequest().build();
+    }
+  }
+
 
 
 @GetMapping("/user")

@@ -12,7 +12,9 @@ public class ProductUpdater {
   private final ProductRepository productRepository;
 
   public void updateProductQuantity(List<OrderProductQuantity> orderProductQuantities){
+
     for(OrderProductQuantity orderProductQuantity:orderProductQuantities){
+
       productRepository.updateQuantity(orderProductQuantity.productPublicId(),orderProductQuantity.orderQuentity().value());
 
     }

@@ -17,16 +17,12 @@ public class ProductCart {
 
 
   private ProductName name;
-
   private ProductBrand brand;
-
   private Picture  picture;
-
   private ProductPrice price;
   private PublicId publicId;
 
   public ProductCart(ProductName name, ProductBrand brand, Picture picture,ProductPrice price, PublicId publicId) {
-
     assertFields(name,brand,picture,publicId,price);
     this.name = name;
     this.brand = brand;

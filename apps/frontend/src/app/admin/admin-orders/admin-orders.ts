@@ -46,4 +46,25 @@ export class AdminOrders {
   checkIfPlatFormBrowser():boolean{
     return isPlatformBrowser(this.platformId);
   }
+
+  setPage(page: number) {
+  if (page < 0 || page >= (this.orderQuery.data()?.page.totalPages ?? 1)) return;
+  this.pageRequest = { ...this.pageRequest, page };
+  this.orderQuery.refetch(); // refresh query with new page
+}
+
+nextPage() {
+  this.setPage(this.pageRequest.page + 1);
+}
+
+prevPage() {
+  this.setPage(this.pageRequest.page - 1);
+}
+
+ totalPagesArray() {
+ 
+  return Array.from({ length: this.orderQuery.data()?.page.totalPages || 1 });
+}
+
+
 }
