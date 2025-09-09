@@ -10,6 +10,9 @@ import { roleCheckGuard } from './auth/role-check-guard';
 import { ProductCard } from './hero/product-card';
 import { ProductsComponent } from './shop/products/products';
 import { CartComponent } from './shop/cart/cartComponent';
+import { CartSuccessComponent } from './shop/cart-success/cart-success.componenet';
+import { UserOrder } from './user/user-order';
+import { AdminOrders } from './admin/admin-orders/admin-orders';
 
 
 export const appRoutes: Route[] = [
@@ -66,5 +69,23 @@ export const appRoutes: Route[] = [
    {
      path:'cart',
      component:CartComponent
-   }
+   },
+   {
+      path:'cart/success',
+      component:CartSuccessComponent
+   },
+   {
+      path:'users/orders',
+      component:UserOrder
+   },
+   {
+         path: 'admin/orders/list',
+
+         component: AdminOrders,
+         canActivate: [roleCheckGuard],
+         data: {
+            authorities: ['ROLE_ADMIN'],
+         }
+    },
+    
 ];

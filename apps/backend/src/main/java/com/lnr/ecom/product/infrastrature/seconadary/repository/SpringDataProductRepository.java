@@ -1,6 +1,7 @@
 package com.lnr.ecom.product.infrastrature.seconadary.repository;
 
 
+import com.lnr.ecom.order.domian.order.vo.ProductPublicId;
 import com.lnr.ecom.product.domain.aggregate.FilterQuery;
 import com.lnr.ecom.product.domain.aggregate.Picture;
 import com.lnr.ecom.product.domain.aggregate.Product;
@@ -100,7 +101,7 @@ public class SpringDataProductRepository implements ProductRepository {
   }
 
   @Override
-  public void updateQuantity(PublicId productPublicId, long quantity) {
+  public void updateQuantity(ProductPublicId productPublicId, long quantity) {
     jpaProductRepository.updateQuantity(productPublicId.value(), quantity);
   }
 }

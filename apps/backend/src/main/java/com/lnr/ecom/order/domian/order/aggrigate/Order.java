@@ -1,7 +1,8 @@
 package com.lnr.ecom.order.domian.order.aggrigate;
 
 import com.lnr.ecom.order.domian.order.vo.OrderStatus;
-import com.lnr.ecom.order.domian.order.vo.StripeSessionId;
+import com.lnr.ecom.order.domian.order.vo.RazorpayPaymentId;
+
 import com.lnr.ecom.order.domian.user.aggrigate.User;
 import com.lnr.ecom.product.domain.vo.PublicId;
 import lombok.AllArgsConstructor;
@@ -30,13 +31,13 @@ public class Order {
   private List<OrderedProduct> orderedProductList;
 
 
-  public static Order create(User connectedUser, List<OrderedProduct> orderedProductList, StripeSessionId stripeSessionId){
+  public static Order create(User connectedUser, List<OrderedProduct> orderedProductList, RazorpayPaymentId razorSessionId){
     return OrderBuilder.order()
       .publicId(new PublicId(UUID.randomUUID()))
       .orderedProductList(orderedProductList)
       .user(connectedUser)
       .orderStatus(OrderStatus.PENDING)
-      .stripeId(stripeSessionId.value())
+      .stripeId(razorSessionId.value())
       .build();
   }
 

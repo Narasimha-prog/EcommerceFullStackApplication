@@ -13,7 +13,7 @@ public class OrderUpdater {
   private final OrderRepository orderRepository;
 
 
-  public List<OrderedProduct>  orderUpdateFromStripe(StripeSessionInformation stripeSessionInformation){
+  public List<OrderedProduct>  orderUpdateFromStripe(RazorpayPaymentInformation stripeSessionInformation){
     Order order = orderRepository.findByStripeSessionId(stripeSessionInformation).orElseThrow();
     order.validatePayment();
     orderRepository.updateStatus(order.getOrderStatus(),order.getPublicId());

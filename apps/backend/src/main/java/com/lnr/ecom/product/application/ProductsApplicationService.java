@@ -1,5 +1,6 @@
 package com.lnr.ecom.product.application;
 
+import com.lnr.ecom.order.domian.order.aggrigate.OrderProductQuantity;
 import com.lnr.ecom.product.domain.aggregate.Category;
 import com.lnr.ecom.product.domain.aggregate.FilterQuery;
 import com.lnr.ecom.product.domain.aggregate.Product;
@@ -8,12 +9,10 @@ import com.lnr.ecom.product.domain.repository.ProductRepository;
 import com.lnr.ecom.product.domain.service.CategoryCURD;
 import com.lnr.ecom.product.domain.service.ProductCURD;
 import com.lnr.ecom.product.domain.service.ProductShop;
+import com.lnr.ecom.product.domain.service.ProductUpdater;
 import com.lnr.ecom.product.domain.vo.PublicId;
-import com.lnr.ecom.product.infrastrature.primary.RestProduct;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,11 +27,14 @@ public class ProductsApplicationService {
 
   private final ProductShop productShop;
 
+  private final ProductUpdater productUpdater;
+
 
   public ProductsApplicationService(ProductRepository productRepository, CategoryRepository categoryRepository ) {
     this.productCURD=new ProductCURD(productRepository);
     this.categoryCURD=new CategoryCURD(categoryRepository);
     this.productShop = new ProductShop(productRepository);
+    this.productUpdater=new ProductUpdater(productRepository);
   }
 @Transactional
   public Product createProduct(Product newProduct){
@@ -99,5 +101,10 @@ public List<Product> getAllProductsByIds(List<PublicId> publicIds){
 return productCURD.findAllProductsByIds(publicIds);
    }
 
+@Transactional
+   public void updateProductQuantity(List<OrderProductQuantity> orderProductQuantities){
+    productUpdater.updateProductQuantity(orderProductQuantities);
+
+   }
 
 }

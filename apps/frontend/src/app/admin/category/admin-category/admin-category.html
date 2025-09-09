@@ -25,6 +25,8 @@
                     <td>{{i+1}}</td>
                     <td class="text-sm">{{category.publicId}}</td>
                     <td class="text-sm">{{category.name}}</td>
+                    <td class="btn btn-secondary btn-sm mt-3 me-2" *ngIf="category.publicId"
+                        (click)="editCategory(category.publicId)">Edit</td>
                     <td class="btn btn-secondary btn-sm mt-3" *ngIf="category.publicId"
                         (click)="deleteCategory(category.publicId)">Delete</td>
                 </tr>

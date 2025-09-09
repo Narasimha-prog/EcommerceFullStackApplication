@@ -152,6 +152,7 @@ ngOnInit(): void {
         this.isInitPaymentIsLoading=true;
        const cartItemsAdd= this.cart.map(item=>({publicId:item.publicId,quantity:item.quantity})as CartItemAdd)
        this.initPaymentSession.mutate(cartItemsAdd);
+       
      }
 }
 
@@ -181,6 +182,7 @@ const user = this.connectedUserQuery.data();  // data() is a function
         `Payment success: ${res.razorpay_payment_id}`,
         'SUCCESS'
       );
+      this.cartService.goToSuccess(session.id);
     })
     .onPaymentError((err) => {
       this.isInitPaymentIsLoading = false;

@@ -4,6 +4,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Cart, CartItemAdd, StripeSession } from '../../shared/model/cart.model';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 
 
 
@@ -12,13 +13,16 @@ import { environment } from '../../../environments/environment';
 })
 export class CartService {
 
+
+ routerService=inject(Router)
+
   platformId=inject(PLATFORM_ID);
 
 
   http=inject(HttpClient);
 
 
-  private keyStorage="cart";
+  private keyCartStorage="cart";
   private keySessionId="stripeSessionId"
 
   private addedToCart$=new BehaviorSubject<Array<CartItemAdd>>([]);
@@ -35,7 +39,7 @@ constructor(){
 
 private getCartFromLocalStorage(): Array<CartItemAdd> {
   if (isPlatformBrowser(this.platformId)) {
-    const cartProducts = localStorage.getItem(this.keyStorage);
+    const cartProducts = localStorage.getItem(this.keyCartStorage);
 
     if (cartProducts) {
       return JSON.parse(cartProducts) as CartItemAdd[];
@@ -69,7 +73,7 @@ addToCart(publicId:string,command:'add'|'remove'):void{
          cartFromLocalStorage.push(itemTocart)
        }
 
-     localStorage.setItem(this.keyStorage,JSON.stringify(cartFromLocalStorage));
+     localStorage.setItem(this.keyCartStorage,JSON.stringify(cartFromLocalStorage));
      this.addedToCart$.next(cartFromLocalStorage);
       
 
@@ -85,7 +89,7 @@ if(isPlatformBrowser(this.platformId)){
 
    if(productExisit){
     cartFromLocalStorage.splice(cartFromLocalStorage.indexOf(productExisit),1);
-    localStorage.setItem(this.keyStorage,JSON.stringify(cartFromLocalStorage));
+    localStorage.setItem(this.keyCartStorage,JSON.stringify(cartFromLocalStorage));
      this.addedToCart$.next(cartFromLocalStorage);
       
    }
@@ -143,4 +147,15 @@ getCartDetails():Observable<Cart>{
      }
   }
 
+   clearCart() {
+     if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem(this.keyCartStorage)
+      this.addedToCart$.next([]);
+     }
+  }
+
+  
+goToSuccess(orderId: string) {
+  this.routerService.navigate(['/cart/success'], { queryParams: { orderId } });
+}
 }

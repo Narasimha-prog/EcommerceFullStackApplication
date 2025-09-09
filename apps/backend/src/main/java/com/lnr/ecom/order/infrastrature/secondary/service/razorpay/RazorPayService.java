@@ -1,7 +1,8 @@
 package com.lnr.ecom.order.infrastrature.secondary.service.razorpay;
 
 import com.lnr.ecom.order.domian.order.aggrigate.DetailCartItemRequest;
-import com.lnr.ecom.order.domian.order.vo.StripeSessionId;
+
+import com.lnr.ecom.order.domian.order.vo.RazorpayPaymentId;
 import com.lnr.ecom.order.domian.user.aggrigate.User;
 import com.lnr.ecom.product.domain.aggregate.Product;
 import com.razorpay.RazorpayClient;
@@ -38,7 +39,7 @@ public class RazorPayService {
   /**
    * Create a Razorpay Order and return session info for frontend
    */
-  public StripeSessionId createPayment(User connectedUser, List<Product> products, List<DetailCartItemRequest> items) throws RazorpayException {
+  public RazorpayPaymentId createPayment(User connectedUser, List<Product> products, List<DetailCartItemRequest> items) throws RazorpayException {
 
     // Calculate total amount (paise)
     double totalAmount = items.stream()
@@ -55,7 +56,7 @@ public class RazorPayService {
     com.razorpay.Order razorpayOrder = razorpayClient.orders.create(orderRequest);
     razorPayStatus = razorpayOrder.get("status");
 
-    return new StripeSessionId(razorpayOrder.get("id"));
+    return new RazorpayPaymentId(razorpayOrder.get("id"));
   }
 
   // Helper to get product price

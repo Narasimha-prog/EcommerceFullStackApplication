@@ -38,6 +38,13 @@ deleteMutaion=injectMutation(() => ({
 
 }));
 
+editMutaion=injectMutation(() => ({
+  mutationFn: (categoryPublicId: string) => lastValueFrom(this.productAdminService.deleteCategory(categoryPublicId)),
+  onSuccess: () => this.onDeleteSuccess(),
+  onError: (error:unknown) => this.onDeleteError(error),
+
+}));
+
 
 constructor(){
   effect(()=>{
@@ -63,6 +70,9 @@ constructor(){
         }
   }
  deleteCategory(publicId: string) {
+    this.deleteMutaion.mutate(publicId);
+  }
+  editCategory(publicId: string) {
     this.deleteMutaion.mutate(publicId);
   }
 

@@ -51,6 +51,12 @@ deleteProduct(publicId:string):Observable<string>{
     return this.http.delete<string>(`${environment.apiUrl}/products`, {params});
   }
 
+  editProduct(publicId:string):Observable<string>{
+  const params=new HttpParams().set('publicId', publicId);
+
+    return this.http.delete<string>(`${environment.apiUrl}/products`, {params});
+  }
+
 
   findAllProducts(pageRequest:Pagination): Observable<Page<Product>>{
    const params= createPaginationOption(pageRequest);

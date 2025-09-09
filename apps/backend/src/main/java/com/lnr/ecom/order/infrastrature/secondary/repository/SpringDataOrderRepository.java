@@ -2,17 +2,21 @@ package com.lnr.ecom.order.infrastrature.secondary.repository;
 
 
 import com.lnr.ecom.order.domian.order.aggrigate.Order;
-import com.lnr.ecom.order.domian.order.aggrigate.StripeSessionInformation;
+import com.lnr.ecom.order.domian.order.aggrigate.RazorpayPaymentInformation;
 import com.lnr.ecom.order.domian.order.mapper.OrderMapper;
 import com.lnr.ecom.order.domian.order.repository.OrderRepository;
 import com.lnr.ecom.order.domian.order.vo.OrderStatus;
+import com.lnr.ecom.order.domian.user.vo.UserPublicId;
 import com.lnr.ecom.order.infrastrature.secondary.entity.OrderEntity;
 import com.lnr.ecom.order.infrastrature.secondary.mapper.OrderEntityMapper;
 import com.lnr.ecom.product.domain.vo.PublicId;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 @RequiredArgsConstructor
@@ -43,7 +47,17 @@ public class SpringDataOrderRepository implements OrderRepository {
   }
 
   @Override
-  public Optional<Order> findByStripeSessionId(StripeSessionInformation stripeSessionInformation) {
-    return jpaOrderRepository.findByStripeSessionId(stripeSessionInformation.stripeSessionId().value()).map(OrderEntityMapper::toDomain);
+  public Optional<Order> findByStripeSessionId(RazorpayPaymentInformation stripeSessionInformation) {
+    return jpaOrderRepository.findByStripeSessionId(stripeSessionInformation.razorSessionId().value()).map(OrderEntityMapper::toDomain);
+  }
+
+  @Override
+  public Page<Order> findAllByPublicId(UserPublicId userPublicId, Pageable pageable) {
+    return jpaOrderRepository.findAllByUserPublicId(userPublicId.userPublicId(),pageable).map(OrderEntityMapper::toDomain);
+  }
+
+  @Override
+  public Page<Order> findAll(Pageable pageable) {
+    return jpaOrderRepository.findAll(pageable).map(OrderEntityMapper::toDomain);
   }
 }

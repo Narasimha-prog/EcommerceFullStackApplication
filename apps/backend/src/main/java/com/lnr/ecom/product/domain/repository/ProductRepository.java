@@ -1,5 +1,6 @@
 package com.lnr.ecom.product.domain.repository;
 
+import com.lnr.ecom.order.domian.order.vo.ProductPublicId;
 import com.lnr.ecom.product.domain.aggregate.FilterQuery;
 import com.lnr.ecom.product.domain.aggregate.Product;
 import com.lnr.ecom.product.domain.vo.PublicId;
@@ -27,5 +28,5 @@ public interface ProductRepository {
 
   List<Product> findByPublicIds(List<PublicId> publicIds);
 
-  void updateQuantity(PublicId productPublicId, long quantity);
+  void updateQuantity(ProductPublicId productPublicId, long quantity);
 }

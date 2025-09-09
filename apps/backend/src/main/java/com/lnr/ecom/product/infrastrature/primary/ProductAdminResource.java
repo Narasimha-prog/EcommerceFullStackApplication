@@ -73,6 +73,9 @@ public class ProductAdminResource {
 
   }
 
+
+
+
   @GetMapping
   @PreAuthorize("hasAnyRole('"+ROLE_ADMIN+"')")
   public ResponseEntity<Page<RestProduct>> getAll(Pageable pageable){
