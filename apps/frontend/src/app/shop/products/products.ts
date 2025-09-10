@@ -20,9 +20,13 @@ import { ProductCard } from '../../hero/product-card';
   styleUrl: './products.scss',
 })
 export class ProductsComponent {
+
   category = injectQueryParams('category');
+
   size = injectQueryParams('size');
+
   sort = injectQueryParams('sort');
+
   productService = inject(UserProductService);
   router = inject(Router);
   toastService = inject(Toast);
@@ -46,6 +50,7 @@ export class ProductsComponent {
     effect(() => this.handleParametersChange());
   }
 
+  
   filteredProductsQuery = injectQuery(() => ({
     queryKey: ['products', this.filterProducts],
     queryFn: () =>

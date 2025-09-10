@@ -13,6 +13,7 @@ import { CartComponent } from './shop/cart/cartComponent';
 import { CartSuccessComponent } from './shop/cart-success/cart-success.componenet';
 import { UserOrder } from './user/user-order';
 import { AdminOrders } from './admin/admin-orders/admin-orders';
+import { CategoryFilter } from './shop/shop-collection/category-filter';
 
 
 export const appRoutes: Route[] = [
@@ -62,6 +63,11 @@ export const appRoutes: Route[] = [
       component: ProductDetails
     },
     {
+      path:'shop/collection',
+      component:CategoryFilter
+    },
+    
+    {
          path:'products',
           component:ProductsComponent
     }
@@ -87,5 +93,6 @@ export const appRoutes: Route[] = [
             authorities: ['ROLE_ADMIN'],
          }
     },
+    
     
 ];

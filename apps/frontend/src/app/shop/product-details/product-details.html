@@ -10,7 +10,7 @@
     <div class="w-full lg:w-auto">
         <h1 class="text-3xl font-bold "> {{productQuery.data().name}} - {{productQuery.data().size}}</h1>
         @if(productQuery.data().nbInStock!>0){
-        <span class="text-green-500 text-lg">In Stock</span>
+        <span class="text-green-500 text-lg"><span class="font-bold text-black me-2">{{productQuery.data().nbInStock}} </span>  In Stock</span>
         }
         @else {
         <span class="text-red-500 text-lg">Out of Stock</span>
