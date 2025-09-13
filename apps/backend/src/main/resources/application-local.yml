@@ -7,7 +7,7 @@ logging:
 spring:
   docker:
     compose:
-      enabled: true
+      enabled: false
   config:
     import: optional:file:.env[.properties]
   application:
@@ -21,9 +21,9 @@ spring:
     virtual:
       enabled: true
   datasource:
-    url: jdbc:postgresql://localhost:5400/ecommerce
-    username: admin
-    password: admin
+    url: jdbc:postgresql://dpg-d30q7her433s738ebkb0-a.oregon-postgres.render.com:5432/ecommerce_94kr
+    username: ecom_user
+    password: TopqsWsaGP1x0PBEoHsr97kEsg08ZnaD
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -47,16 +47,16 @@ spring:
         connection:
           provider_disables_autocommit: true
         order_inserts: true
-        default_schema: ecommerce
+        default_schema: public
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
       naming:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
     open-in-view: false
   liquibase:
     change-log: classpath:db/changelog/master.xml
-    default-schema: ecommerce
+    default-schema: public
     contexts: dev
   #    drop-first: true
   security:
@@ -78,7 +78,7 @@ spring:
       max-request-size: 100MB
 
 server:
-  port: 7878
+  port: ${PORT:7878}
 
 application:
   client-base-url: http://localhost:4200
