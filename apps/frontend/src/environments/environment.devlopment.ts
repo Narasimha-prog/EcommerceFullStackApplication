@@ -6,6 +6,6 @@ export const environment={
         clientId: "dcbd946d3ecf439c9030ea77a7b99caa",
           audience: "http://localhost:7878/api"
     },
-    apiUrl: "http://localhost:7878/api",
+    apiUrl: "https://ecommercefullstackapplication.onrender.com/api",
      razorpayKeyId: 'rzp_test_REfbtgbXooJSTS', // ✅ public key only
 };

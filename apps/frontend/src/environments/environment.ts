@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:7878/api",
+  apiUrl: "https://ecommercefullstackapplication.onrender.com/api",
   kinde: {
     authority: "https://lnreddy.kinde.com",
     redirectUrl: "http://localhost:4200",
