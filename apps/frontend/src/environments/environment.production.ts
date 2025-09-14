@@ -1,12 +1,12 @@
 export const environment = {
-  production: true,
+  production: false,
+  apiUrl: "https://ecommercefullstackapplication.onrender.com/api",
   kinde: {
-    authority: process.env['NEXT_PUBLIC_KINDE_AUTHORITY'] || '',
-    redirectUrl: process.env['NEXT_PUBLIC_KINDE_REDIRECT_URL'] || '',
-    postLogoutRedirectUri: process.env['NEXT_PUBLIC_KINDE_LOGOUT_URL'] || '',
-    clientId: process.env['NEXT_PUBLIC_KINDE_CLIENT_ID'] || '',
-    audience: process.env['NEXT_PUBLIC_KINDE_AUDIENCE'] || ''
+    authority: "https://lnreddy.kinde.com",
+    redirectUrl: "http://localhost:4200",
+    postLogoutRedirectUri: "http://localhost:4200",
+    clientId: "ac4bc7947eda4300b526beb23c52fcca",
+    audience: "https://lnreddy.kinde.com/api"
   },
-  apiUrl: process.env['NEXT_PUBLIC_API_URL'] || '',
    razorpayKeyId: 'rzp_test_REfbtgbXooJSTS', // ✅ public key only
 };
