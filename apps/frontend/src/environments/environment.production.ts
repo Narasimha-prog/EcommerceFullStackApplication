@@ -5,7 +5,7 @@ export const environment = {
     authority: "https://lnreddy.kinde.com",
     redirectUrl: "https://ecommercefullstackapplication-frontend.onrender.com",
     postLogoutRedirectUri: "https://ecommercefullstackapplication-frontend.onrender.com",
-    clientId: "ac4bc7947eda4300b526beb23c52fcca",
+    clientId: "dcbd946d3ecf439c9030ea77a7b99caa",
     audience: "https://lnreddy.kinde.com/api"
   },
    razorpayKeyId: 'rzp_test_REfbtgbXooJSTS', // ✅ public key only
