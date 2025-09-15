@@ -1,10 +1,12 @@
 {
-  "buildCommand": "npx nx build frontend",
-  "outputDirectory": "dist/apps/frontend",
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/"
+      "src": "dist/apps/frontend/**",
+      "use": "@vercel/static"
     }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
+
