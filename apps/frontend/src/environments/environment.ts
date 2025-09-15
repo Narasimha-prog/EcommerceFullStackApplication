@@ -3,8 +3,8 @@ export const environment = {
   apiUrl: "https://ecommercefullstackapplication.onrender.com/api",
   kinde: {
     authority: "https://lnreddy.kinde.com",
-    redirectUrl: "http://localhost:4200",
-    postLogoutRedirectUri: "http://localhost:4200",
+    redirectUrl: "https://ecommercefullstackapplication-frontend.onrender.com",
+    postLogoutRedirectUri: "https://ecommercefullstackapplication-frontend.onrender.com",
     clientId: "ac4bc7947eda4300b526beb23c52fcca",
     audience: "https://lnreddy.kinde.com/api"
   },
