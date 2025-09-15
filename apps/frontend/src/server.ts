@@ -9,10 +9,14 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
-const browserDistFolder = resolve(serverDistFolder, '../browser');
+// Use Render's current working directory to locate browser files
+const browserDistFolder = resolve(process.cwd(), 'dist/apps/frontend/browser');
 
+console.log('Serving browser static files from:', browserDistFolder);
 const app = express();
 const angularApp = new AngularNodeAppEngine();
+
+
 
 /**
  * Example Express Rest API endpoints can be defined here.
