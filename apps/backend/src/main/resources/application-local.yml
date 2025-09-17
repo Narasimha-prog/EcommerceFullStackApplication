@@ -83,7 +83,9 @@ server:
 application:
   client-base-url: https://ecommercefullstackapplication-frontend.onrender.com
   cors:
-    allowed-origins: https://ecommercefullstackapplication-frontend.onrender.com
+    allowed-origins:
+    - https://ecommercefullstackapplication-frontend.onrender.com
+    - http://localhost:4200
     allowed-methods: "*"
     allowed-headers: "*"
     exposed-headers: "*"
