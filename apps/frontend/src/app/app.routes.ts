@@ -66,6 +66,10 @@ export const appRoutes: Route[] = [
       path:'shop/collection',
       component:CategoryFilter
     },
+    {
+    path: 'shop/collection/products',
+    component: CategoryFilter
+   },
     
     {
          path:'products',

@@ -15,11 +15,13 @@ import { CartService } from '../../shop/cart/cart-service';
   styleUrl: './navbar.scss',
 })
 export class Navbar implements OnInit{
+
   ngOnInit(): void {
    this.listenToCart();
   }
 
   nbItemsInCart=0;
+
   listenToCart() {
     this.cartService.addedToCart.subscribe((productsIncart)=>{
       this.nbItemsInCart=productsIncart.reduce((acc,product)=> acc+product.quantity,0);
@@ -31,6 +33,7 @@ export class Navbar implements OnInit{
 closeMenu(menu: HTMLDetailsElement) {
 menu.removeAttribute('open');
 }
+
   oauth2Service = inject(Oauth2Service);
   
   productService=inject(UserProductService);

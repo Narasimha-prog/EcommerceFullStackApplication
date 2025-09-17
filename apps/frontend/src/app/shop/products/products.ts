@@ -29,6 +29,7 @@ export class ProductsComponent {
 
   productService = inject(UserProductService);
   router = inject(Router);
+  
   toastService = inject(Toast);
 
   pageRequest: Pagination = {
