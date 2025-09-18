@@ -5,7 +5,6 @@ import { AdminProductService } from '../../admin-product';
 import { Toast } from '../../../shared/model/toast/toast';
 import { injectMutation, injectQuery, injectQueryClient } from '@tanstack/angular-query-experimental';
 import { lastValueFrom } from 'rxjs';
-import { HttpErrorResponse } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @Component({
@@ -15,15 +14,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrl: './admin-category.scss',
 })
 export class AdminCategory {
-
+//inject services + query client
   productAdminService=inject(AdminProductService);
-
   toastService = inject(Toast);
-
   queryClient=injectQueryClient();
 
 
-
+//Queries
 categoryQuery=injectQuery(()=>({
   queryKey: ['categories'],
   queryFn: () => lastValueFrom(this.productAdminService.findAllCategories()),
@@ -31,14 +28,14 @@ categoryQuery=injectQuery(()=>({
 }));
 
   
-deleteMutaion=injectMutation(() => ({
+deleteMutation=injectMutation(() => ({
   mutationFn: (categoryPublicId: string) => lastValueFrom(this.productAdminService.deleteCategory(categoryPublicId)),
   onSuccess: () => this.onDeleteSuccess(),
   onError: (error:unknown) => this.onDeleteError(error),
 
 }));
 
-editMutaion=injectMutation(() => ({
+editMutation=injectMutation(() => ({
   mutationFn: (categoryPublicId: string) => lastValueFrom(this.productAdminService.deleteCategory(categoryPublicId)),
   onSuccess: () => this.onDeleteSuccess(),
   onError: (error:unknown) => this.onDeleteError(error),
@@ -70,10 +67,10 @@ constructor(){
         }
   }
  deleteCategory(publicId: string) {
-    this.deleteMutaion.mutate(publicId);
+    this.deleteMutation.mutate(publicId);
   }
   editCategory(publicId: string) {
-    this.deleteMutaion.mutate(publicId);
+    this.deleteMutation.mutate(publicId);
   }
 
 }

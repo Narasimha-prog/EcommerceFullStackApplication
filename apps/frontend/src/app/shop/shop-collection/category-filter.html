@@ -1,4 +1,4 @@
-<!-- 🔹 Top navigation -->
+<!--  Top navigation -->
 @if (categoryQuery.isSuccess() && categoryQuery.data()) {
   <nav class="flex gap-4 border-b pb-2 mb-4">
     <!-- Featured -->
@@ -23,7 +23,7 @@
   </nav>
 }
 
-<!-- 🔹 Featured Products (default view when no category selected) -->
+<!-- Featured Products (default view when no category selected) -->
 @if (!category()) {
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4 w-full">
     @if (featuredProductQuery.isSuccess()) {
@@ -44,7 +44,7 @@
   </div>
 }
 
-<!-- 🔹 Sidebar filters + Product grid (when category selected) -->
+<!-- Sidebar filters + Product grid (when category selected) -->
 @if (category()) {
   <div class="grid grid-cols-[1fr_6fr] gap-5">
     <!-- Sidebar filter -->

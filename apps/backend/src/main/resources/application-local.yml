@@ -49,7 +49,7 @@ spring:
         order_inserts: true
         default_schema: public
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
       naming:
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy

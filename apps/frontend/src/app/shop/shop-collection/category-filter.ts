@@ -19,26 +19,26 @@ import { ProductCard } from '../../hero/product-card';
 })
 export class CategoryFilter{ 
   
-  // 🔹 Query params
+  // Query params
   category = injectQueryParams('category');
   size = injectQueryParams('size');
   sort = injectQueryParams('sort');  
   productService =inject(UserProductService);
 
 
-  // 🔹 Services
+  // Services
 
   router = inject(Router);
   toastService = inject(Toast);
 
-  // 🔹 Pagination
+  // Pagination
   pageRequest: Pagination = {
     page: 0,
     size: 20,
     sort: ['createdDate,desc'],
   };
 
-  // 🔹 Filters
+  // Filters
   filterProducts: ProductFilter = {
     category: this.category(),
     size: this.size() ? this.size()! : '',
@@ -52,16 +52,20 @@ export class CategoryFilter{
     effect(() => this.handleParametersChange());
   }
 
-  // 🔹 Queries
+  // Queries
   categoryQuery = injectQuery(() => ({
     queryKey: ['categories'],
     queryFn: () => firstValueFrom(this.productService.findAllCategories()),
+     staleTime: 1000 * 60 * 2,  // 2 minutes fresh
+  cacheTime: 1000 * 60 * 10, // 10 minutes in memory
   }));
 
   featuredProductQuery = injectQuery(() => ({
     queryKey: ['featured-products', this.pageRequest],
     queryFn: () =>
       firstValueFrom(this.productService.findAllFeaturedProducts(this.pageRequest)),
+     staleTime: 1000 * 60 * 2,  // 2 minutes fresh
+  cacheTime: 1000 * 60 * 10, // 10 minutes in memory
   }));
 
   filteredProductsQuery = injectQuery(() => ({
@@ -69,11 +73,14 @@ export class CategoryFilter{
     queryFn: () =>
       firstValueFrom(
         this.productService.filter(this.pageRequest, this.filterProducts)
-      ),
-       enabled: !!this.category(),
+      ), 
+      staleTime: 1000 * 60 * 2,  // 2 minutes fresh
+      cacheTime: 1000 * 60 * 10, // 10 minutes in memory
+      enabled: !!this.category(),
   }));
 
-  // 🔹 Filter change handler
+
+  // Filter change handler
   onFilterChange(filterProducts: ProductFilter) {
     filterProducts.category = this.category();
     this.filterProducts = filterProducts;
@@ -86,8 +93,9 @@ export class CategoryFilter{
     this.filteredProductsQuery.refetch();
   }
 
-  // 🔹 Error handler
+  // Error handler
   private handleFilteredProductsQueryError() {
+
     if (this.filteredProductsQuery.isError()) {
       this.toastService.show(
         'Error! Failed to load products, please try again',
@@ -96,7 +104,7 @@ export class CategoryFilter{
     }
   }
 
-  // 🔹 Watch query param changes
+  // Watch query param changes
   private handleParametersChange() {
     if (this.category()) {
       if (this.lastCategory !== this.category() && this.lastCategory !== '') {

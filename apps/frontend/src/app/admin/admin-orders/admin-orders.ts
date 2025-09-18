@@ -14,20 +14,24 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrl: './admin-orders.scss',
 })
 export class AdminOrders {
-  
+  //inject service and platform id to track whether server side or browser side
   orderService=inject(OrderService);
+  platformId=inject(PLATFORM_ID);
 
+  //create pagination
   pageRequest:Pagination={
     page:0,
     size:20,
     sort:[]
   }
 
-  platformId=inject(PLATFORM_ID);
 
+//Queries
   orderQuery=injectQuery(()=>({
     queryKey:['admin-orders',this.pageRequest],
-    queryFn: ()=>lastValueFrom(this.orderService.getOrderForAdmin(this.pageRequest))
+    queryFn: ()=>lastValueFrom(this.orderService.getOrderForAdmin(this.pageRequest)),
+    staleTime: 1000 * 60 * 2,   // 2 min fresh
+    cacheTime: 1000 * 60 * 10,  // 10 min in memory
   }))
 
 
