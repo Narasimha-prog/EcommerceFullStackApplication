@@ -14,16 +14,52 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 public class SecurityConfig {
 
+  private static final String[] SWAGGER_WHITELIST = {
+    "/swagger-ui.html",
+    "/swagger-ui/**",
+    "/v3/api-docs/**",
+    "/v3/api-docs.yaml",
+    "/v3/api-docs"
+  };
+  private static final String[] ACTUATOR_WHITELIST = {
+    "/actuator/health",
+    "/actuator/info"
+  };
   @Bean
-  public SecurityFilterChain configure(HttpSecurity  http) throws Exception{
+  public SecurityFilterChain configure(HttpSecurity http) throws Exception {
 
-  return  http.authorizeHttpRequests(authroze-> authroze.requestMatchers(HttpMethod.GET,"/api/categories","/api/products-shop/**","/api/orders/get-cart-details/**").permitAll()
-      .requestMatchers(HttpMethod.POST,"/api/orders/webhook/**").permitAll()
-      .requestMatchers("/api/**").authenticated()
-      .anyRequest().permitAll())
+    return http
       .csrf(AbstractHttpConfigurer::disable)
-      .oauth2ResourceServer(oath2->oath2.jwt(jwt->jwt.jwtAuthenticationConverter(new KindeJwtAutoticationConverter())))
-      .build();
+      .authorizeHttpRequests(authorize -> authorize
+        // Public GET endpoints
+        .requestMatchers(HttpMethod.GET,
+          "/api/categories",
+          "/api/products-shop/**",
+          "/api/orders/get-cart-details/**"
+        ).permitAll()
 
+        // Public POST endpoints (webhooks)
+        .requestMatchers(HttpMethod.POST,
+          "/api/orders/webhook/**"
+        ).permitAll()
+
+        // Swagger UI / OpenAPI endpoints
+        .requestMatchers(SWAGGER_WHITELIST).permitAll()
+
+        // Actuator endpoints
+        .requestMatchers(ACTUATOR_WHITELIST).permitAll()
+
+
+        // All other /api/** endpoints require authentication
+        .requestMatchers("/api/**").authenticated()
+
+        // Any other requests are permitted
+        .anyRequest().permitAll()
+      )
+      .oauth2ResourceServer(oauth2 -> oauth2
+        .jwt(jwt -> jwt.jwtAuthenticationConverter(new KindeJwtAutoticationConverter()))
+      )
+      .build();
   }
 }
+
