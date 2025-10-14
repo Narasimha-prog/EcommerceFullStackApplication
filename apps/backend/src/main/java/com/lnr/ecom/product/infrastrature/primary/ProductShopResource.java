@@ -8,9 +8,12 @@ import com.lnr.ecom.product.domain.vo.ProductSize;
 import com.lnr.ecom.product.domain.vo.PublicId;
 import com.lnr.ecom.product.infrastrature.primary.mapper.RestProductMapper;
 import lombok.RequiredArgsConstructor;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +32,9 @@ private final ProductsApplicationService applicationService;
 
 
 @GetMapping("/featured")
-public ResponseEntity<Page<RestProduct>> getFeatuedProducts(Pageable pageable){
+public ResponseEntity<Page<RestProduct>> getFeatuedProducts(
+  @ParameterObject
+  @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 10)Pageable pageable){
 
    Page<Product> featuredProduct=  applicationService.findFeatuedProducts(pageable);
 

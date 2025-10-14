@@ -5,6 +5,7 @@ import com.lnr.ecom.product.domain.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 public class ProductUpdater {
@@ -19,4 +20,6 @@ public class ProductUpdater {
 
     }
   }
+
+
 }

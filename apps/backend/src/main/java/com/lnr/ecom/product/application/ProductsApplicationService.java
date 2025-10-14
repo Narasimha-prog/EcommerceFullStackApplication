@@ -11,12 +11,14 @@ import com.lnr.ecom.product.domain.service.ProductCURD;
 import com.lnr.ecom.product.domain.service.ProductShop;
 import com.lnr.ecom.product.domain.service.ProductUpdater;
 import com.lnr.ecom.product.domain.vo.PublicId;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProductsApplicationService {
@@ -36,9 +38,26 @@ public class ProductsApplicationService {
     this.productShop = new ProductShop(productRepository);
     this.productUpdater=new ProductUpdater(productRepository);
   }
-@Transactional
+  @Transactional
   public Product createProduct(Product newProduct){
-     return productCURD.save(newProduct);
+    PublicId publicId = new PublicId(UUID.randomUUID());
+
+    Product productWithId = new Product(
+      newProduct.getProductBrand(),
+      newProduct.getProductColor(),
+      newProduct.getProductDescription(),
+      newProduct.getProductName(),
+      newProduct.getProductPrice(),
+      newProduct.getProductSize(),
+      newProduct.getCategory(),
+      newProduct.getPictures(),
+      null, // dbId will be assigned by persistence
+      newProduct.isFeatured(),
+      publicId, // ✅ assigned here, not inside Product
+      newProduct.getNbInStack()
+    );
+
+    return productCURD.save(productWithId);
   }
 
 
@@ -94,6 +113,21 @@ public Page<Product> filter(Pageable pageable, FilterQuery query){
     return  productShop.filter(pageable,query);
 
 }
+
+@Transactional()
+  public Product updateProduct(PublicId publicId,Product updated) {
+    // Here updated already has publicId from DTO
+    Product existing = productCURD.findOne(publicId);
+    existing.updateDetails(
+      updated.getProductName(),
+      updated.getProductDescription(),
+      updated.getProductPrice(),
+      updated.getPictures(),
+      updated.isFeatured(),
+      updated.getNbInStack()
+    );
+    return productCURD.save(existing);
+  }
 
 
 @Transactional(readOnly = true)

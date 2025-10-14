@@ -1,10 +1,11 @@
 logging:
   level:
     ROOT: INFO
-    org.hibernate.SQL: DEBUG
-    org.springframework.security: TRACE
-    com.lnr.ecom: DEBUG
+    org.hibernate.SQL: INFO          # Only show executed SQL
+    org.springframework.security: INFO   # Hide TRACE/DEBUG from Spring Security
+    com.lnr.ecom: DEBUG              # Still see your app’s debug logs
     org.apache.hc.client5.http: INFO
+
 
 spring:
   devtools:

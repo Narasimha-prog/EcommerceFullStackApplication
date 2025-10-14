@@ -53,7 +53,7 @@ public class ProductAdminResource {
  restProduct.addPictureAttachment(restPitchures);
  Product newProduct= RestProductMapper.toDomain(restProduct);
  Product product= productApplicationService.createProduct(newProduct);
-
+  log.info("Product is saved in db with id : {}",product.getPublicId());
  return ResponseEntity.ok(RestProductMapper.toRestDomain(product));
   }
 
@@ -70,6 +70,7 @@ public class ProductAdminResource {
     ProblemDetail problemDetail=ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST,e.getMessage());
     return ResponseEntity.of(problemDetail).build();
   }
+
 
   }
 
@@ -89,6 +90,32 @@ public class ProductAdminResource {
     );
     return ResponseEntity.ok(restCategoryPage);
 
+  }
+
+  @PreAuthorize("hasAnyRole('" + ROLE_ADMIN + "')")
+  @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+  public ResponseEntity<UUID> updateProduct(
+    @RequestParam("publicId") UUID id,
+    MultipartHttpServletRequest request,
+    @RequestPart("dto") String productRaw
+  ) throws JsonProcessingException {
+
+    List<RestPitchure> restPitchures = request.getFileMap()
+      .values()
+      .stream()
+      .map(mapMultiPartFiletoRestPitcures())
+      .toList();
+
+    RestProduct restProduct = objectMapper.readValue(productRaw, RestProduct.class);
+    restProduct.addPictureAttachment(restPitchures);
+
+    Product product = RestProductMapper.toDomain(restProduct);
+
+    PublicId publicId = productApplicationService.updateProduct(new PublicId(id),product).getPublicId();
+
+    log.info("Product {} updated", publicId.value());
+
+    return ResponseEntity.ok(publicId.value());
   }
 
 

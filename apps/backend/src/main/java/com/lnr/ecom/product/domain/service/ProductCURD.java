@@ -18,7 +18,6 @@ public class ProductCURD {
   private final ProductRepository productRepository;
 
   public Product save(Product newProduct){
-    newProduct.initDefaultFields();
     return productRepository.save(newProduct);
   }
 

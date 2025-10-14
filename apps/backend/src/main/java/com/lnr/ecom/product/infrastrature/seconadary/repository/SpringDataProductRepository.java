@@ -105,4 +105,9 @@ public class SpringDataProductRepository implements ProductRepository {
 
     jpaProductRepository.updateQuantity(productPublicId.value(), quantity);
   }
+
+  @Override
+  public int updateProduct(PublicId publicId) {
+    return 0;
+  }
 }

@@ -15,29 +15,29 @@ public class Product {
 
   private final ProductColor productColor;
 
-  private final ProductDescription productDescription;
+  private ProductDescription productDescription;
 
-  private final ProductName productName;
+  private  ProductName productName;
 
-  private final ProductPrice productPrice;
+  private ProductPrice productPrice;
 
   private final ProductSize productSize;
 
   private final Category category;
 
-  private final List<Picture> pictures;
+  private List<Picture> pictures;
 
-  private  Long dbId;
+  private final Long dbId;
 
   private boolean featured;
 
-  private PublicId publicId;
+  private final PublicId publicId;
 
   private int nbInStack;
 
 
   public Product(ProductBrand productBrand, ProductColor productColor, ProductDescription productDescription, ProductName productName, ProductPrice productPrice, ProductSize productSize, Category category, List<Picture> pictures, Long dbId, boolean featured, PublicId publicId, int nbInStack) {
-    assertMandatoryFields(productBrand,productColor,productDescription,productName,productPrice,productSize,category,pictures,featured,nbInStack);
+    assertMandatoryFields(productBrand,productColor,productDescription,productName,productPrice,productSize,category,pictures,featured,publicId,nbInStack);
     this.productBrand = productBrand;
     this.productColor = productColor;
     this.productDescription = productDescription;
@@ -53,7 +53,6 @@ public class Product {
   }
 
   private void assertMandatoryFields(
-
     ProductBrand productBrand,
     ProductColor productColor,
     ProductDescription productDescription,
@@ -63,9 +62,10 @@ public class Product {
     Category category,
     List<Picture> pictures,
     boolean featured,
+    PublicId publicId,
     int nbInStack
   ){
-
+   Assert.notNull("PublicId",publicId);
     Assert.notNull("productBrand",productBrand);
     Assert.notNull("productColor",productColor);
     Assert.notNull("productDescription",productDescription);
@@ -77,7 +77,26 @@ public class Product {
     Assert.notNull("featured",featured);
     Assert.notNull("nbInStack",nbInStack);
   }
-  public void initDefaultFields(){
-    this.publicId=new PublicId(UUID.randomUUID());
+
+  public void updateDetails(ProductName name,
+                            ProductDescription description,
+                            ProductPrice price,
+                            List<Picture> pictures,
+                            boolean featured,
+                            int nbInStack) {
+    Assert.notNull("productName", name);
+    Assert.notNull("productDescription", description);
+    Assert.notNull("productPrice", price);
+    Assert.notNull("pictures", pictures);
+  Assert.field("no of stack",nbInStack).positive();
+
+    this.productName = name;
+    this.productDescription = description;
+    this.productPrice = price;
+    this.pictures = pictures;
+    this.featured = featured;
+    this.nbInStack = nbInStack;
   }
+
+
 }
