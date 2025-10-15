@@ -1,87 +1,34 @@
-2025-10-14T14:22:13.303+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 44748 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
-2025-10-14T14:22:13.309+05:30 DEBUG 44748 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-10-14T14:22:13.310+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
-2025-10-14T14:22:13.375+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-10-14T14:22:13.375+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-10-14T14:22:14.460+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-10-14T14:22:14.559+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 6 JPA repository interfaces.
-2025-10-14T14:22:16.071+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
-2025-10-14T14:22:16.091+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-10-14T14:22:16.091+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-10-14T14:22:16.148+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-10-14T14:22:16.148+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2772 ms
-2025-10-14T14:22:16.609+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
-2025-10-14T14:22:19.449+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : Hikari - Added connection org.postgresql.jdbc.PgConnection@2c6ca332
-2025-10-14T14:22:19.452+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Start completed.
-2025-10-14T14:22:21.726+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
-2025-10-14T14:22:22.645+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
-2025-10-14T14:22:24.738+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.snapshot                       : Creating snapshot
-2025-10-14T14:22:30.497+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.lockservice                    : Successfully acquired change log lock
-2025-10-14T14:22:30.806+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.command                        : Using deploymentId: 0431936573
-2025-10-14T14:22:31.044+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
-2025-10-14T14:22:31.373+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000001_user.xml::00000000000001-seq::codecake
-2025-10-14T14:22:32.238+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Sequence user_sequence created
-2025-10-14T14:22:32.545+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000001_user.xml::00000000000001-seq::codecake ran successfully in 1171ms
-2025-10-14T14:22:33.473+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000001_user.xml::00000000000001-user::codecake
-2025-10-14T14:22:34.081+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table ecommerce_user created
-2025-10-14T14:22:34.358+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000001_user.xml::00000000000001-user::codecake ran successfully in 884ms
-2025-10-14T14:22:35.007+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000001_user.xml::00000000000001-authority::codecake
-2025-10-14T14:22:35.617+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table authority created
-2025-10-14T14:22:35.924+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table user_authority created
-2025-10-14T14:22:36.165+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Primary key added to user_authority (user_id, authority_name)
-2025-10-14T14:22:36.404+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to user_authority (authority_name)
-2025-10-14T14:22:36.642+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to user_authority (user_id)
-2025-10-14T14:22:37.186+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Data loaded from 'db/data/authority.csv' into table 'authority'
-2025-10-14T14:22:37.460+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000001_user.xml::00000000000001-authority::codecake ran successfully in 2451ms
-2025-10-14T14:22:38.077+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000002_product_category.xml::00000000000002-category-seq::codecake
-2025-10-14T14:22:38.588+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Sequence product_category_sequence created
-2025-10-14T14:22:38.896+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000002_product_category.xml::00000000000002-category-seq::codecake ran successfully in 818ms
-2025-10-14T14:22:39.374+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000002_product_category.xml::00000000000002-category::codecake
-2025-10-14T14:22:39.853+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table product_category created
-2025-10-14T14:22:40.089+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000002_product_category.xml::00000000000002-category::codecake ran successfully in 714ms
-2025-10-14T14:22:40.637+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000003_product.xml::00000000000003-product-seq::codecake
-2025-10-14T14:22:41.251+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Sequence product_sequence created
-2025-10-14T14:22:41.494+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000003_product.xml::00000000000003-product-seq::codecake ran successfully in 857ms
-2025-10-14T14:22:42.024+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000003_product.xml::00000000000003-product::codecake
-2025-10-14T14:22:42.581+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table product created
-2025-10-14T14:22:42.887+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to product (category_fk)
-2025-10-14T14:22:43.195+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000003_product.xml::00000000000003-product::codecake ran successfully in 1170ms
-2025-10-14T14:22:43.916+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000003_product.xml::00000000000003-picture-product-seq::codecake
-2025-10-14T14:22:44.526+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Sequence product_picture_sequence created
-2025-10-14T14:22:44.833+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000003_product.xml::00000000000003-picture-product-seq::codecake ran successfully in 917ms
-2025-10-14T14:22:45.450+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000003_product.xml::00000000000003-product-picture::codecake
-2025-10-14T14:22:46.062+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table product_picture created
-2025-10-14T14:22:46.299+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to product_picture (product_fk)
-2025-10-14T14:22:46.574+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000003_product.xml::00000000000003-product-picture::codecake ran successfully in 1122ms
-2025-10-14T14:22:47.190+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000004_order.xml::00000000000004-order-seq::codecake
-2025-10-14T14:22:47.803+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Sequence order_sequence created
-2025-10-14T14:22:48.111+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000004_order.xml::00000000000004-order-seq::codecake ran successfully in 919ms
-2025-10-14T14:22:48.656+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000004_order.xml::00000000000004-order::codecake
-2025-10-14T14:22:49.236+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table order created
-2025-10-14T14:22:49.544+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to order (fk_customer)
-2025-10-14T14:22:49.851+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000004_order.xml::00000000000004-order::codecake ran successfully in 1193ms
-2025-10-14T14:22:50.468+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000004_order.xml::00000000000004-ordered-product::codecake
-2025-10-14T14:22:51.079+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table ordered_product created
-2025-10-14T14:22:51.323+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Primary key added to ordered_product (fk_order, fk_product)
-2025-10-14T14:22:51.560+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to ordered_product (fk_product)
-2025-10-14T14:22:51.899+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to ordered_product (fk_order)
-2025-10-14T14:22:52.133+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000004_order.xml::00000000000004-ordered-product::codecake ran successfully in 1665ms
-2025-10-14T14:22:52.727+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : UPDATE SUMMARY
-2025-10-14T14:22:52.727+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Run:                         12
-2025-10-14T14:22:52.727+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Previously run:               0
-2025-10-14T14:22:52.727+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Filtered out:                 0
-2025-10-14T14:22:52.728+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : -------------------------------
-2025-10-14T14:22:52.728+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Total change sets:           12
-2025-10-14T14:22:52.729+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Update summary generated
-2025-10-14T14:22:52.732+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.command                        : Update command completed successfully.
-2025-10-14T14:22:52.733+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 12
-2025-10-14T14:22:53.567+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.lockservice                    : Successfully released change log lock
-2025-10-14T14:22:53.846+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] liquibase.command                        : Command execution complete
-2025-10-14T14:22:55.334+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-10-14T14:22:55.370+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
-2025-10-14T14:22:55.394+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-10-14T14:22:55.609+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-10-14T14:22:56.891+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-10-15T21:02:38.403+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 13086 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
+2025-10-15T21:02:38.409+05:30 DEBUG 13086 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
+2025-10-15T21:02:38.410+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
+2025-10-15T21:02:38.487+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-15T21:02:38.488+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-15T21:02:39.832+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-15T21:02:39.918+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 6 JPA repository interfaces.
+2025-10-15T21:02:41.099+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
+2025-10-15T21:02:41.113+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-15T21:02:41.114+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2025-10-15T21:02:41.154+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-15T21:02:41.154+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2665 ms
+2025-10-15T21:02:41.494+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
+2025-10-15T21:02:44.511+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : Hikari - Added connection org.postgresql.jdbc.PgConnection@7e284445
+2025-10-15T21:02:44.512+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Start completed.
+2025-10-15T21:02:47.982+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
+2025-10-15T21:02:51.478+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Database is up to date, no changesets to execute
+2025-10-15T21:02:51.772+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
+2025-10-15T21:02:52.095+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : UPDATE SUMMARY
+2025-10-15T21:02:52.096+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Run:                          0
+2025-10-15T21:02:52.096+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Previously run:              12
+2025-10-15T21:02:52.096+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Filtered out:                 0
+2025-10-15T21:02:52.096+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : -------------------------------
+2025-10-15T21:02:52.096+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Total change sets:           12
+2025-10-15T21:02:52.098+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Update summary generated
+2025-10-15T21:02:52.100+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] liquibase.command                        : Command execution complete
+2025-10-15T21:02:53.559+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-15T21:02:53.645+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2025-10-15T21:02:53.686+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-15T21:02:53.946+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-15T21:02:55.562+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (Hikari)']
 	Database driver: undefined/unknown
 	Database version: 17.6
@@ -89,15 +36,10 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-10-14T14:22:57.996+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-10-14T14:22:58.250+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2a337b59] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2025-10-14T14:22:59.115+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-10-14T14:22:59.449+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-10-14T14:23:01.254+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2025-10-14T14:23:02.017+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 7878 (http) with context path '/'
-2025-10-14T14:23:02.033+05:30  INFO 44748 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Started DemoApplication in 49.464 seconds (process running for 50.177)
-2025-10-14T14:50:07.236+05:30  INFO 44748 --- [Ecommerce Backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-10-14T14:50:07.242+05:30  INFO 44748 --- [Ecommerce Backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-10-14T14:50:07.259+05:30  INFO 44748 --- [Ecommerce Backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-10-14T14:50:07.265+05:30  INFO 44748 --- [Ecommerce Backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : Hikari - Shutdown initiated...
-2025-10-14T14:50:09.757+05:30  INFO 44748 --- [Ecommerce Backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : Hikari - Shutdown completed.
+2025-10-15T21:02:57.032+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-15T21:02:57.331+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@9db5a14] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-10-15T21:02:58.239+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-15T21:02:58.920+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-10-15T21:03:01.663+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-15T21:03:02.721+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 7878 (http) with context path '/'
+2025-10-15T21:03:02.744+05:30  INFO 13086 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Started DemoApplication in 25.11 seconds (process running for 25.859)

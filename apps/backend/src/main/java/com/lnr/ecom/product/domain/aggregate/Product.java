@@ -37,7 +37,7 @@ public class Product {
 
 
   public Product(ProductBrand productBrand, ProductColor productColor, ProductDescription productDescription, ProductName productName, ProductPrice productPrice, ProductSize productSize, Category category, List<Picture> pictures, Long dbId, boolean featured, PublicId publicId, int nbInStack) {
-    assertMandatoryFields(productBrand,productColor,productDescription,productName,productPrice,productSize,category,pictures,featured,publicId,nbInStack);
+    assertMandatoryFields(productBrand,productColor,productDescription,productName,productPrice,productSize,category,pictures,featured,nbInStack);
     this.productBrand = productBrand;
     this.productColor = productColor;
     this.productDescription = productDescription;
@@ -62,10 +62,9 @@ public class Product {
     Category category,
     List<Picture> pictures,
     boolean featured,
-    PublicId publicId,
     int nbInStack
   ){
-   Assert.notNull("PublicId",publicId);
+
     Assert.notNull("productBrand",productBrand);
     Assert.notNull("productColor",productColor);
     Assert.notNull("productDescription",productDescription);
