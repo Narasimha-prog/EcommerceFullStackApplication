@@ -68,8 +68,7 @@ spring:
         jwt:
           issuer-uri: https://lnreddy.kinde.com
           jwk-set-uri: https://lnreddy.kinde.com/.well-known/jwks
-            - https://ecommercefullstackapplication.onrender.com/api
-            - http://localhost:4200/api
+
   devtools:
     restart:
       enabled: false
