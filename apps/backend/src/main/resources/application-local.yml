@@ -24,9 +24,9 @@ spring:
     virtual:
       enabled: true
   datasource:
-    url: jdbc:postgresql://dpg-d3n0r7hr0fns739ji1i0-a.oregon-postgres.render.com:5432/ecommerce_db_24rl
+    url: jdbc:postgresql://dpg-d4ei2475r7bs73fq2f6g-a:5432/ecommerce_5uac
     username: admin
-    password: 3WJprkvg9hGbkVM76bivXE8faoTImNbB
+    password: Dhr8WkRLM4sFhRjJbr5JZwSrUQDss1ST
     hikari:
       poolName: Hikari
       auto-commit: false
