@@ -24,7 +24,6 @@ export class AdminCategory {
 categoryQuery=injectQuery(()=>({
   queryKey: ['categories'],
   queryFn: () => lastValueFrom(this.productAdminService.findAllCategories()),
-  
 }));
 
   
@@ -32,7 +31,6 @@ deleteMutation=injectMutation(() => ({
   mutationFn: (categoryPublicId: string) => lastValueFrom(this.productAdminService.deleteCategory(categoryPublicId)),
   onSuccess: () => this.onDeleteSuccess(),
   onError: (error:unknown) => this.onDeleteError(error),
-
 }));
 
 editMutation=injectMutation(() => ({

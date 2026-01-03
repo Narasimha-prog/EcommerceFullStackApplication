@@ -1,0 +1,25 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5400,
+            "driver": "PostgreSQL",
+            "password": "admin",
+            "username": "admin",
+            "database": "ecommerce",
+            "name": "ecommerce_db"
+        },
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "dpg-d5chjn8gjchc73cq5tpg-a",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "database": "ecomerce_cnmj",
+            "username": "ecomerce_cnmj_user",
+            "password": "TAOhvdps50iFkCp2VLDAe9GpU6LEBlPz",
+            "name": "postgresDB"
+        }
+    ]
+}

@@ -21,6 +21,7 @@ export class CreateCategory {
   productService = inject(AdminProductService);
   toastService = inject(Toast);
   router = inject(Router)
+
   name=new FormControl<string>('',{nonNullable: true,validators:[Validators.required,Validators.minLength(3)]});
 
   public createCategoryForm = this.formBuilder.nonNullable.group<CreateCategoryFormContent>({
@@ -39,6 +40,7 @@ export class CreateCategory {
   )
 
   create():void{
+    
     const categoryToCreate: ProductCategory = {
 
       name: this.createCategoryForm.getRawValue().name
