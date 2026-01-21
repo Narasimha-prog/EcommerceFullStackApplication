@@ -84,10 +84,10 @@ server:
   port: ${PORT:7878}
 
 application:
-  client-base-url: https://ecommercefullstackapplication-frontend.onrender.com
+  client-base-url: https://angularfrontendecommerceapplication.onrender.com
   cors:
     allowed-origins:
-    - https://angularfrontendecommerceapplication.onrender.com/
+    - https://angularfrontendecommerceapplication.onrender.com
     - http://localhost:4200
     allowed-methods: "*"
     allowed-headers: "*"
@@ -105,4 +105,4 @@ Razorpay-Key: ${RAZORPAY_KEY}
 
 Razorpay-Value: ${RAZORPAY_VALUE}
 
-client-base-url: https://ecommercefullstackapplication-frontend.onrender.com
+client-base-url: https://angularfrontendecommerceapplication.onrender.com
