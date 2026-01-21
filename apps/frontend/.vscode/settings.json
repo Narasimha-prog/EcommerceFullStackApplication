@@ -1,20 +1,18 @@
 {
     "sqltools.connections": [
         {
-            "previewLimit": 50,
-            "server": "localhost",
-            "port": 5400,
-            "driver": "PostgreSQL",
-            "password": "admin",
-            "username": "admin",
-            "database": "ecommerce",
-            "name": "ecommerce_db"
-        },
-        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
             "ssh": "Disabled",
             "previewLimit": 50,
-            "server": "dpg-d5chjn8gjchc73cq5tpg-a",
+            "server": "dpg-d5chjn8gjchc73cq5tpg-a.oregon-postgres.render.com",
             "port": 5432,
+            "sshOptions": {
+                "port": 22
+            },
             "driver": "PostgreSQL",
             "database": "ecomerce_cnmj",
             "username": "ecomerce_cnmj_user",

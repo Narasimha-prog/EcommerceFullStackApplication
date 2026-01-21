@@ -24,7 +24,7 @@ spring:
     virtual:
       enabled: true
   datasource:
-    url: jdbc:postgresql://dpg-d5chjn8gjchc73cq5tpg-a:5432/ecomerce_cnmj
+    url: jdbc:postgresql://dpg-d5chjn8gjchc73cq5tpg-a.oregon-postgres.render.com:5432/ecomerce_cnmj
     username: ecomerce_cnmj_user
     password: TAOhvdps50iFkCp2VLDAe9GpU6LEBlPz
     hikari:
@@ -87,7 +87,7 @@ application:
   client-base-url: https://ecommercefullstackapplication-frontend.onrender.com
   cors:
     allowed-origins:
-    - https://ecommercefullstackapplication-frontend.onrender.com
+    - https://angularfrontendecommerceapplication.onrender.com/
     - http://localhost:4200
     allowed-methods: "*"
     allowed-headers: "*"

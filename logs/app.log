@@ -1,313 +1,53 @@
-2025-11-19T07:24:37.703+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 9462 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
-2025-11-19T07:24:37.710+05:30 DEBUG 9462 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-19T07:24:37.711+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
-2025-11-19T07:24:37.774+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-11-19T07:24:37.774+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-11-19T07:24:38.746+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-11-19T07:24:38.821+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 6 JPA repository interfaces.
-2025-11-19T07:24:40.045+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
-2025-11-19T07:24:40.061+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-19T07:24:40.062+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-11-19T07:24:40.104+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-11-19T07:24:40.105+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2331 ms
-2025-11-19T07:24:40.490+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
-2025-11-19T07:24:40.495+05:30  WARN 9462 --- [Ecommerce Backend] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, postgresql://admin:Dhr8WkRLM4sFhRjJbr5JZwSrUQDss1ST@dpg-d4ei2475r7bs73fq2f6g-a/ecommerce_5uac
-2025-11-19T07:24:40.498+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-11-19T07:24:40.516+05:30  INFO 9462 --- [Ecommerce Backend] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-11-19T07:24:40.531+05:30 ERROR 9462 --- [Ecommerce Backend] [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, postgresql://admin:Dhr8WkRLM4sFhRjJbr5JZwSrUQDss1ST@dpg-d4ei2475r7bs73fq2f6g-a/ecommerce_5uac
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.3.jar:3.5.3]
-	at com.lnr.ecom.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.3.jar:3.5.3]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, postgresql://admin:Dhr8WkRLM4sFhRjJbr5JZwSrUQDss1ST@dpg-d4ei2475r7bs73fq2f6g-a/ecommerce_5uac
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 13 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, postgresql://admin:Dhr8WkRLM4sFhRjJbr5JZwSrUQDss1ST@dpg-d4ei2475r7bs73fq2f6g-a/ecommerce_5uac
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288) ~[liquibase-core-4.31.1.jar:na]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 20 common frames omitted
-Caused by: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, postgresql://admin:Dhr8WkRLM4sFhRjJbr5JZwSrUQDss1ST@dpg-d4ei2475r7bs73fq2f6g-a/ecommerce_5uac
-	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:111) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:331) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:116) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:94) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.0.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:275) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:271) ~[liquibase-core-4.31.1.jar:na]
-	... 22 common frames omitted
-
-2025-11-19T07:26:00.612+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 9859 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
-2025-11-19T07:26:00.614+05:30 DEBUG 9859 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-19T07:26:00.615+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
-2025-11-19T07:26:00.675+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-11-19T07:26:00.675+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-11-19T07:26:01.468+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-11-19T07:26:01.555+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 6 JPA repository interfaces.
-2025-11-19T07:26:02.984+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
-2025-11-19T07:26:02.999+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-19T07:26:03.000+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-11-19T07:26:03.038+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-11-19T07:26:03.039+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2362 ms
-2025-11-19T07:26:03.379+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
-2025-11-19T07:26:04.434+05:30  WARN 9859 --- [Ecommerce Backend] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-2025-11-19T07:26:04.438+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-11-19T07:26:04.460+05:30  INFO 9859 --- [Ecommerce Backend] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-11-19T07:26:04.474+05:30 ERROR 9859 --- [Ecommerce Backend] [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.3.jar:3.5.3]
-	at com.lnr.ecom.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.3.jar:3.5.3]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 13 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288) ~[liquibase-core-4.31.1.jar:na]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 20 common frames omitted
-Caused by: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:280) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:271) ~[liquibase-core-4.31.1.jar:na]
-	... 22 common frames omitted
-Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar:42.7.7]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:139) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:368) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:205) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:483) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:101) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.0.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:275) ~[liquibase-core-4.31.1.jar:na]
-	... 27 common frames omitted
-Caused by: java.net.UnknownHostException: dpg-d4ei2475r7bs73fq2f6g-a
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar:42.7.7]
-	... 39 common frames omitted
-
-2025-11-19T07:26:19.928+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 9991 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
-2025-11-19T07:26:19.929+05:30 DEBUG 9991 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-19T07:26:19.930+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
-2025-11-19T07:26:19.993+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-11-19T07:26:19.993+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-11-19T07:26:20.965+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-11-19T07:26:21.035+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 6 JPA repository interfaces.
-2025-11-19T07:26:22.317+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
-2025-11-19T07:26:22.336+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-19T07:26:22.336+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-11-19T07:26:22.383+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-11-19T07:26:22.384+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2389 ms
-2025-11-19T07:26:22.772+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
-2025-11-19T07:26:23.815+05:30  WARN 9991 --- [Ecommerce Backend] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-2025-11-19T07:26:23.821+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-11-19T07:26:23.850+05:30  INFO 9991 --- [Ecommerce Backend] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-11-19T07:26:23.873+05:30 ERROR 9991 --- [Ecommerce Backend] [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.3.jar:3.5.3]
-	at com.lnr.ecom.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.3.jar:3.5.3]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 13 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288) ~[liquibase-core-4.31.1.jar:na]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 20 common frames omitted
-Caused by: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:280) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:271) ~[liquibase-core-4.31.1.jar:na]
-	... 22 common frames omitted
-Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar:42.7.7]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:139) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:368) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:205) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:483) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:101) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.0.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:275) ~[liquibase-core-4.31.1.jar:na]
-	... 27 common frames omitted
-Caused by: java.net.UnknownHostException: dpg-d4ei2475r7bs73fq2f6g-a
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar:42.7.7]
-	... 39 common frames omitted
-
-2025-11-19T20:36:10.841+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 6801 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
-2025-11-19T20:36:10.843+05:30 DEBUG 6801 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
-2025-11-19T20:36:10.843+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
-2025-11-19T20:36:10.903+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-11-19T20:36:10.903+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-11-19T20:36:11.582+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-11-19T20:36:11.637+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 6 JPA repository interfaces.
-2025-11-19T20:36:12.613+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
-2025-11-19T20:36:12.627+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-19T20:36:12.628+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2025-11-19T20:36:12.666+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-11-19T20:36:12.666+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1763 ms
-2025-11-19T20:36:12.947+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
-2025-11-19T20:36:14.510+05:30  WARN 6801 --- [Ecommerce Backend] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-2025-11-19T20:36:14.513+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2025-11-19T20:36:14.533+05:30  INFO 6801 --- [Ecommerce Backend] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-11-19T20:36:14.543+05:30 ERROR 6801 --- [Ecommerce Backend] [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.8.jar:6.2.8]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.3.jar:3.5.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.3.jar:3.5.3]
-	at com.lnr.ecom.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.3.jar:3.5.3]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 13 common frames omitted
-Caused by: liquibase.exception.LiquibaseException: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288) ~[liquibase-core-4.31.1.jar:na]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.8.jar:6.2.8]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.8.jar:6.2.8]
-	... 20 common frames omitted
-Caused by: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: The connection attempt failed.
-	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:280) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:271) ~[liquibase-core-4.31.1.jar:na]
-	... 22 common frames omitted
-Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:385) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:277) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.Driver.makeConnection(Driver.java:448) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.7.jar:42.7.7]
-	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:139) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:368) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:205) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:483) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:571) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:101) ~[HikariCP-6.3.0.jar:na]
-	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.0.jar:na]
-	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:275) ~[liquibase-core-4.31.1.jar:na]
-	... 27 common frames omitted
-Caused by: java.net.UnknownHostException: dpg-d4ei2475r7bs73fq2f6g-a
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567) ~[na:na]
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
-	at java.base/java.net.Socket.connect(Socket.java:751) ~[na:na]
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:261) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.PGStream.<init>(PGStream.java:122) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:146) ~[postgresql-42.7.7.jar:42.7.7]
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:289) ~[postgresql-42.7.7.jar:42.7.7]
-	... 39 common frames omitted
-
+2026-01-21T10:03:21.302+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 25859 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
+2026-01-21T10:03:21.306+05:30 DEBUG 25859 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-01-21T10:03:21.307+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
+2026-01-21T10:03:21.360+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-21T10:03:21.361+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-21T10:03:22.268+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-21T10:03:22.335+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 6 JPA repository interfaces.
+2026-01-21T10:03:23.532+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
+2026-01-21T10:03:23.545+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-21T10:03:23.546+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2026-01-21T10:03:23.581+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-01-21T10:03:23.582+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2220 ms
+2026-01-21T10:03:23.911+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
+2026-01-21T10:03:26.721+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : Hikari - Added connection org.postgresql.jdbc.PgConnection@136aaf4d
+2026-01-21T10:03:26.723+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Start completed.
+2026-01-21T10:03:29.955+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
+2026-01-21T10:03:33.230+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Database is up to date, no changesets to execute
+2026-01-21T10:03:33.503+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
+2026-01-21T10:03:33.932+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : UPDATE SUMMARY
+2026-01-21T10:03:33.932+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Run:                          0
+2026-01-21T10:03:33.932+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Previously run:              12
+2026-01-21T10:03:33.932+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Filtered out:                 0
+2026-01-21T10:03:33.932+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : -------------------------------
+2026-01-21T10:03:33.933+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Total change sets:           12
+2026-01-21T10:03:33.934+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Update summary generated
+2026-01-21T10:03:33.935+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.command                        : Command execution complete
+2026-01-21T10:03:35.701+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-21T10:03:35.754+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2026-01-21T10:03:35.794+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-01-21T10:03:36.115+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-21T10:03:37.505+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (Hikari)']
+	Database driver: undefined/unknown
+	Database version: 18.1
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-21T10:03:38.692+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-21T10:03:38.956+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@8ccba6e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-01-21T10:03:39.878+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-21T10:03:40.206+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-21T10:03:42.171+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-01-21T10:03:42.946+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 7878 (http) with context path '/'
+2026-01-21T10:03:42.960+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Started DemoApplication in 22.379 seconds (process running for 23.59)
+2026-01-21T10:03:43.311+05:30  INFO 25859 --- [Ecommerce Backend] [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-21T10:03:43.312+05:30  INFO 25859 --- [Ecommerce Backend] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-01-21T10:03:43.317+05:30  INFO 25859 --- [Ecommerce Backend] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-01-21T10:13:07.335+05:30  INFO 25859 --- [Ecommerce Backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-21T10:13:07.340+05:30  INFO 25859 --- [Ecommerce Backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2026-01-21T10:13:07.352+05:30  INFO 25859 --- [Ecommerce Backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-21T10:13:07.358+05:30  INFO 25859 --- [Ecommerce Backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : Hikari - Shutdown initiated...
+2026-01-21T10:13:10.517+05:30  INFO 25859 --- [Ecommerce Backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : Hikari - Shutdown completed.
