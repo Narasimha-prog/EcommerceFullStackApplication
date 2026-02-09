@@ -1,34 +1,282 @@
-2026-01-21T10:03:21.302+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 25859 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
-2026-01-21T10:03:21.306+05:30 DEBUG 25859 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
-2026-01-21T10:03:21.307+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
-2026-01-21T10:03:21.360+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-01-21T10:03:21.361+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-01-21T10:03:22.268+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-01-21T10:03:22.335+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 6 JPA repository interfaces.
-2026-01-21T10:03:23.532+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
-2026-01-21T10:03:23.545+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-01-21T10:03:23.546+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
-2026-01-21T10:03:23.581+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-01-21T10:03:23.582+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2220 ms
-2026-01-21T10:03:23.911+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
-2026-01-21T10:03:26.721+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : Hikari - Added connection org.postgresql.jdbc.PgConnection@136aaf4d
-2026-01-21T10:03:26.723+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Start completed.
-2026-01-21T10:03:29.955+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
-2026-01-21T10:03:33.230+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Database is up to date, no changesets to execute
-2026-01-21T10:03:33.503+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
-2026-01-21T10:03:33.932+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : UPDATE SUMMARY
-2026-01-21T10:03:33.932+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Run:                          0
-2026-01-21T10:03:33.932+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Previously run:              12
-2026-01-21T10:03:33.932+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Filtered out:                 0
-2026-01-21T10:03:33.932+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : -------------------------------
-2026-01-21T10:03:33.933+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Total change sets:           12
-2026-01-21T10:03:33.934+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Update summary generated
-2026-01-21T10:03:33.935+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] liquibase.command                        : Command execution complete
-2026-01-21T10:03:35.701+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-01-21T10:03:35.754+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
-2026-01-21T10:03:35.794+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-01-21T10:03:36.115+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-01-21T10:03:37.505+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-02-09T12:08:33.768+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 81955 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
+2026-02-09T12:08:33.774+05:30 DEBUG 81955 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-02-09T12:08:33.775+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
+2026-02-09T12:08:33.835+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-09T12:08:33.835+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-09T12:08:34.549+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-09T12:08:34.622+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 6 JPA repository interfaces.
+2026-02-09T12:08:35.724+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
+2026-02-09T12:08:35.738+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-09T12:08:35.739+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2026-02-09T12:08:35.776+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-09T12:08:35.777+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1941 ms
+2026-02-09T12:08:36.068+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
+2026-02-09T12:08:36.072+05:30  WARN 81955 --- [Ecommerce Backend] [restartedMain] org.postgresql.Driver                    : JDBC URL contains too many / characters: jdbc:postgresql://postgresql://dbgBJmqz4xYEzrjb3LHWcZR2FydEoVPt@dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+2026-02-09T12:08:36.073+05:30  WARN 81955 --- [Ecommerce Backend] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dbgBJmqz4xYEzrjb3LHWcZR2FydEoVPt@dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+2026-02-09T12:08:36.076+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-02-09T12:08:36.095+05:30  INFO 81955 --- [Ecommerce Backend] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-02-09T12:08:36.111+05:30 ERROR 81955 --- [Ecommerce Backend] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dbgBJmqz4xYEzrjb3LHWcZR2FydEoVPt@dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.8.jar:6.2.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.8.jar:6.2.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.3.jar:3.5.3]
+	at com.lnr.ecom.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.3.jar:3.5.3]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dbgBJmqz4xYEzrjb3LHWcZR2FydEoVPt@dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
+	... 13 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dbgBJmqz4xYEzrjb3LHWcZR2FydEoVPt@dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288) ~[liquibase-core-4.31.1.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.8.jar:6.2.8]
+	... 20 common frames omitted
+Caused by: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dbgBJmqz4xYEzrjb3LHWcZR2FydEoVPt@dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:111) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:331) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:116) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:94) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:275) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:271) ~[liquibase-core-4.31.1.jar:na]
+	... 22 common frames omitted
+
+2026-02-09T12:14:24.278+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 84143 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
+2026-02-09T12:14:24.280+05:30 DEBUG 84143 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-02-09T12:14:24.280+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
+2026-02-09T12:14:24.332+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-09T12:14:24.332+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-09T12:14:25.046+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-09T12:14:25.109+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 6 JPA repository interfaces.
+2026-02-09T12:14:26.123+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
+2026-02-09T12:14:26.137+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-09T12:14:26.138+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2026-02-09T12:14:26.177+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-09T12:14:26.177+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1844 ms
+2026-02-09T12:14:26.457+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
+2026-02-09T12:14:26.461+05:30  WARN 84143 --- [Ecommerce Backend] [restartedMain] org.postgresql.Driver                    : JDBC URL contains too many / characters: jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+2026-02-09T12:14:26.462+05:30  WARN 84143 --- [Ecommerce Backend] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+2026-02-09T12:14:26.465+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-02-09T12:14:26.480+05:30  INFO 84143 --- [Ecommerce Backend] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-02-09T12:14:26.495+05:30 ERROR 84143 --- [Ecommerce Backend] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.8.jar:6.2.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.8.jar:6.2.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.3.jar:3.5.3]
+	at com.lnr.ecom.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.3.jar:3.5.3]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
+	... 13 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288) ~[liquibase-core-4.31.1.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.8.jar:6.2.8]
+	... 20 common frames omitted
+Caused by: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:111) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:331) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:116) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:94) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:275) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:271) ~[liquibase-core-4.31.1.jar:na]
+	... 22 common frames omitted
+
+2026-02-09T12:14:33.497+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 84283 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
+2026-02-09T12:14:33.499+05:30 DEBUG 84283 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-02-09T12:14:33.500+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
+2026-02-09T12:14:33.558+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-09T12:14:33.559+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-09T12:14:34.284+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-09T12:14:34.349+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 6 JPA repository interfaces.
+2026-02-09T12:14:35.298+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
+2026-02-09T12:14:35.312+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-09T12:14:35.312+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2026-02-09T12:14:35.348+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-09T12:14:35.349+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1790 ms
+2026-02-09T12:14:35.647+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
+2026-02-09T12:14:35.651+05:30  WARN 84283 --- [Ecommerce Backend] [restartedMain] org.postgresql.Driver                    : JDBC URL contains too many / characters: jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+2026-02-09T12:14:35.652+05:30  WARN 84283 --- [Ecommerce Backend] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+2026-02-09T12:14:35.655+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-02-09T12:14:35.672+05:30  INFO 84283 --- [Ecommerce Backend] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-02-09T12:14:35.687+05:30 ERROR 84283 --- [Ecommerce Backend] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'liquibase' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:328) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.8.jar:6.2.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.8.jar:6.2.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.3.jar:3.5.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.3.jar:3.5.3]
+	at com.lnr.ecom.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.3.jar:3.5.3]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-6.2.8.jar:6.2.8]
+	... 13 common frames omitted
+Caused by: liquibase.exception.LiquibaseException: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:288) ~[liquibase-core-4.31.1.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.8.jar:6.2.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.8.jar:6.2.8]
+	... 20 common frames omitted
+Caused by: java.lang.RuntimeException: Driver org.postgresql.Driver claims to not accept jdbcUrl, jdbc:postgresql://postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:111) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:331) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:116) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:94) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-6.3.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:275) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:201) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.child(Scope.java:210) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.child(Scope.java:200) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.Scope.child(Scope.java:179) ~[liquibase-core-4.31.1.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:271) ~[liquibase-core-4.31.1.jar:na]
+	... 22 common frames omitted
+
+2026-02-09T12:16:09.074+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Starting DemoApplication using Java 21.0.8 with PID 84916 (/home/admin123/Java_WorkPlace/EcommerceFullStackApplication/apps/backend/target/classes started by admin123 in /home/admin123/Java_WorkPlace/EcommerceFullStackApplication)
+2026-02-09T12:16:09.077+05:30 DEBUG 84916 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-02-09T12:16:09.078+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : The following 1 profile is active: "local"
+2026-02-09T12:16:09.171+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-09T12:16:09.172+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-09T12:16:09.936+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-09T12:16:09.998+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 6 JPA repository interfaces.
+2026-02-09T12:16:10.977+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 7878 (http)
+2026-02-09T12:16:10.991+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-09T12:16:10.991+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.42]
+2026-02-09T12:16:11.027+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-09T12:16:11.027+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1854 ms
+2026-02-09T12:16:11.312+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Starting...
+2026-02-09T12:16:14.647+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : Hikari - Added connection org.postgresql.jdbc.PgConnection@4b936e04
+2026-02-09T12:16:14.649+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] com.zaxxer.hikari.HikariDataSource       : Hikari - Start completed.
+2026-02-09T12:16:17.108+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Creating database history table with name: public.databasechangelog
+2026-02-09T12:16:18.181+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
+2026-02-09T12:16:20.640+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.snapshot                       : Creating snapshot
+2026-02-09T12:16:26.989+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.lockservice                    : Successfully acquired change log lock
+2026-02-09T12:16:27.296+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.command                        : Using deploymentId: 0619571290
+2026-02-09T12:16:27.602+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Reading from public.databasechangelog
+2026-02-09T12:16:27.923+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000001_user.xml::00000000000001-seq::codecake
+2026-02-09T12:16:28.934+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Sequence user_sequence created
+2026-02-09T12:16:29.202+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000001_user.xml::00000000000001-seq::codecake ran successfully in 1276ms
+2026-02-09T12:16:30.167+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000001_user.xml::00000000000001-user::codecake
+2026-02-09T12:16:30.880+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table ecommerce_user created
+2026-02-09T12:16:31.187+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000001_user.xml::00000000000001-user::codecake ran successfully in 1018ms
+2026-02-09T12:16:31.805+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000001_user.xml::00000000000001-authority::codecake
+2026-02-09T12:16:32.415+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table authority created
+2026-02-09T12:16:32.825+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table user_authority created
+2026-02-09T12:16:33.234+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Primary key added to user_authority (user_id, authority_name)
+2026-02-09T12:16:33.541+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to user_authority (authority_name)
+2026-02-09T12:16:33.858+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to user_authority (user_id)
+2026-02-09T12:16:34.669+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Data loaded from 'db/data/authority.csv' into table 'authority'
+2026-02-09T12:16:34.975+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000001_user.xml::00000000000001-authority::codecake ran successfully in 3168ms
+2026-02-09T12:16:35.796+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000002_product_category.xml::00000000000002-category-seq::codecake
+2026-02-09T12:16:36.511+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Sequence product_category_sequence created
+2026-02-09T12:16:36.920+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000002_product_category.xml::00000000000002-category-seq::codecake ran successfully in 1123ms
+2026-02-09T12:16:37.538+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000002_product_category.xml::00000000000002-category::codecake
+2026-02-09T12:16:38.209+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table product_category created
+2026-02-09T12:16:38.559+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000002_product_category.xml::00000000000002-category::codecake ran successfully in 1020ms
+2026-02-09T12:16:39.174+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000003_product.xml::00000000000003-product-seq::codecake
+2026-02-09T12:16:39.788+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Sequence product_sequence created
+2026-02-09T12:16:40.095+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000003_product.xml::00000000000003-product-seq::codecake ran successfully in 920ms
+2026-02-09T12:16:40.774+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000003_product.xml::00000000000003-product::codecake
+2026-02-09T12:16:41.529+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table product created
+2026-02-09T12:16:41.938+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to product (category_fk)
+2026-02-09T12:16:42.209+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000003_product.xml::00000000000003-product::codecake ran successfully in 1434ms
+2026-02-09T12:16:42.861+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000003_product.xml::00000000000003-picture-product-seq::codecake
+2026-02-09T12:16:43.474+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Sequence product_picture_sequence created
+2026-02-09T12:16:43.782+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000003_product.xml::00000000000003-picture-product-seq::codecake ran successfully in 920ms
+2026-02-09T12:16:44.287+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000003_product.xml::00000000000003-product-picture::codecake
+2026-02-09T12:16:44.908+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table product_picture created
+2026-02-09T12:16:45.215+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to product_picture (product_fk)
+2026-02-09T12:16:45.523+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000003_product.xml::00000000000003-product-picture::codecake ran successfully in 1235ms
+2026-02-09T12:16:46.343+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000004_order.xml::00000000000004-order-seq::codecake
+2026-02-09T12:16:47.059+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Sequence order_sequence created
+2026-02-09T12:16:47.319+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000004_order.xml::00000000000004-order-seq::codecake ran successfully in 974ms
+2026-02-09T12:16:47.985+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000004_order.xml::00000000000004-order::codecake
+2026-02-09T12:16:48.594+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table order created
+2026-02-09T12:16:48.902+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to order (fk_customer)
+2026-02-09T12:16:49.209+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000004_order.xml::00000000000004-order::codecake ran successfully in 1223ms
+2026-02-09T12:16:49.827+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Running Changeset: db/changelog/00000000000004_order.xml::00000000000004-ordered-product::codecake
+2026-02-09T12:16:50.540+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Table ordered_product created
+2026-02-09T12:16:50.848+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Primary key added to ordered_product (fk_order, fk_product)
+2026-02-09T12:16:51.153+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to ordered_product (fk_product)
+2026-02-09T12:16:51.461+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : Foreign key constraint added to ordered_product (fk_order)
+2026-02-09T12:16:51.871+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.changelog                      : ChangeSet db/changelog/00000000000004_order.xml::00000000000004-ordered-product::codecake ran successfully in 2043ms
+2026-02-09T12:16:52.598+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : UPDATE SUMMARY
+2026-02-09T12:16:52.601+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Run:                         12
+2026-02-09T12:16:52.601+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Previously run:               0
+2026-02-09T12:16:52.601+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Filtered out:                 0
+2026-02-09T12:16:52.601+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : -------------------------------
+2026-02-09T12:16:52.601+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Total change sets:           12
+2026-02-09T12:16:52.602+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.util                           : Update summary generated
+2026-02-09T12:16:52.605+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.command                        : Update command completed successfully.
+2026-02-09T12:16:52.606+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.ui                             : Liquibase: Update has been successful. Rows affected: 12
+2026-02-09T12:16:53.612+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.lockservice                    : Successfully released change log lock
+2026-02-09T12:16:53.867+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] liquibase.command                        : Command execution complete
+2026-02-09T12:16:55.769+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-09T12:16:55.804+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2026-02-09T12:16:55.828+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-02-09T12:16:56.093+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-09T12:16:57.406+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (Hikari)']
 	Database driver: undefined/unknown
 	Database version: 18.1
@@ -36,18 +284,10 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-01-21T10:03:38.692+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-01-21T10:03:38.956+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@8ccba6e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2026-01-21T10:03:39.878+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-01-21T10:03:40.206+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-01-21T10:03:42.171+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2026-01-21T10:03:42.946+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 7878 (http) with context path '/'
-2026-01-21T10:03:42.960+05:30  INFO 25859 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Started DemoApplication in 22.379 seconds (process running for 23.59)
-2026-01-21T10:03:43.311+05:30  INFO 25859 --- [Ecommerce Backend] [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-21T10:03:43.312+05:30  INFO 25859 --- [Ecommerce Backend] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-01-21T10:03:43.317+05:30  INFO 25859 --- [Ecommerce Backend] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2026-01-21T10:13:07.335+05:30  INFO 25859 --- [Ecommerce Backend] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2026-01-21T10:13:07.340+05:30  INFO 25859 --- [Ecommerce Backend] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2026-01-21T10:13:07.352+05:30  INFO 25859 --- [Ecommerce Backend] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-01-21T10:13:07.358+05:30  INFO 25859 --- [Ecommerce Backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : Hikari - Shutdown initiated...
-2026-01-21T10:13:10.517+05:30  INFO 25859 --- [Ecommerce Backend] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : Hikari - Shutdown completed.
+2026-02-09T12:16:58.472+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-09T12:16:58.837+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] org.hibernate.orm.connections.access     : HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2f26f20b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2026-02-09T12:16:59.871+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-09T12:17:00.179+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-09T12:17:01.977+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-02-09T12:17:02.688+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 7878 (http) with context path '/'
+2026-02-09T12:17:02.705+05:30  INFO 84916 --- [Ecommerce Backend] [restartedMain] com.lnr.ecom.DemoApplication             : Started DemoApplication in 54.209 seconds (process running for 54.91)

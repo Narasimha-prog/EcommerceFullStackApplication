@@ -24,9 +24,9 @@ spring:
     virtual:
       enabled: true
   datasource:
-    url: jdbc:postgresql://dpg-d5chjn8gjchc73cq5tpg-a.oregon-postgres.render.com:5432/ecomerce_cnmj
-    username: ecomerce_cnmj_user
-    password: TAOhvdps50iFkCp2VLDAe9GpU6LEBlPz
+    url: jdbc:postgresql://dpg-d64nuv24d50c73ejqmh0-a.oregon-postgres.render.com:5432/ecommerce_1rsy
+    username: ecommerce_1rsy_user
+    password: dbgBJmqz4xYEzrjb3LHWcZR2FydEoVPt
     hikari:
       poolName: Hikari
       auto-commit: false
