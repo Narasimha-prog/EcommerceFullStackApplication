@@ -1,7 +1,6 @@
 package com.lnr.ecom.product.infrastrature.primary;
 
 import com.lnr.ecom.product.application.ProductsApplicationService;
-import com.lnr.ecom.product.domain.aggregate.FilterQuery;
 import com.lnr.ecom.product.domain.aggregate.FilterQueryBuilder;
 import com.lnr.ecom.product.domain.aggregate.Product;
 import com.lnr.ecom.product.domain.vo.ProductSize;
@@ -34,7 +33,7 @@ private final ProductsApplicationService applicationService;
 
 
 @GetMapping("/featured")
-public ResponseEntity<Page<RestProduct>> getFeatuedProducts(
+public ResponseEntity<Page<RestProduct>> getFeaturedProducts(
   @ParameterObject
   @PageableDefault(sort = "id", direction = Sort.Direction.ASC, size = 10)Pageable pageable){
 
