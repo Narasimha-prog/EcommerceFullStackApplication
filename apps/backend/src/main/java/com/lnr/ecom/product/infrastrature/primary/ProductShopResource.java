@@ -8,6 +8,7 @@ import com.lnr.ecom.product.domain.vo.ProductSize;
 import com.lnr.ecom.product.domain.vo.PublicId;
 import com.lnr.ecom.product.infrastrature.primary.mapper.RestProductMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -26,6 +27,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/products-shop")
 @RequiredArgsConstructor
+@Slf4j
 public class ProductShopResource {
 
 private final ProductsApplicationService applicationService;
