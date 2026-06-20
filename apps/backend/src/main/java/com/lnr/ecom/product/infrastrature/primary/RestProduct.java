@@ -33,6 +33,7 @@ public class RestProduct {
   private RestCategory category;
 
   private boolean featured;
+
   @JsonProperty("pictures")
   private List<RestPitchure> pictures;
 
