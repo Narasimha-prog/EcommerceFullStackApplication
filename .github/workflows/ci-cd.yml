@@ -51,7 +51,7 @@ jobs:
         if: steps.filter.outputs.backend == 'true'
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./apps/backend
           file: ./apps/backend/Dockerfile
           push: true
           tags: |
@@ -108,7 +108,7 @@ jobs:
         if: steps.filter.outputs.frontend == 'true'
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./apps/frontend
           file: ./apps/frontend/Dockerfile
           push: true
           tags: |
